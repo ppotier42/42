@@ -6,16 +6,16 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 14:59:46 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/15 15:09:32 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/08/20 17:02:38 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if(c < '0' || c > '9')
-        return(0);
-    else
-        return(1);
+	if (c < '0' || c > '9')
+		return (0);
+	else
+		return (1);
 }
 
 /*#include <stdio.h>
