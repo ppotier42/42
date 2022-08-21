@@ -6,23 +6,43 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:18:26 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/20 17:21:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/08/21 22:58:04 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c <= 0000 && c >= 127)
-		return (0);
-	else
+	if (c >= 0 && c <= 127)
 		return (1);
+	else
+		return (0);
 }
 
 /*#include <stdio.h>
+#include <ctype.h>
 
 int main()
 {
-    int c = '國';
-    printf("result : %d", ft_isascii(c));
+    int c = '|';
+    printf("result : %d\n", ft_isascii(c));
+	printf("expected result : %d\n", isascii(c));
+	c = ' ';
+    printf("result : %d\n", ft_isascii(c));
+	printf("expected result : %d\n", isascii(c));
+	c = '	';
+    printf("result : %d\n", ft_isascii(c));
+	printf("expected result : %d\n", isascii(c));
+	c = 'a';
+    printf("result : %d\n", ft_isascii(c));
+	printf("expected result : %d\n", isascii(c));
+	c = 'O';
+    printf("result : %d\n", ft_isascii(c));
+	printf("expected result : %d\n", isascii(c));
+	c = '5';
+    printf("result : %d\n", ft_isascii(c));
+	printf("expected result : %d\n", isascii(c));
+	c = '0';
+    printf("result : %d\n", ft_isascii(c));
+	printf("expected result : %d\n", isascii(c));
     return(0);
 }*/
