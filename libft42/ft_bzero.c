@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/25 16:25:14 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/26 22:18:20 by ppotier          ###   ########.fr       */
+/*   Created: 2022/08/25 17:36:27 by ppotier           #+#    #+#             */
+/*   Updated: 2022/08/26 22:16:18 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, unsigned long len)
 {
 	char	*str;
 
@@ -26,10 +23,21 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
-/*int main () {
+
+void	ft_bzero(void *b, unsigned long n)
+{
+	ft_memset(b, '0', n);
+}
+
+/*#include <stdio.h>
+#include <string.h>
+
+int main()
+{
 	char str[] = "remplacement";
-	printf("debut : %s\n", str);
-	ft_memset(str, '~', 13);
-	printf("fin : %s\n", str);
-   return(0);
+	printf("debut : %s\n", str);	
+	//printf("expected : %d\n", *bzero(str, 5));
+	ft_bzero(str, 15);
+	printf("result : %s\n", str);
+	return(0);
 }*/
