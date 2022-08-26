@@ -6,11 +6,11 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:45:34 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/25 22:57:10 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/08/26 22:19:28 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*int	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 
@@ -21,7 +21,7 @@
 		i++;
 	}
 	return (*str);
-}*/
+}
 #include <stdlib.h>
 #include <stdio.h>
 
