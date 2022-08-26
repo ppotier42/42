@@ -6,28 +6,40 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:45:34 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/26 22:19:28 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/08/26 22:46:18 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
 	int	i;
+	int	j;
+	int	neg;
 
+	neg = 1;
+	j = 0;
 	i = 0;
-	while (str[i] != '\0')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		str[i] = str[i] + 42;
+		if (str[i] == '-')
+		{
+			neg *= -1;
+		}
 		i++;
 	}
-	return (*str);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		j = j * 10 + (str[i] - '0');
+		i++;
+	}
+	return (j * neg);
 }
-#include <stdlib.h>
+/*#include <stdlib.h>
 #include <stdio.h>
 
 int main()
 {
-	char str[] = "102030";
+	char str[] = "187692334" " 70";
 	printf("expected : %d\n", atoi(str));
-	//printf("result : %d\n", ft_atoi(str));
-}
+	printf("result : %d\n", ft_atoi(str));
+}*/
