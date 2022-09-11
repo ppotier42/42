@@ -6,12 +6,11 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 16:25:14 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/26 22:20:02 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:58:55 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

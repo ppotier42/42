@@ -6,9 +6,11 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:45:34 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/26 22:46:18 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:57:25 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

@@ -6,9 +6,11 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:56:47 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/31 15:43:40 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:59:11 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

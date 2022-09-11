@@ -6,9 +6,11 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:46:40 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/21 23:10:10 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:58:15 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int c)
 {

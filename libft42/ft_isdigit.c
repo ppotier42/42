@@ -6,9 +6,11 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 14:59:46 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/21 22:59:49 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:58:11 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

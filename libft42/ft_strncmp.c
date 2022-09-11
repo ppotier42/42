@@ -6,9 +6,11 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 23:25:06 by ppotier           #+#    #+#             */
-/*   Updated: 2022/08/21 23:47:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/11 16:59:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
