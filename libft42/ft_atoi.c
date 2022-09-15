@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:45:34 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/11 16:57:25 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/11 17:16:31 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ int	ft_atoi(const char *str)
 	}
 	return (j * neg);
 }
-/*#include <stdlib.h>
-#include <stdio.h>
-
+/*
 int main()
 {
 	char str[] = "187692334" " 70";

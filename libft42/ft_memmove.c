@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 21:17:54 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/15 23:04:21 by ppotier          ###   ########.fr       */
+/*   Created: 2022/09/15 23:06:42 by ppotier           #+#    #+#             */
+/*   Updated: 2022/09/15 23:11:51 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+/*void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	char	*tmp;
-
-	tmp = (char *)dst;
-	i = 0;
-	while (i < n)
-	{
-		*tmp = *(char *)src;
-		tmp++;
-		src++;
-		i++;
-	}
-	return (dst);
+	
 }
-
-/*int main()
+*/
+int main()
 {
-	char src[] = "abcdefghijkl";
-	char dst[] = "je sais pas";
-	printf("dst : %s\n", dst);
-	printf("src : %s\n", src);
-	memcpy(dst, src, 10);
-	printf("expected : %s\n", dst);
-	ft_memcpy(dst, src, 10);
+	char src[] = "aled";
+	char dst[] = "ca marche comment";
+	memmove(dst, src, 17);
 	printf("result : %s", dst);
-}*/
+}

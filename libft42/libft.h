@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 23:44:55 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/11 16:55:05 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/12 23:05:57 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <string.h>
+# include <stdlib.h>
+# include <ctype.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *b, unsigned long n);

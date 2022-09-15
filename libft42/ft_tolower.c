@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 23:19:51 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/11 16:59:40 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/09/12 19:51:19 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ int	ft_tolower(int c)
 	else
 		return (c);
 }
-
-/*#include <stdio.h>
-#include <ctype.h>
-
+/*
 int main()
 {
 	int c = 'O';
