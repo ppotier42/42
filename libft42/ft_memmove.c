@@ -22,17 +22,21 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (source > dest)
 	{
 		while (len > 0)
+		{
 			dest[len] = source [len];
+			len--;
+		}
 	}
 	else
-		ft_memcpy(dest, source, len);
-	return (dst);
+		return (dst);
+	return (0);
 }
-
+/*
 int main()
 {
-	char src[] = "z";
+	char src[] = "pre";
 	char dst[] = "ca marche comment";
-	ft_memmove(dst, src, 1);
+	ft_memmove(dst, src, 4);
+	printf("expected : %s\n", memmove(dst, src, 4));
 	printf("result : %s", dst);
-}
+}*/
