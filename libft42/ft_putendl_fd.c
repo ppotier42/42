@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:45:30 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/10 14:31:34 by ppotier          ###   ########.fr       */
+/*   Created: 2022/10/10 16:53:24 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/10 16:58:30 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
+		write(fd, &s[i], 1);
 		i++;
 	}
-	while (s[i] != c || i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *) &s[i]);
-		i--;
-	}
-	return (NULL);
+	write(fd, "\n", 1);
 }
-
-/*int	main()
+/*
+int main()
 {
-	char str[] = "Voir comment ca marche";
-	printf ("expected : %s\n", strrchr(str, 'w'));
-	printf("result   : %s\n", ft_strrchr(str, 'w'));
-	return(0);
+	char s[] = "allo";
+	ft_putendl_fd(s, 2);
 }*/

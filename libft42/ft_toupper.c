@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 22:56:18 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/11 16:59:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/10 16:47:11 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	ft_toupper(int c)
 	else
 		return (c);
 }
-/*#include <stdio.h>
-#include <ctype.h>
-
+/*
 int main()
 {
 	int c = 'o';
