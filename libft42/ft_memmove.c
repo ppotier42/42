@@ -32,7 +32,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	return (0);
 }
 
-/*int main()
+/*
+int main()
 {
 	char src[] = "pre";
 	char dst[] = "ca marche comment";
