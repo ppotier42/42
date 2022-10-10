@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:45:30 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/10 13:29:11 by ppotier          ###   ########.fr       */
+/*   Created: 2022/10/10 12:38:29 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/10 14:21:34 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	*dst;
 
-	i = 0;
-	while (s[i] != '\0')
+	i = ft_strlen(s1);
+	j = 0;
+	dst = 0;
+	while (s2[j] != '\0')
 	{
-		i++;
+		dst[i] = s1[i] + s2[j];
+		j++;
 	}
-	while (s[i] != c || i >= 0)
-	{
-		if (s[i] == c)
-			return ((char *) &s[i]);
-		i--;
-	}
-	return (NULL);
+	return (0);
 }
 /*
-#include <string.h>
-#include <stdio.h>
-int	main()
+int main()
 {
-	char str[] = "Voir comment ca marche";
-	printf ("expected : %s\n", strrchr(str, ' '));
-	printf("result   : %s\n", ft_strrchr(str, ' '));
-	return(0);
+	char	s1[] = "aled";
+	char	s2[] = "pas sur";
+	printf("result : %s", ft_strjoin(s1, s2));
+	return (0);
 }*/

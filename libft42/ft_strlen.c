@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 01:55:41 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/11 16:59:19 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/10 12:43:17 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_strlen(const char *s)
 }
 
 /*
-#include <stdio.h>
 int main()
 {
     char s[] = "salut";
