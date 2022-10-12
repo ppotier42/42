@@ -1,2 +1,3 @@
 libft42/a.out
-.vscode/settings.json
+.vscode/*.json
+libft42/*.gch
