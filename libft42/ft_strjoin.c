@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:55:57 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/12 22:02:51 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/12 22:10:11 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 			dest[i + j] = s2[j];
 			j++;
 		}
+		dest[i + j] = '\0';
+		return (dest);
 	}
-	dest[i + j] = '\0';
-	return (dest);
+	return (NULL);
 }
 
 int	main()
