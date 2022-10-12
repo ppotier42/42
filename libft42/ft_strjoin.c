@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 12:38:29 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/10 14:21:34 by ppotier          ###   ########.fr       */
+/*   Created: 2022/10/12 16:55:57 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/12 22:02:51 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,34 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
-	char	*dst;
+	char	*dest;
 
-	i = ft_strlen(s1);
+	i = 0;
 	j = 0;
-	dst = 0;
-	while (s2[j] != '\0')
+	dest = malloc((sizeof (char) * (strlen(s1) + strlen(s2)) + 1));
+	if (dest == NULL)
+		return (NULL);
+	if (s1 && s2)
 	{
-		dst[i] = s1[i] + s2[j];
-		j++;
+		while (s1[i] != '\0')
+		{
+			dest[i] = s1[i];
+			i++;
+		}
+		while (s2[j] != '\0')
+		{
+			dest[i + j] = s2[j];
+			j++;
+		}
 	}
+	dest[i + j] = '\0';
+	return (dest);
+}
+
+int	main()
+{
+	char s1[] = "salut lou ";
+	char s2[] = "comment ca va c'eset ultra long ce que je vais marque maisHJ8437293";
+	printf("%s", ft_strjoin(s1, s2));
 	return (0);
 }
-/*
-int main()
-{
-	char	s1[] = "aled";
-	char	s2[] = "pas sur";
-	printf("result : %s", ft_strjoin(s1, s2));
-	return (0);
-}*/
