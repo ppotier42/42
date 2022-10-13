@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:55:57 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/12 22:10:11 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/13 18:11:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	dest = malloc((sizeof (char) * (strlen(s1) + strlen(s2)) + 1));
+	dest = malloc((sizeof (char) * (ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (dest == NULL)
 		return (NULL);
 	if (s1 && s2)
@@ -40,11 +40,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (NULL);
 }
-
+/*
 int	main()
 {
 	char s1[] = "salut lou ";
 	char s2[] = "comment ca va c'eset ultra long ce que je vais marque maisHJ8437293";
 	printf("%s", ft_strjoin(s1, s2));
 	return (0);
-}
+}*/
