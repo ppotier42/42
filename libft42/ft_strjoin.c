@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:55:57 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/13 18:11:24 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/17 17:49:08 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (NULL);
 }
-/*
-int	main()
+
+/*int main()
 {
 	char s1[] = "salut lou ";
 	char s2[] = "comment ca va c'eset ultra long ce que je vais marque maisHJ8437293";

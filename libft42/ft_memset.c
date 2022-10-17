@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 16:25:14 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/11 16:58:55 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/17 16:49:14 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
+	int		i;
 	char	*str;
 
-	str = b;
-	while (len > 0)
+	str = (char *)b;
+	i = 0;
+	while (len != i)
 	{
-		*str = c;
-		str++;
-		len--;
+		str[i] = (char)c;
+		i++;
 	}
-	return (b);
+	return (str);
 }
 /*int main () {
 	char str[] = "remplacement";
-	printf("debut : %s\n", str);
-	ft_memset(str, '~', 13);
-	printf("fin : %s\n", str);
+	printf("debut : %s\n", ft_memset(str, 'p', 5));
+	printf("fin : %s\n", memset(str, 'p', 5));
    return(0);
 }*/
