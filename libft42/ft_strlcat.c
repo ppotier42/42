@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:37:04 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/17 17:26:07 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/19 13:13:27 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		dst[i + j] = 0;
 	if (dstsize < i)
 		return (dstsize + ft_strlen(src));
-	return (i + ft_ft_strlen(src));
+	return (i + ft_strlen(src));
 }
 
 /*int main()

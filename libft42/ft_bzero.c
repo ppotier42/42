@@ -3,43 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:36:27 by ppotier           #+#    #+#             */
-/*   Updated: 2022/09/11 16:57:47 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/19 13:55:27 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, unsigned long len)
+void	ft_bzero(void *s, size_t n)
 {
+	size_t	i;
 	char	*str;
 
-	str = b;
-	while (len > 0)
+	str = (char *) s;
+	i = 0;
+	while (i < n)
 	{
-		*str = c;
-		str++;
-		len--;
+		str[i] = 0;
+		i++;
 	}
-	return (b);
 }
 
-void	ft_bzero(void *b, unsigned long n)
-{
-	ft_memset(b, '0', n);
-}
-
-/*#include <stdio.h>
-#include <string.h>
-
-int main()
+/*int main()
 {
 	char str[] = "remplacement";
-	printf("debut : %s\n", str);	
-	//printf("expected : %d\n", *bzero(str, 5));
-	ft_bzero(str, 15);
-	printf("result : %s\n", str);
+	printf("expected : %s\n", bzero(str, 5));
+	printf("result : %s\n", ft_bzero(str, 5));
 	return(0);
 }*/

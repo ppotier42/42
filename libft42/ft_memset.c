@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 16:25:14 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/17 16:49:14 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/19 13:15:17 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
-	char	*str;
+	size_t		i;
+	char		*str;
 
 	str = (char *)b;
 	i = 0;
@@ -26,6 +26,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (str);
 }
+
 /*int main () {
 	char str[] = "remplacement";
 	printf("debut : %s\n", ft_memset(str, 'p', 5));
