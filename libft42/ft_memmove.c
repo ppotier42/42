@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 23:06:42 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/19 14:14:05 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/22 22:50:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,32 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	char	*dest;
-	char	*source;
+	unsigned char		*dest;
+	const unsigned char	*source;
 
-	dest = (char *) dst;
-	source = (char *) src;
-	i = 0;
-	if (source > dest)
+	dest = (unsigned char *) dst;
+	source = (unsigned char *) src;
+	if (!dst && !src)
+		return (NULL);
+	if (src < dst)
 	{
-		while (i < len)
+		source = source + len - 1;
+		dest = dest + len - 1;
+		while (len--)
 		{
-			dest[i] = source[i];
-			i++;
+				*dest-- = *source--;
 		}
 	}
-	else
+	else if (src >= dst)
 	{
-		while (i != len)
-		{
-			dest[len - i - 1] = source[len - i - 1];
-			i++;
-		}
+		while (len--)
+			*dest++ = *source++;
 	}
 	return (dst);
 }
 /*
 int main()
 {
-	char src[] = "donc si le mot est long";
-	char dst[] = "du coup ca remplace paro";
-	printf("expected : %s\n", memmove(dst, src, 24));
-	printf("result : %s\n", ft_memmove(dst, src, 24));
+	printf("expected : %s\n", memmove(((void *)0), ((void *)0), 5));
+	printf("result : %s\n", ft_memmove(((void *)0), ((void *)0), 5));
 }*/
