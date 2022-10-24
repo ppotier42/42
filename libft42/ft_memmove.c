@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 23:06:42 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/22 22:50:39 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/24 15:25:04 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,29 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
+	size_t				i;
 	unsigned char		*dest;
 	const unsigned char	*source;
 
+	i = 0;
 	dest = (unsigned char *) dst;
 	source = (unsigned char *) src;
+	if (len == 0)
+		return (dest);
 	if (!dst && !src)
 		return (NULL);
 	if (src < dst)
 	{
-		source = source + len - 1;
-		dest = dest + len - 1;
 		while (len--)
-		{
-				*dest-- = *source--;
-		}
+				dest[len] = source[len];
 	}
-	else if (src >= dst)
+	else
 	{
-		while (len--)
-			*dest++ = *source++;
+		while (i < len)
+		{
+			dest[i] = source[i];
+			i++;
+		}
 	}
 	return (dst);
 }

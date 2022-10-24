@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:36:27 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/19 13:55:27 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/24 15:25:58 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	ft_bzero(void *s, size_t n)
 
 	str = (char *) s;
 	i = 0;
-	while (i < n)
+	while (i != n)
 	{
-		str[i] = 0;
+		str[i] = '\0';
 		i++;
 	}
 }

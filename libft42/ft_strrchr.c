@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 15:45:30 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/22 22:36:42 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/24 15:10:51 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-/*int	main()
+/*
+int	main()
 {
-	char str[] = "Voir comment ca marche";
-	printf ("expected : %s\n", strrchr(str, 'w'));
-	printf("result   : %s\n", ft_strrchr(str, 'w'));
+	printf ("expected : %s\n", strrchr("123456789", 'a'));
+	printf("result   : %s\n", ft_strrchr("123456789", 'a'));
 	return(0);
 }*/
