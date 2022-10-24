@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:50:13 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/22 22:02:17 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/24 14:42:31 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ char		*ft_strjoin(char const *s1, char const *s2);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
+void		*ft_calloc(size_t count, size_t size);
+char		*ft_strdup(const char *s1);
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 #endif
