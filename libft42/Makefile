@@ -32,7 +32,9 @@ SRC = 	ft_atoi.c \
 		ft_memmove.c \
 		ft_calloc.c \
 		ft_strdup.c \
-		ft_strnstr.c
+		ft_strnstr.c \
+		ft_strlcpy.c \
+		ft_substr.c
 
 all: $(NAME)
 

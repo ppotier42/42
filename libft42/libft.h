@@ -6,7 +6,7 @@
 /*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:50:13 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/24 14:42:31 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/10/25 12:14:29 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
 
 #endif
