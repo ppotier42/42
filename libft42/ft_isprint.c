@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 15:46:40 by ppotier           #+#    #+#             */
 /*   Updated: 2022/09/11 16:58:15 by ppotier          ###   ########.fr       */

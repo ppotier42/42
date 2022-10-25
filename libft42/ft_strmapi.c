@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 15:45:30 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/24 15:10:51 by ppotier          ###   ########.fr       */
+/*   Created: 2022/10/25 15:08:31 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/25 15:15:49 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	i;
+	char			*str;
 
 	i = 0;
+	str = ft_calloc(sizeof(*str), ft_strlen(s) + 1);
+	if (!str)
+		return (NULL);
 	while (s[i] != '\0')
-		i++;
-	while (i >= 0)
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i--;
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }
-/*
-int	main()
-{
-	printf ("expected : %s\n", strrchr("123456789", 'a'));
-	printf("result   : %s\n", ft_strrchr("123456789", 'a'));
-	return(0);
-}*/

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:56:47 by ppotier           #+#    #+#             */
 /*   Updated: 2022/10/22 22:33:43 by ppotier          ###   ########.fr       */

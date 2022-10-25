@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:00:17 by ppotier           #+#    #+#             */
 /*   Updated: 2022/10/22 22:27:37 by ppotier          ###   ########.fr       */

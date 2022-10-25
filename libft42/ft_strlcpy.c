@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:54:54 by ppotier           #+#    #+#             */
 /*   Updated: 2022/10/25 12:08:00 by ppotier          ###   ########.fr       */

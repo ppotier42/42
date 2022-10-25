@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 23:19:51 by ppotier           #+#    #+#             */
 /*   Updated: 2022/09/12 19:51:19 by ppotier          ###   ########.fr       */

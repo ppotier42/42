@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <pierre.podnieks@gmail.com>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:50:13 by ppotier           #+#    #+#             */
 /*   Updated: 2022/10/25 12:14:29 by ppotier          ###   ########.fr       */
@@ -50,5 +50,8 @@ char		*ft_strdup(const char *s1);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
+char		*ft_itoa(int n);
+void		ft_striteri(char *s, void (*f)(unsigned int, char*));
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif

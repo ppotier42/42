@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppotier <ppotier@student.42.fr>        +#+  +:+       +#+        */
+/*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 01:55:41 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/17 13:12:28 by ppotier          ###   ########.fr       */
+/*   Created: 2022/10/25 15:18:42 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/25 15:28:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
+	int		i;
+	char	*dest;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (!s1)
+		return (NULL);
+	else if (!set)
+		return (ft_strdup(s1));
+	if (strncmp(s1, set, ft_strlen(s1)) == 0)
+		return(ft_strdup(""));
+	
 }
-
-/*
-int main()
-{
-    char s[] = "salut";
-    printf("result: %d", ft_strlen(s));
-}*/
