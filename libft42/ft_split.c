@@ -6,76 +6,82 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:05:53 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/31 10:46:54 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/01 15:56:15 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_allocate(char **split, char const *s, char sep)
+int	ft_count(char const *s, char c)
 {
-	char		**tab;
-	char const	*tamp;
-	size_t		i;
-	size_t		j;
-	size_t		k;
-
-	k = 0;
-	j = 0;
-	i = 0;
-	tamp = s;
-	tab = split;
-	while (tamp[i] != '\0')
-	{
-		while (s[j] == sep)
-			j++;
-		while (tamp[i] != '\0' && tamp[i] != sep)
-			i++;
-		if (tamp[i] == sep || tamp > s)
-		{
-			tab[k] = ft_substr(s, 0, tamp - s);
-			s = tamp;
-			k++;
-		}
-		i++;
-		tab[k] = NULL;
-	}
-}
-
-int	ft_mot(const char *s, char c)
-{
-	int	count;
 	int	i;
+	int	word;
 
-	count = 0;
 	i = 0;
+	word = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i])
-			count++;
-		while (s[i] && s[i] != c)
+		if (s[i] != c)
+		{
+			word++;
+			while (s[i] != '\0' && s[i] != c)
+				i++;
+		}
+		else
 			i++;
 	}
-	return (count);
+	return (word);
+}
+
+int	ft_size(char const *s, char c, int i)
+{
+	int	size;
+
+	size = 0;
+	while (s[i] != c && s[i] != '\0')
+	{
+		size++;
+		i++;
+	}
+	return (size);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**split;
+	char	**str;
+	int		i;
+	int		j;
+	int		word;
+	int		size;
 
-	if (!s)
-		return (0);
-	split = malloc ((ft_mot(s, c) + 1) * sizeof (char *));
-	if (!split)
+	i = 0;
+	j = -1;
+	word = ft_count(s, c);
+	str = (char **)malloc((word + 1) * sizeof(char *));
+	if (!str)
 		return (NULL);
-	ft_allocate(split, s, c);
-	return (split);
+	while (++j < word)
+	{
+		while (s[i] == c)
+			i++;
+		size = ft_size(s, c, i);
+		str[j] = ft_substr(s, i, size);
+		if (!str[j])
+			free(str);
+		i = i + size;
+	}
+	str[j] = 0;
+	return (str);
 }
 /*
 int main()
 {
-	char *s = "je comprends rien du tout";
-	printf("result : %s", *ft_split(s, 'm'));
+	printf("result : %s", *ft_split("je comprends rien du tout", 'q'));
+	printf("\n");
+	printf("result : %s", *ft_split("je comprends rien du tout", 'j'));
+	printf("\n");
+	printf("result : %s", *ft_split("je comprends rien du tout", 'u'));
+	printf("\n");
+	printf("result : %s", *ft_split("je comprends rien du tout", 'i'));
+	printf("\n");
 }*/
