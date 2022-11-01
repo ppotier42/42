@@ -6,13 +6,13 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:05:53 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/01 15:56:15 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/01 15:57:22 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count(char const *s, char c)
+static int	ft_count(char const *s, char c)
 {
 	int	i;
 	int	word;
@@ -33,7 +33,7 @@ int	ft_count(char const *s, char c)
 	return (word);
 }
 
-int	ft_size(char const *s, char c, int i)
+static int	ft_size(char const *s, char c, int i)
 {
 	int	size;
 
