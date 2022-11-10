@@ -4,6 +4,10 @@ CFLAGS = -Wall -Werror -Wextra
 
 OBJ = $(SRC:.c=.o)
 
+BONUS_OBJ = $(BONUS:.c=.o)
+
+BONUS = 
+
 NAME = libft.a
 
 SRC = 	ft_atoi.c \
