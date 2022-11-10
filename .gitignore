@@ -1,5 +1,8 @@
-.vscode/*.json
-libft42/*
+libft42/*.out
+libft42/*.o
+libft42/*.a
+libft42/.DS_Store
+
 ft_printf/*.out
 ft_printf/*.o
 ft_printf/*.a

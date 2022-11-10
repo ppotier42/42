@@ -20,6 +20,12 @@
 # include <ctype.h>
 # include <limits.h>
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
 int			ft_atoi(const char *str);
 void		ft_bzero(void *s, size_t n);
 int			ft_isalnum(int c);
@@ -55,5 +61,6 @@ void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_strtrim(char const *s1, char const *set);
 char		**ft_split(const char *s, char c);
+t_list		*ft_lstnew(void *content);
 
 #endif

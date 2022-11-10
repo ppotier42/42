@@ -6,7 +6,7 @@ OBJ = $(SRC:.c=.o)
 
 BONUS_OBJ = $(BONUS:.c=.o)
 
-BONUS = 
+BONUS = ft_lstnew.c \
 
 NAME = libft.a
 
@@ -50,13 +50,16 @@ all: $(NAME)
 $(NAME):	$(OBJ)
 			ar -rcs $(NAME) $(OBJ)
 
+bonus:			$(OBJ) $(BONUS_OBJ)
+			ar -rcs $(NAME) $(OBJ) $(BONUS_OBJ)
+
 .c .o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 RM = rm -f
 
 clean:
-		$(RM) $(OBJ)
+		$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean:	clean
 		$(RM) $(NAME)
