@@ -6,9 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:25:26 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/01 16:25:43 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/14 14:10:58 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../libft42/libft.h"
 
 int ft_printf(const char *, ...)
 {
