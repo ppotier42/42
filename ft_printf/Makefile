@@ -6,12 +6,16 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libftprintf.a
 
+AR = ar rcs
+
 SRC = 	ft_printf.c \
 
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-			ar -rcs $(NAME) $(OBJ)
+			make bonus -C ./libft 
+			cp ../libft/libft.h $(NAME)
+			$(AR) $(NAME) $(OBJ)
 
 .c .o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
