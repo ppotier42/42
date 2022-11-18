@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:25:26 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/14 15:45:27 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/14 16:02:57 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,4 @@ int	ft_printf(const char *input, ...)
 	}
 	va_end (ap);
 	return (1);
-}
-
-int	main()
-{
-	
 }

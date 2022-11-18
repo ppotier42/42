@@ -1,3 +1,5 @@
+SRC = 	ft_printf.c \
+
 CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
@@ -6,23 +8,20 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libftprintf.a
 
-AR = ar rcs
-
-SRC = 	ft_printf.c \
-
-all: $(NAME)
-
-$(NAME):	$(OBJ)
-			make bonus -C ./libft 
-			cp ../libft/libft.h $(NAME)
-			$(AR) $(NAME) $(OBJ)
+RM = rm -f
 
 .c .o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-RM = rm -f
+all: $(NAME)
 
-clean:
+$(NAME):	$(OBJ)
+			make bonus -C ../libft
+			cp ../libft/libft.a $(NAME)
+			ar rcs $(NAME) $(OBJ)
+
+clean:	
+		make fclean -C ../libft
 		$(RM) $(OBJ)
 
 fclean:	clean
