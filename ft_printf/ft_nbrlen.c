@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:46:36 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/21 11:53:21 by ppotier          ###   ########.fr       */
+/*   Created: 2022/11/21 11:46:56 by ppotier           #+#    #+#             */
+/*   Updated: 2022/11/21 11:47:25 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include "../libft/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
+int	ft_nbrlen(int n)
+{
+	int	c;
 
-int		ft_printf(const char *input, ...);
-size_t	ft_putnbr_num(va_list ap);
-size_t	ft_add_str(va_list ap);
-size_t	ft_add_char(va_list ap);
-size_t	ft_putchar_l(char str);
-int		ft_nbrlen(int n);
-size_t	ft_format(const char *str, size_t start, va_list ap);
-
-#endif
+	c = 0;
+	if (n <= 0)
+		c++;
+	while (n)
+	{
+		n /= 10;
+		c++;
+	}
+	return (c);
+}

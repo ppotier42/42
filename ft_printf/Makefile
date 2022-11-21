@@ -1,4 +1,6 @@
 SRC = 	ft_printf.c \
+		ft_add.c \
+		ft_nbrlen.c
 
 CC = gcc
 
@@ -17,7 +19,7 @@ all: $(NAME)
 
 $(NAME):	$(OBJ)
 			make bonus -C ../libft
-			cp ../libft/libft.a $(NAME)
+			mv ../libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJ)
 
 clean:	
