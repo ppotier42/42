@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:46:36 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 12:55:02 by ppotier          ###   ########.fr       */
+/*   Created: 2022/11/10 16:59:08 by ppotier           #+#    #+#             */
+/*   Updated: 2022/11/10 17:34:41 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include "./libft/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*tmp;
 
-int		ft_printf(const char *input, ...);
-size_t	ft_putnbr_num(va_list ap);
-size_t	ft_add_str(va_list ap);
-size_t	ft_add_char(va_list ap);
-size_t	ft_putchar_l(char str);
-int		ft_nbrlen(int n);
-size_t	ft_format(const char *str, size_t start, va_list ap);
-
-#endif
+	tmp = (t_list *)malloc(sizeof(*tmp));
+	if (!tmp)
+		return (NULL);
+	tmp->content = content;
+	tmp->next = NULL;
+	return (tmp);
+}

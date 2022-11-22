@@ -18,8 +18,8 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-			make bonus -C ../libft
-			mv ../libft/libft.a $(NAME)
+			make bonus -C ./libft
+			mv ./libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJ)
 
 clean:	

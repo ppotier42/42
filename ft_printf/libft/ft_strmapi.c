@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:46:36 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 12:55:02 by ppotier          ###   ########.fr       */
+/*   Created: 2022/10/25 15:08:31 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/25 15:15:49 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include "./libft/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	unsigned int	i;
+	char			*str;
 
-int		ft_printf(const char *input, ...);
-size_t	ft_putnbr_num(va_list ap);
-size_t	ft_add_str(va_list ap);
-size_t	ft_add_char(va_list ap);
-size_t	ft_putchar_l(char str);
-int		ft_nbrlen(int n);
-size_t	ft_format(const char *str, size_t start, va_list ap);
-
-#endif
+	i = 0;
+	str = ft_calloc(sizeof(*str), ft_strlen(s) + 1);
+	if (!str)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}

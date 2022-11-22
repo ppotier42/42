@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:46:36 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 12:55:02 by ppotier          ###   ########.fr       */
+/*   Created: 2022/08/25 16:25:14 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/19 13:15:17 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include "./libft/libft.h"
-# include <stdio.h>
-# include <stdarg.h>
+void	*ft_memset(void *b, int c, size_t len)
+{
+	size_t		i;
+	char		*str;
 
-int		ft_printf(const char *input, ...);
-size_t	ft_putnbr_num(va_list ap);
-size_t	ft_add_str(va_list ap);
-size_t	ft_add_char(va_list ap);
-size_t	ft_putchar_l(char str);
-int		ft_nbrlen(int n);
-size_t	ft_format(const char *str, size_t start, va_list ap);
+	str = (char *)b;
+	i = 0;
+	while (len != i)
+	{
+		str[i] = (char)c;
+		i++;
+	}
+	return (str);
+}
 
-#endif
+/*int main () {
+	char str[] = "remplacement";
+	printf("debut : %s\n", ft_memset(str, 'p', 5));
+	printf("fin : %s\n", memset(str, 'p', 5));
+   return(0);
+}*/
