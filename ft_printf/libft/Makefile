@@ -52,8 +52,10 @@ SRC = 	ft_atoi.c \
 		ft_strmapi.c \
 		ft_strtrim.c \
 		ft_split.c \
-		ft_nbrlen.c
-
+		ft_nbrlen.c \
+		ft_putnbr_un.c \
+		ft_nbrlen_un.c
+		
 all: $(NAME)
 
 $(NAME):	$(OBJ)

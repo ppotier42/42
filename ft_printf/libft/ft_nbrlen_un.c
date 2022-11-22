@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_nbrlen_un.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 13:51:33 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 13:39:31 by ppotier          ###   ########.fr       */
+/*   Created: 2022/11/22 13:55:46 by ppotier           #+#    #+#             */
+/*   Updated: 2022/11/22 13:56:09 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+int	ft_nbrlen_un(unsigned int n)
 {
-	int		taille;
-	int		sign;
-	char	*dest;
+	int	c;
 
-	taille = ft_nbrlen(n);
-	if (n < 0)
-		sign = -1;
-	else
-		sign = 1;
-	dest = ft_calloc(sizeof(*dest), (taille + 1));
-	if (!dest)
-		return (NULL);
-	dest[taille] = '\0';
-	while (taille)
+	c = 0;
+	if (n <= 0)
+		c++;
+	while (n)
 	{
-		dest[--taille] = (n % 10) * sign + '0';
-		n = n / 10;
+		n /= 10;
+		c++;
 	}
-	if (sign == -1)
-		dest[taille] = '-';
-	return (dest);
+	return (c);
 }

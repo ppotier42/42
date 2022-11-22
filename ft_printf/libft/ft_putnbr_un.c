@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_un.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 13:51:33 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 13:39:31 by ppotier          ###   ########.fr       */
+/*   Created: 2022/11/22 13:51:07 by ppotier           #+#    #+#             */
+/*   Updated: 2022/11/22 13:51:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+void	ft_putnbr_un(unsigned int n, int fd)
 {
-	int		taille;
-	int		sign;
-	char	*dest;
-
-	taille = ft_nbrlen(n);
-	if (n < 0)
-		sign = -1;
-	else
-		sign = 1;
-	dest = ft_calloc(sizeof(*dest), (taille + 1));
-	if (!dest)
-		return (NULL);
-	dest[taille] = '\0';
-	while (taille)
+	if (n > 9)
 	{
-		dest[--taille] = (n % 10) * sign + '0';
-		n = n / 10;
+		ft_putnbr_fd((n) / 10, fd);
+		ft_putnbr_fd((n) % 10, fd);
 	}
-	if (sign == -1)
-		dest[taille] = '-';
-	return (dest);
+	else
+		ft_putchar_fd((n + '0'), fd);
 }
