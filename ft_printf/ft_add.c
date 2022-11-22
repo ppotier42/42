@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 17:40:21 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/21 11:51:34 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/22 14:52:56 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,21 @@ size_t	ft_putnbr_num(va_list ap)
 	i = va_arg(ap, int);
 	len = (size_t)ft_nbrlen(i);
 	ft_putnbr_fd(i, 1);
+	return (len);
+}
+
+size_t	ft_base_num(va_list ap)
+{
+	int			i;
+	size_t		len;
+
+	i = va_arg(ap, unsigned int);
+	if (i == 0)
+	{
+		ft_putnbr_fd(0, 1);
+		return (1);
+	}
+	len = (unsigned int)ft_nbrlen_un(i);
+	ft_putnbr_un(i, 1);
 	return (len);
 }

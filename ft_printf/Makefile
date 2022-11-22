@@ -1,6 +1,6 @@
 SRC = 	ft_printf.c \
 		ft_add.c \
-		ft_base.c
+		ft_hex.c 
 
 CC = gcc
 

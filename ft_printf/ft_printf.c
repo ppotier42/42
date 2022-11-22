@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:25:26 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 13:24:27 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/22 14:53:45 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ size_t	ft_format(const char *str, size_t start, va_list ap)
 		res = ft_putnbr_num(ap);
 	else if (str[start] == 'u')
 		res = ft_base_num(ap);
-	else if (str[start] == 'x')
-		return (1);
-	else if (str[start] == 'X')
-		return (1);
+	else if (str[start] == 'x' || str[start] == 'X')
+		res = ft_hex(ap, str[start]);
 	return (res);
 }
