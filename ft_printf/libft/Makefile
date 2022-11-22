@@ -51,7 +51,8 @@ SRC = 	ft_atoi.c \
 		ft_striteri.c \
 		ft_strmapi.c \
 		ft_strtrim.c \
-		ft_split.c
+		ft_split.c \
+		ft_nbrlen.c
 
 all: $(NAME)
 

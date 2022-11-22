@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 11:46:56 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/21 11:47:25 by ppotier          ###   ########.fr       */
+/*   Created: 2022/11/22 13:28:31 by ppotier           #+#    #+#             */
+/*   Updated: 2022/11/22 13:28:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_nbrlen(int n)
 {

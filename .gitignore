@@ -8,3 +8,5 @@ ft_printf/.DS_Store
 .DS_Store
 libft/a.out
 libft/.DS_Store
+test.c
+a.out

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:25:26 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/21 11:51:03 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/22 13:24:27 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			dest = dest + ft_format(format, i, ap);
 			i++;
+			dest = dest + ft_format(format, i, ap);
 		}
 		else
 			dest = dest + ft_putchar_l(format[i]);
@@ -52,7 +52,7 @@ size_t	ft_format(const char *str, size_t start, va_list ap)
 	else if (str[start] == 'd' || str[start] == 'i')
 		res = ft_putnbr_num(ap);
 	else if (str[start] == 'u')
-		return (1);
+		res = ft_base_num(ap);
 	else if (str[start] == 'x')
 		return (1);
 	else if (str[start] == 'X')
