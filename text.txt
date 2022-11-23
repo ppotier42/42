@@ -1,0 +1,21 @@
+read() lis la taille du buffer. et renovie les bytes lu.
+
+static = garde toujours la meme valeur meme si une valeur est renvoyée.
+
+donc ?
+
+get next line(int fd)
+{
+	static char *stash; ???
+	char *line;
+
+	read
+	stocker dans stash
+	clear stash apres chaque ligne; ( $ ??? )
+	renvoyer la ligne
+	rappeler read.
+	recurisve
+	renvoyer line avec le \n !!
+	renvoyer NULL si error ou rien a lire
+	lets go ??
+}
