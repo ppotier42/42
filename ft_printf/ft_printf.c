@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:25:26 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 14:53:45 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/23 10:25:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ size_t	ft_format(const char *str, size_t start, va_list ap)
 	else if (str[start] == 's')
 		res = ft_add_str(ap);
 	else if (str[start] == 'p')
-		return (1);
+		res = ft_printp(ap);
 	else if (str[start] == 'd' || str[start] == 'i')
 		res = ft_putnbr_num(ap);
 	else if (str[start] == 'u')

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 13:26:04 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/22 15:22:37 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/11/23 10:23:25 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,26 @@ size_t	ft_hex(va_list ap, char c)
 		count = ft_print_hex(nbr, "0123456789abcdef");
 	else if (c == 'X')
 		count = ft_print_hex(nbr, "0123456789ABCDEF");
+	return (count);
+}
+
+size_t	ft_printp(va_list ap)
+{
+	size_t	count;
+	size_t	p;
+	char	*base;
+
+	base = "0123456789abcdef";
+	count = 2;
+	p = va_arg(ap, size_t);
+	write (1, "0x", 2);
+	if (p == 0)
+	{
+		count++;
+		write(1, "0", 1);
+		return (count);
+	}
+	ft_put_base(p, base);
+	count += ft_base_len(p, base);
 	return (count);
 }
