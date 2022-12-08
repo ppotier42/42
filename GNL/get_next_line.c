@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:02 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/23 18:12:32 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/12/06 13:24:08 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ char	*ft_get_line(char *buff)
 
 char	*ft_get_clean(char *buff)
 {
-	char	*str;
+	ssize_t	i;
 
-	
+	i = ft_chrstr(buff);
+	while (buff[i])
+		i++;
+	return (&buff[i]);
 }

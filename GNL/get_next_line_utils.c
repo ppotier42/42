@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:04 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/23 18:14:14 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/12/06 12:47:03 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ char	*ft_strjoin(char *s1, char *s2)
 			c[i++] = s2[j++];
 		free (s1);
 		c[i] = '\0';
-		return (c);
 	}
+	return (c);
 }
 
 size_t	ft_strlen(const char *s)
@@ -76,7 +76,7 @@ char	*ft_strchr(char *buff)
 	{
 		if (buff[i] == '\n')
 		{
-			return (buff[i]);
+			return (&buff[i]);
 		}
 		i++;
 	}
