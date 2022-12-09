@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:04 by ppotier           #+#    #+#             */
-/*   Updated: 2022/12/06 12:47:03 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/12/09 11:32:47 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(char *buff)
+int	ft_strchr(char *buff)
 {
 	size_t	i;
 
@@ -75,26 +75,26 @@ char	*ft_strchr(char *buff)
 	while (buff[i] != '\0')
 	{
 		if (buff[i] == '\n')
-		{
-			return (&buff[i]);
-		}
+			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
-int	ft_chrstr(char *buff)
+char	*ft_strndup(char *buff, size_t end)
 {
-	size_t	i;
+	char		*s2;
+	size_t		i;
 
 	i = 0;
-	while (buff[i] != '\0')
+	s2 = (char *)ft_calloc(end + 2, sizeof(char));
+	if (!s2)
+		return (NULL);
+	while (i < end)
 	{
-		if (buff[i] == '\n')
-		{
-			return (i);
-		}
+		s2[i] = buff[i];
 		i++;
 	}
-	return (0);
+	s2[i] = '\0';
+	return (s2);
 }

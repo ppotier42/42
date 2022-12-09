@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:02 by ppotier           #+#    #+#             */
-/*   Updated: 2022/12/06 13:24:08 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/12/09 11:36:07 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ char	*get_next_line(int fd)
 	char static	*buff;
 	char		*line;
 
-	if (fd == 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buff = ft_gnl_read(fd, buff);
-	if (buff == 0)
+	if (!buff)
 		return (NULL);
 	line = ft_get_line(buff);
 	buff = ft_get_clean(buff);
@@ -49,6 +49,8 @@ char	*ft_gnl_read(int fd, char *result)
 		}
 		tmp[nbytes] = 0;
 		result = ft_strjoin(result, tmp);
+		if (ft_strchr(tmp) != -1)
+			break ;
 	}
 	free (tmp);
 	return (result);
@@ -56,18 +58,44 @@ char	*ft_gnl_read(int fd, char *result)
 
 char	*ft_get_line(char *buff)
 {
+	int		i;
 	char	*str;
 
-	str = ft_strchr(buff);
+	if (buff[0] == '\0')
+		return (NULL);
+	i = ft_strchr(buff);
+	if (i == -1)
+		i = ft_strlen(buff);
+	str = ft_strndup(buff, i);
+	if (!str)
+		return (NULL);
 	return (str);
 }
 
 char	*ft_get_clean(char *buff)
 {
-	ssize_t	i;
+	char	*str;
+	int		i;
+	int		j;
 
-	i = ft_chrstr(buff);
-	while (buff[i])
-		i++;
-	return (&buff[i]);
+	if (buff == NULL)
+		return (ft_gnl_free(buff));
+	i = ft_strchr(buff);
+	if (i == -1)
+		return (ft_gnl_free(buff));
+	str = (char *)ft_calloc(ft_strlen(buff) + 1, sizeof (char));
+	if (!str)
+		return (ft_gnl_free(buff));
+	j = 0;
+	while (buff[++i])
+		str[j++] = buff[i];
+	str[j] = '\0';
+	free(buff);
+	return (str);
+}
+
+char	*ft_gnl_free(char *buff)
+{
+	free(buff);
+	return (buff);
 }
