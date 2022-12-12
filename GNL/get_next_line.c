@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:02 by ppotier           #+#    #+#             */
-/*   Updated: 2022/12/11 22:57:28 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/12/12 14:19:29 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_gnl_read(int fd, char *result)
 	if (!result)
 		result = (char *)ft_calloc(1, sizeof(char));
 	tmp = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (!tmp)
+	if (!tmp || !result)
 		return (NULL);
 	nbytes = 1;
 	while (nbytes > 0)
@@ -43,8 +43,8 @@ char	*ft_gnl_read(int fd, char *result)
 		nbytes = read(fd, tmp, BUFFER_SIZE);
 		if (nbytes == -1)
 		{
-			free(tmp);
 			free(result);
+			free(tmp);
 			return (NULL);
 		}
 		tmp[nbytes] = 0;
@@ -61,7 +61,7 @@ char	*ft_get_line(char *buff)
 	int		i;
 	char	*str;
 
-	if (buff[0] == '\0')
+	if (!buff[0])
 		return (NULL);
 	i = ft_strchr(buff);
 	if (i == -1)
@@ -83,7 +83,7 @@ char	*ft_get_clean(char *buff)
 	i = ft_strchr(buff);
 	if (i == -1)
 		return (ft_gnl_free(buff));
-	str = (char *)ft_calloc(ft_strlen(buff) + 1, sizeof (char));
+	str = (char *)ft_calloc(ft_strlen(buff) + 1, sizeof(char));
 	if (!str)
 		return (ft_gnl_free(buff));
 	j = 0;
@@ -97,5 +97,5 @@ char	*ft_get_clean(char *buff)
 char	*ft_gnl_free(char *buff)
 {
 	free(buff);
-	return (buff);
+	return (NULL);
 }

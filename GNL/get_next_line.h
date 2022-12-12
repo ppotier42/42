@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:00 by ppotier           #+#    #+#             */
-/*   Updated: 2022/12/09 11:30:25 by ppotier          ###   ########.fr       */
+/*   Updated: 2022/12/12 14:07:10 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,13 @@
 
 char	*get_next_line(int fd);
 void	*ft_calloc(size_t count, size_t size);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_get_clean(char *buff);
 char	*ft_get_line(char *buff);
 int		ft_strchr(char *buff);
 char	*ft_strndup(char *buff, size_t end);
 char	*ft_gnl_read(int fd, char *result);
-char	*ft_get_line(char *buff);
 char	*ft_get_clean(char *buff);
 char	*ft_gnl_free(char *buff);
 
