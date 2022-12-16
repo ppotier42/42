@@ -4,6 +4,8 @@ GNL/*
 so_long/*.o*
 so_long/mlxOS/*.o
 so_long/mlxOS/*.a
+so_long/libft/*.o
+so_long/libft/*.a
 
 *.pdf
 .vscode/settings.json

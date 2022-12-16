@@ -6,11 +6,11 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2022/12/16 16:44:10 by ppotier          ###   ########.fr        #
+#    Updated: 2022/12/16 21:56:52 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = main.c 
+SRC = 	events.c \
 
 CC = gcc
 
