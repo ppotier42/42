@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2022/12/16 16:19:31 by ppotier          ###   ########.fr        #
+#    Updated: 2022/12/16 16:44:10 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,11 @@ all: $(NAME)
 
 RM = rm -f
 
+# Compile la lib
+DIR_LIBFT = libft/
+LIBFT_INC = -I $(DIR_LIBFT)
+LIBFT = $(DIR_LIBFT)libft.a
+FT_LINK = -L $(DIR_LIBFT) -l ft
 
 # Compile la MiniLibX suivant l'OS
 ifeq (${shell uname}, Linux)
@@ -40,8 +45,10 @@ endif
 MLX_INC = -I ${DIR_MLX}
 MLX =   ${DIR_MLX}libmlx.a
 
-${NAME}:	${MLX} 	${OBJ}
-			${CC}	${OBJ} -o ${NAME}
+LIBS = $(FT_LINK)	$(MLX_LNK)
+
+${NAME}:	${LIBFT}	${MLX} 	${OBJ}
+			${CC}	${OBJ}	$(LIBS) -o ${NAME}
 
 clean:
 		$(RM) $(OBJ)
