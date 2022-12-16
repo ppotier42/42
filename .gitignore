@@ -1,13 +1,8 @@
 libft/*
+ft_printf/*
+GNL/*
 
-ft_printf/*.out
-ft_printf/*.o
-ft_printf/*.a
-ft_printf/.DS_Store
 .vscode/settings.json
 .DS_Store
-libft/a.out
-libft/.DS_Store
-test.c
 a.out
 42.code-workspace
