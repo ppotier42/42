@@ -1,7 +1,11 @@
 libft/*
 ft_printf/*
 GNL/*
+so_long/*.o*
+so_long/mlxOS/*.o
+so_long/mlxOS/*.a
 
+*.pdf
 .vscode/settings.json
 .DS_Store
 a.out
