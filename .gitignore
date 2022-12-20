@@ -1,14 +1,13 @@
 libft/*
 ft_printf/*
-GNL/*
 so_long/*.o*
 so_long/mlxOS/*.o
 so_long/mlxOS/*.a
 so_long/libft/*.o
 so_long/libft/*.a
+so_long/so_long
 
 *.pdf
 .vscode/settings.json
-.DS_Store
 a.out
 42.code-workspace

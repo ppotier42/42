@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2022/12/17 17:43:37 by ppotier          ###   ########.fr        #
+#    Updated: 2022/12/20 13:35:04 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,13 +47,23 @@ MLX =   ${DIR_MLX}libmlx.a
 
 LIBS = $(FT_LINK)	$(MLX_LNK)
 
+$(LIBFT):
+		$(MAKE) -sC ${@D}
+
+$(MLX):
+		$(MAKE) -sC $(@D)
+
 ${NAME}:	${LIBFT}	${MLX} 	${OBJ}
 			${CC}	${OBJ}	$(LIBS) -o ${NAME}
 
-clean:
+clean:	
 		$(RM) $(OBJ)
+		$(RM) $(LIBFT) 
+		$(RM) $(MLX)
 
 fclean:	clean
 		$(RM) $(NAME)
 
 re:		fclean all
+
+.PHONY: all clean fclean re
