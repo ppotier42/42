@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 10:44:02 by ppotier           #+#    #+#             */
-/*   Updated: 2022/12/20 14:10:02 by ppotier          ###   ########.fr       */
+/*   Created: 2022/12/20 14:05:54 by ppotier           #+#    #+#             */
+/*   Updated: 2022/12/20 14:25:11 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	char static	*buff;
+	char static	*buff[FD_MAX];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = ft_gnl_read(fd, buff);
-	if (!buff)
+	buff[fd] = ft_gnl_read(fd, buff[fd]);
+	if (!buff[fd])
 		return (NULL);
-	line = ft_get_line(buff);
-	buff = ft_get_clean(buff);
+	line = ft_get_line(buff[fd]);
+	buff[fd] = ft_get_clean(buff[fd]);
 	return (line);
 }
 
