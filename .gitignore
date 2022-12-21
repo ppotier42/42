@@ -6,6 +6,7 @@ so_long/mlxOS/*.a
 so_long/libft/*.o
 so_long/libft/*.a
 so_long/so_long
+GNL/*
 
 *.pdf
 .vscode/settings.json

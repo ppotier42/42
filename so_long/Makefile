@@ -6,11 +6,11 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2022/12/20 15:45:52 by ppotier          ###   ########.fr        #
+#    Updated: 2022/12/21 12:12:08 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	events.c \
+SRC = 	main.c \
 
 CC = gcc
 
@@ -58,8 +58,8 @@ ${NAME}:	${LIBFT}	${MLX} 	${OBJ}
 
 clean:	
 		$(RM) $(OBJ)
-		$(RM) $(LIBFT) 
-		$(RM) $(MLX)
+		make fclean -C ./libft
+		make clean -C ./mlxOS
 
 fclean:	clean
 		$(RM) $(NAME)
