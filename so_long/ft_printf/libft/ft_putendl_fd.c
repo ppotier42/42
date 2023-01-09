@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/09 14:51:34 by ppotier          ###   ########.fr       */
+/*   Created: 2022/10/10 16:53:24 by ppotier           #+#    #+#             */
+/*   Updated: 2022/10/10 16:58:30 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlxOS/mlx.h"
-#include <unistd.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (argc == 1)
-		ft_printf("Not enough arguments");
-	else if (argc == 2)
-		ft_untruc(argv[1]);
-	else if (argc < 2)
-		ft_printf("too many arguments");
-	return (0);
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
 }
+/*
+int main()
+{
+	char s[] = "allo";
+	ft_putendl_fd(s, 2);
+}*/

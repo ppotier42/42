@@ -1,0 +1,49 @@
+A FAIRE !
+Gestion d'erreur:
+
+Map invalide.c: 
+pas rectangle, pas de player, pas de sortie, pas de collectible, pas de murs qui entoure la carte, chemin invalide || DOUBLONS de Personnage.
+Erreur de malloc.
+Erreur de generation.
+Afficher "Error\n".
+
+MAPS/map1.ber:
+gestion de fichier de maps .ber
+maps valide:
+11111
+100P1
+1C001
+10E01
+10CC1
+11111
+
+maps invalide:
+11111
+100P1
+1C001	\\carré
+10E01
+11111
+
+image.c:
+generer les images en .xpm:
+murs
+Personnage
+collectible
+sortie;
+
+Keyboard/Deplacement.c:
+WASD,
+ESC = fermeture || croix rouge = fermeture;
+aucun deplacement dans les murs
+
+Obligatoire
+Afficher dans le terminal les deplacements en temps REEL.
+type "Player move (x)time\n";
+
+Strcuture !
+typedef struct s_data
+{
+	int?? P ?
+	int?? W ?
+	...
+} t_data;

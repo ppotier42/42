@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/09 14:51:34 by ppotier          ###   ########.fr       */
+/*   Created: 2022/11/11 11:19:36 by ppotier           #+#    #+#             */
+/*   Updated: 2022/11/11 11:22:48 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlxOS/mlx.h"
-#include <unistd.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (argc == 1)
-		ft_printf("Not enough arguments");
-	else if (argc == 2)
-		ft_untruc(argv[1]);
-	else if (argc < 2)
-		ft_printf("too many arguments");
-	return (0);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
 }

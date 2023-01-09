@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/09 14:51:34 by ppotier          ###   ########.fr       */
+/*   Created: 2022/11/11 10:59:22 by ppotier           #+#    #+#             */
+/*   Updated: 2022/11/11 11:01:56 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlxOS/mlx.h"
-#include <unistd.h>
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_lstsize(t_list *lst)
 {
-	if (argc == 1)
-		ft_printf("Not enough arguments");
-	else if (argc == 2)
-		ft_untruc(argv[1]);
-	else if (argc < 2)
-		ft_printf("too many arguments");
-	return (0);
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
