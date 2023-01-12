@@ -21,3 +21,4 @@ int	main(int argc, char **argv)
 	else if ()
 	return (0);
 }
+ca pue le cul enfait
