@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 13:37:04 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/19 13:13:27 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:21:01 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		return (dstsize + ft_strlen(src));
 	return (i + ft_strlen(src));
 }
-
-/*int main()
-{
-	char src[] = "commentcamarche";
-	char dest[] = "toujourspascompris";
-	printf("result :%zu\n", ft_strlcat(dest, src, 20));
-	printf("expected :%lu\n", strlcat(dest, src, 20));
-	return(0);
-}*/

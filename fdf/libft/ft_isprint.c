@@ -19,26 +19,3 @@ int	ft_isprint(int c)
 	else
 		return (1);
 }
-
-/*#include <stdio.h>
-#include <ctype.h>
-
-int main()
-{
-    int c = '~';
-    printf("result : %d\n", ft_isprint(c));
-	printf("expected result : %d\n", isprint(c));
-	c = 't';
-    printf("result : %d\n", ft_isprint(c));
-	printf("expected result : %d\n", isprint(c));
-	c = '	';
-    printf("result : %d\n", ft_isprint(c));
-	printf("expected result : %d\n", isprint(c));
-	c = '>';
-    printf("result : %d\n", ft_isprint(c));
-	printf("expected result : %d\n", isprint(c));
-	c = '?';
-    printf("result : %d\n", ft_isprint(c));
-	printf("expected result : %d\n", isprint(c));
-    return(0);
-}*/

@@ -25,11 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
-/*int main()
-{
-	char str[] = "remplacement";
-	printf("expected : %s\n", bzero(str, 5));
-	printf("result : %s\n", ft_bzero(str, 5));
-	return(0);
-}*/

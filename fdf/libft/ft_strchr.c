@@ -29,13 +29,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return ((char *)&str[i]);
 }
-/*
-int	main()
-{
-	char str[] = "teste";
-	printf ("expected : %s\n", strchr(str, 'e'));
-	printf("result   : %s\n", ft_strchr(str, 'e'));
-	printf ("expected : %s\n", strchr("teste", '\0'));
-	printf("result   : %s\n", ft_strchr("teste", '\0'));
-	return(0);
-}*/

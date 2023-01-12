@@ -40,9 +40,3 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
-/*
-int main()
-{
-	printf("expected : %s\n", memmove(((void *)0), ((void *)0), 5));
-	printf("result : %s\n", ft_memmove(((void *)0), ((void *)0), 5));
-}*/

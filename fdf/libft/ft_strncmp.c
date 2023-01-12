@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 23:25:06 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/19 14:34:18 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:20:28 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,3 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
 }
-/*
-int main()
-{
-	char s1[] = "\200";
-	char s2[] = "\0";
-	int n = 1;
-	printf("result : %d\n", ft_strncmp(s1, s2, n));
-	printf("expected : %d", strncmp(s1, s2, n));
-	return(0);
-}*/

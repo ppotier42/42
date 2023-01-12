@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:55:57 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/19 11:44:43 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:21:05 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (NULL);
 }
-
-/*int main()
-{
-	char s1[] = "salut lou ";
-	char s2[] = "comment ca va c'eset ultra long ce que je vais marque ";
-	printf("%s", ft_strjoin(s1, s2));
-	return (0);
-}*/

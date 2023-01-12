@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:53:24 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/10 16:58:30 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:21:29 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,3 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-/*
-int main()
-{
-	char s[] = "allo";
-	ft_putendl_fd(s, 2);
-}*/

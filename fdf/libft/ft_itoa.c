@@ -6,27 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:51:33 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/12 12:11:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:23:10 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*static size_t	ft_nbrlen(int n)
-{
-	int	size;
-
-	size = 0;
-	if (n < 0)
-		size++;
-	while (n / 10 != 0)
-	{
-		n = n / 10;
-		size++;
-	}
-	size++;
-	return (size);
-}*/
 
 char	*ft_itoa(int n)
 {

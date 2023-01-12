@@ -19,15 +19,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-
-/*#include <stdio.h>
-#include <ctype.h>
-
-int main()
-{
-    int c = 'S';
-    printf("result : %d", ft_isalpha(c));
-	printf("\nexpected result : %d", isalpha(c));
-
-    return(0);
-}*/

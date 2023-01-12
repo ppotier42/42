@@ -20,14 +20,3 @@ int	ft_isalnum(int c)
 	else
 		return (0);
 }
-
-/*#include <stdio.h>
-#include <ctype.h>
-
-int main()
-{
-    int c = 'Z';
-    printf("result : %d \n", ft_isalnum(c));
-	printf("expected result : %d", isalnum(c));
-    return(0);
-}*/

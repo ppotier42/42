@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:14:33 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/10 16:29:43 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:21:31 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,3 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-
-/*int main()
-{
-	char c = 'c';
-	ft_putchar_fd(c, 0);
-}*/

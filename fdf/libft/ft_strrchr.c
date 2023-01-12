@@ -27,10 +27,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-/*
-int	main()
-{
-	printf ("expected : %s\n", strrchr("123456789", 'a'));
-	printf("result   : %s\n", ft_strrchr("123456789", 'a'));
-	return(0);
-}*/

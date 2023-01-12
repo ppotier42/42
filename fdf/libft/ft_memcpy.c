@@ -30,11 +30,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-/*
-int main()
-{
-	char src[] = "abcdefghijkl";
-	char dst[] = "je sais pas";
-	printf("expected : %s\n", memcpy(((void *)0), ((void *)0), 3));
-	printf("result : %s\n", ft_memcpy(((void *)0), ((void *)0), 3));
-}*/

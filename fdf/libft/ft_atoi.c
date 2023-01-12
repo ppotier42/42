@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:45:34 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/19 16:14:33 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:23:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (j * neg);
 }
-/*
-int main()
-{
-	char str[] = "\t\n\r\v\f  469 \n";
-	printf("expected : %d\n", atoi(str));
-	printf("result : %d\n", ft_atoi(str));
-	printf("expected : %d\n", atoi("--47"));
-	printf("result : %d\n", ft_atoi("--47"));
-	printf("expected : %d\n", atoi("-+48"));
-	printf("result : %d\n", ft_atoi("-+48"));
-}*/

@@ -19,23 +19,3 @@ int	ft_isdigit(int c)
 	else
 		return (1);
 }
-
-/*#include <stdio.h>
-#include <ctype.h>
-
-int main()
-{
-    int c = '9';
-    printf("result : %d\n", ft_isdigit(c));
-	printf("expected result : %d\n", isdigit(c));
-	c = '1';
-    printf("result : %d\n", ft_isdigit(c));
-	printf("expected result : %d\n", isdigit(c));
-	c = '#';
-    printf("result : %d\n", ft_isdigit(c));
-	printf("expected result : %d\n", isdigit(c));
-	c = 'a';
-    printf("result : %d\n", ft_isdigit(c));
-	printf("expected result : %d\n", isdigit(c));
-    return(0);
-}*/
