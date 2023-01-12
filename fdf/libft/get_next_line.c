@@ -6,11 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:02 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/12 12:32:40 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 12:33:46 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*get_next_line(int fd)
 {
@@ -33,8 +33,8 @@ char	*ft_gnl_read(int fd, char *result)
 	char	*tmp;
 
 	if (!result)
-		result = (char *)ft_calloc(1, sizeof(char));
-	tmp = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+		result = (char *)ft_calloc_gnl(1, sizeof(char));
+	tmp = (char *)ft_calloc_gnl(BUFFER_SIZE + 1, sizeof(char));
 	if (!tmp || !result)
 		return (NULL);
 	nbytes = 1;
@@ -48,8 +48,8 @@ char	*ft_gnl_read(int fd, char *result)
 			return (NULL);
 		}
 		tmp[nbytes] = 0;
-		result = ft_strjoin(result, tmp);
-		if (ft_strchr(tmp) != -1)
+		result = ft_strjoin_gnl(result, tmp);
+		if (ft_strchr_gnl(tmp) != -1)
 			break ;
 	}
 	free (tmp);
@@ -63,9 +63,9 @@ char	*ft_get_line(char *buff)
 
 	if (!buff[0])
 		return (NULL);
-	i = ft_strchr(buff);
+	i = ft_strchr_gnl(buff);
 	if (i == -1)
-		i = ft_strlen(buff);
+		i = ft_strlen_gnl(buff);
 	str = ft_strndup(buff, i);
 	if (!str)
 		return (NULL);
@@ -80,10 +80,10 @@ char	*ft_get_clean(char *buff)
 
 	if (buff == NULL)
 		return (ft_gnl_free(buff));
-	i = ft_strchr(buff);
+	i = ft_strchr_gnl(buff);
 	if (i == -1)
 		return (ft_gnl_free(buff));
-	str = (char *)ft_calloc(ft_strlen(buff) + 1, sizeof(char));
+	str = (char *)ft_calloc_gnl(ft_strlen_gnl(buff) + 1, sizeof(char));
 	if (!str)
 		return (ft_gnl_free(buff));
 	j = 0;
