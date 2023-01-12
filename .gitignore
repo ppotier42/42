@@ -12,3 +12,4 @@ GNL/*
 .vscode/settings.json
 a.out
 42.code-workspace
+.DS_Store
