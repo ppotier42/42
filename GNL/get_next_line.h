@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:00 by ppotier           #+#    #+#             */
-/*   Updated: 2022/12/12 14:07:10 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/12 12:25:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
+# include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 
