@@ -6,11 +6,12 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/01/12 13:20:31 by ppotier          ###   ########.fr        #
+#    Updated: 2023/01/15 17:18:13 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = 	main.c \
+SRC = srcs/main.c \
+		
 
 CC = gcc
 

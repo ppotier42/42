@@ -4,18 +4,6 @@ CFLAGS = -Wall -Werror -Wextra
 
 OBJ = $(SRC:.c=.o)
 
-BONUS_OBJ = $(BONUS:.c=.o)
-
-BONUS = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c 
-
 NAME = libft.a
 
 SRC = 	ft_atoi.c \
@@ -59,15 +47,21 @@ SRC = 	ft_atoi.c \
 		ft_nbrlen_un.c \
 		ft_putnbr_un.c \
 		get_next_line.c \
-		get_next_line_utils.c
+		get_next_line_utils.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c 
 
 all: $(NAME)
 
 $(NAME):	$(OBJ)
 			ar -rcs $(NAME) $(OBJ)
-
-bonus:			$(OBJ) $(BONUS_OBJ)
-			ar -rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 .c .o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
