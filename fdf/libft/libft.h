@@ -24,6 +24,7 @@
 # include <ctype.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
@@ -39,10 +40,10 @@ int			ft_isascii(int c);
 int			ft_isdigit(int c);
 int			ft_isprint(int c);
 void		*ft_memset(void *b, int c, size_t len);
-int			ft_strchr(const char *s, int c);
+char		*ft_strchr(const char *s, int c);
 size_t		ft_strlen(const char *s);
 int			ft_strncmp(char *s1, char *s2, unsigned int n);
-int			ft_strrchr(const char *s, int c);
+char		*ft_strrchr(const char *s, int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 void		*ft_memcpy(void *dst, const void *src, size_t n);

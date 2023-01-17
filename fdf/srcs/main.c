@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/16 14:30:08 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:40:16 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,26 @@
 #include "../libft/libft.h"
 #include "fdf.h"
 
-void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+char	*ft_parseur(char *argv)
 {
-	char	*dst;
+	t_point	point1;
+	int		fd;
+	char	**tab;
+	char	*ligne;
 
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	fd = open(argv, O_RDONLY);
+	ligne = get_next_line(fd);
+	if (!ligne)
+		free(ligne);
+	tab = ft_split(ligne, ' ');
+	if (!tab)
+		free(tab);
+	point1.x = 0;
+	point1.y = 0;
+	point1.z = ft_atoi(tab[point.y]);
+	point1 = point.next;
+	printf("%d\n", point.z);
+	return (*tab);
 }
 
 int	ft_init(char *argv)
@@ -27,11 +41,10 @@ int	ft_init(char *argv)
 	t_vars	vars;
 	t_img	img;
 
+	(void)argv;
 	vars.mlx = mlx_init();
 	vars.mlx_window = mlx_new_window(vars.mlx, 600, 600, "FDF");
-	printf("%s", "error3");
 	img.img = mlx_new_image(vars.mlx, 600, 600);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	mlx_put_image_to_window(vars.mlx, vars.mlx_window, img.img, 0, 0);
 	mlx_loop(vars.mlx);
 	return (0);
@@ -55,9 +68,6 @@ int	ft_check_fdf(char *argv)
 
 int	main(int argc, char **argv)
 {
-	int	init;
-
-	init = 0;
 	if (argc > 2)
 	{
 		errno = 7;
@@ -70,7 +80,7 @@ int	main(int argc, char **argv)
 	}
 	else if (ft_check_fdf(argv[1]) == 1)
 	{
-		init = ft_init(argv[1]);
+		ft_parseur(argv[1]);
 	}
-	return (init);
+	return (0);
 }

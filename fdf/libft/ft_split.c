@@ -6,9 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:05:53 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/16 15:01:09 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:03:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	ft_count(char const *s, char c)
 {
