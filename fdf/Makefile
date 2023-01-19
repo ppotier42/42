@@ -6,16 +6,18 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/01/15 17:18:13 by ppotier          ###   ########.fr        #
+#    Updated: 2023/01/18 23:18:00 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = srcs/main.c \
+SRC =	srcs/main.c \
+		srcs/get_data.c \
+		srcs/draw_line.c \
 		
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = fdf
 
@@ -24,7 +26,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 .c .o:
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+		$(CC) -c $< -o $(<:.c=.o)
 
 RM = rm -f
 

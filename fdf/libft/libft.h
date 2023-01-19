@@ -93,7 +93,7 @@ int			ft_nbrlen(int n);
 int			ft_nbrlen_un(unsigned int n);
 void		ft_putnbr_un(unsigned int n, int fd);
 // GNL
-char		*get_next_line(int fd);
+char		*get_next_line(int fd, char **line);
 void		*ft_calloc_gnl(size_t count, size_t size);
 size_t		ft_strlen_gnl(char *s);
 char		*ft_strjoin_gnl(char *s1, char *s2);
@@ -104,5 +104,6 @@ char		*ft_strndup(char *buff, size_t end);
 char		*ft_gnl_read(int fd, char *result);
 char		*ft_get_clean(char *buff);
 char		*ft_gnl_free(char *buff);
+int			ft_count_words(char *s, char c);
 
 #endif

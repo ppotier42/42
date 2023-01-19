@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/17 18:40:16 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/19 00:18:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,28 @@
 #include "../libft/libft.h"
 #include "fdf.h"
 
-char	*ft_parseur(char *argv)
+void	ft_parseur(char *argv, t_data *data)
 {
-	t_point	point1;
 	int		fd;
-	char	**tab;
-	char	*ligne;
+	char	*line;
+	int		i;
 
+	data->height = get_height(argv);
+	data->width = get_width(argv);
+	data->value = (int **)malloc(sizeof(int *) * (data->width + 1));
+	i = 0;
+	while (i <= data->width)
+		data->value[i++] = (int *)malloc(sizeof(int) * (data->height + 1));
 	fd = open(argv, O_RDONLY);
-	ligne = get_next_line(fd);
-	if (!ligne)
-		free(ligne);
-	tab = ft_split(ligne, ' ');
-	if (!tab)
-		free(tab);
-	point1.x = 0;
-	point1.y = 0;
-	point1.z = ft_atoi(tab[point.y]);
-	point1 = point.next;
-	printf("%d\n", point.z);
-	return (*tab);
-}
-
-int	ft_init(char *argv)
-{
-	t_vars	vars;
-	t_img	img;
-
-	(void)argv;
-	vars.mlx = mlx_init();
-	vars.mlx_window = mlx_new_window(vars.mlx, 600, 600, "FDF");
-	img.img = mlx_new_image(vars.mlx, 600, 600);
-	mlx_put_image_to_window(vars.mlx, vars.mlx_window, img.img, 0, 0);
-	mlx_loop(vars.mlx);
-	return (0);
+	i = 0;
+	while (get_next_line(fd, &line))
+	{
+		fill_z(data->value[i], line);
+		free(line);
+		i++;
+	}
+	close(fd);
+	data->value[i] = NULL;
 }
 
 int	ft_check_fdf(char *argv)
@@ -56,8 +44,8 @@ int	ft_check_fdf(char *argv)
 
 	i = 0;
 	i = ft_strlen(argv) - 1;
-	if ((argv[i]) != 'f' || (argv[i - 1]) != 'd' || (argv[i - 2]) != 'f'
-		|| (argv[i - 3]) != '.')
+	if (i <= 4 || (argv[i]) != 'f' || (argv[i - 1]) != 'd'
+		|| (argv[i - 2]) != 'f' || (argv[i - 3]) != '.')
 	{
 		perror("Wrong format\n");
 		return (0);
@@ -68,6 +56,8 @@ int	ft_check_fdf(char *argv)
 
 int	main(int argc, char **argv)
 {
+	t_data	*data;
+
 	if (argc > 2)
 	{
 		errno = 7;
@@ -80,7 +70,13 @@ int	main(int argc, char **argv)
 	}
 	else if (ft_check_fdf(argv[1]) == 1)
 	{
-		ft_parseur(argv[1]);
+		data = (t_data *)malloc(sizeof(t_data));
+		ft_parseur(argv[1], data);
+		data->mlx = mlx_init();
+		data->mlx_window = mlx_new_window(data->mlx, 1000, 1000, "fdf");
+		data->zoom = 20;
+		ft_draw_line(data);
+		mlx_loop(data->mlx);
 	}
 	return (0);
 }

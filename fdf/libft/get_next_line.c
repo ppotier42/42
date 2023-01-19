@@ -6,25 +6,24 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:02 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/12 12:33:46 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/18 23:08:15 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, char **line)
 {
 	char static	*buff;
-	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buff = ft_gnl_read(fd, buff);
 	if (!buff)
 		return (NULL);
-	line = ft_get_line(buff);
+	*line = ft_get_line(buff);
 	buff = ft_get_clean(buff);
-	return (line);
+	return (*line);
 }
 
 char	*ft_gnl_read(int fd, char *result)
