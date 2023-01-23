@@ -6,12 +6,12 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/20 17:25:28 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:46:50 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlxOS/mlx.h"
-#include "../libft/libft.h"
+//#include "../mlxOS/mlx.h"
+//#include "../libft/libft.h"
 #include "fdf.h"
 
 void	ft_parseur(char *argv, t_data *data)
@@ -74,13 +74,10 @@ int	main(int argc, char **argv)
 	//todo
 		ft_parseur(argv[1], data);
 		data->mlx = mlx_init();
-		data->mlx_window = mlx_new_window(data->mlx, 500, 500, "fdf");
-		data->zoom = 20;
-		//ft_draw_line(data);
-		//ft_bresenham(10, 10, 20, 20, data);
-		ft_bresenham(200, 200, 50, 50, data);
-		//ft_bresenham(10, 10, 30, 30, data);
-		//ft_bresenham(10, 10, 40, 40, data);
+		data->mlx_window = mlx_new_window(data->mlx, 1920, 1080, "fdf");
+		data->zoom = 60;
+		ft_draw_line(data);
+		//ft_bresenham(190, 120, 0, 10, data);
 		//mlx_key_hook("ECHAP")
 		mlx_loop(data->mlx);
 	}

@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/01/18 23:18:00 by ppotier          ###   ########.fr        #
+#    Updated: 2023/01/23 14:53:05 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ $(LIBFT):
 $(MLX):
 		$(MAKE) -sC $(@D)
 
-# Compile tout, sous le nom so_long
+# Compile tout, sous le nom fdf
 ${NAME}:	${LIBFT}	${MLX}		${OBJ}
 			${CC}	${OBJ}	$(LIBS) -o ${NAME}
 

@@ -57,7 +57,7 @@ SRC = 	ft_atoi.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		ft_count_words.c \
+		ft_count_word.c \
 
 all: $(NAME)
 

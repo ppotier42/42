@@ -104,6 +104,6 @@ char		*ft_strndup(char *buff, size_t end);
 char		*ft_gnl_read(int fd, char *result);
 char		*ft_get_clean(char *buff);
 char		*ft_gnl_free(char *buff);
-int			ft_count_words(char *s, char c);
+int			ft_count_word(char *s, char c);
 
 #endif

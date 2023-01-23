@@ -6,13 +6,15 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/20 17:09:15 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:57:16 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
+# include "../libft/libft.h"
+# include "../mlxOS/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>

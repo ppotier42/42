@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_words.c                                   :+:      :+:    :+:   */
+/*   ft_count_word.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 17:36:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/18 23:03:42 by ppotier          ###   ########.fr       */
+/*   Created: 2023/01/23 11:22:04 by ppotier           #+#    #+#             */
+/*   Updated: 2023/01/23 11:22:07 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_words(char *s, char c)
+int	ft_count_word(char *s, char c)
 {
 	int	i;
 	int	word;

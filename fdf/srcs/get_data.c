@@ -6,13 +6,13 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/20 17:27:45 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/23 14:57:23 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "../mlxOS/mlx.h"
+//#include "../libft/libft.h"
 #include "fdf.h"
-#include "../mlxOS/mlx.h"
-#include "../libft/libft.h"
 
 int	get_height(char *argv)
 {
@@ -43,7 +43,7 @@ int	get_width(char *argv)
 	fd = open(argv, O_RDONLY, 0);
 	//checkfd
 	get_next_line(fd, &line);
-	width = ft_count_words(line, ' ');
+	width = ft_count_word(line, ' ');
 	free(line);
 	close(fd);
 	return (width);
