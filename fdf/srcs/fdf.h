@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/19 01:49:05 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/20 17:09:15 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ typedef struct s_data {
 	int		height;
 	int		**value;
 	int		zoom;
-	int		color;
-	
 	void	*mlx;
 	void	*mlx_window;
 }				t_data;
@@ -36,8 +34,7 @@ int		ft_check_fdf(char *argv);
 int		get_height(char *argv);
 int		get_width(char *argv);
 void	fill_z(int	*value_z, char *line);
-//void	ft_bresenham(float x, float y, float x1, float y1, t_data data);
+void	ft_bresenham(float x, float y, float x1, float y1, t_data *data);
 void	ft_draw_line(t_data *data);
-//void	ft_isometric(float *x, float *y, int z);
 
 #endif

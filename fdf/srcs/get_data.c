@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/19 00:18:45 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/20 17:27:45 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@ int	get_height(char *argv)
 
 	height = 0;
 	fd = open(argv, O_RDONLY, 0);
+	//checkfd
+	if (fd == -1)
+		return (0);
 	while (get_next_line(fd, &line))
+	{
 		height++;
+		free(line);
+	}
 	close(fd);
 	return (height);
 }
@@ -35,8 +41,10 @@ int	get_width(char *argv)
 	int		width;
 
 	fd = open(argv, O_RDONLY, 0);
+	//checkfd
 	get_next_line(fd, &line);
 	width = ft_count_words(line, ' ');
+	free(line);
 	close(fd);
 	return (width);
 }
@@ -55,4 +63,5 @@ void	fill_z(int *value_z, char *line)
 		value_z[i] = ft_atoi(numb[i]);
 		i++;
 	}
+	free (numb);
 }

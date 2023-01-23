@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/19 00:18:39 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/20 17:25:28 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,17 @@ int	main(int argc, char **argv)
 	else if (ft_check_fdf(argv[1]) == 1)
 	{
 		data = (t_data *)malloc(sizeof(t_data));
+	//todo
 		ft_parseur(argv[1], data);
 		data->mlx = mlx_init();
-		data->mlx_window = mlx_new_window(data->mlx, 1000, 1000, "fdf");
+		data->mlx_window = mlx_new_window(data->mlx, 500, 500, "fdf");
 		data->zoom = 20;
-		ft_draw_line(data);
+		//ft_draw_line(data);
+		//ft_bresenham(10, 10, 20, 20, data);
+		ft_bresenham(200, 200, 50, 50, data);
+		//ft_bresenham(10, 10, 30, 30, data);
+		//ft_bresenham(10, 10, 40, 40, data);
+		//mlx_key_hook("ECHAP")
 		mlx_loop(data->mlx);
 	}
 	return (0);
