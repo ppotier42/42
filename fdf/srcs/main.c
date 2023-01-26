@@ -6,12 +6,10 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/23 16:46:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/24 13:41:04 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../mlxOS/mlx.h"
-//#include "../libft/libft.h"
 #include "fdf.h"
 
 void	ft_parseur(char *argv, t_data *data)
@@ -28,7 +26,7 @@ void	ft_parseur(char *argv, t_data *data)
 		data->value[i++] = (int *)malloc(sizeof(int) * (data->height + 1));
 	fd = open(argv, O_RDONLY);
 	i = 0;
-	while (get_next_line(fd, &line))
+	while (get_next_line_fdf(fd, &line))
 	{
 		fill_z(data->value[i], line);
 		free(line);

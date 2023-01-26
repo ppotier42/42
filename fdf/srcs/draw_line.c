@@ -6,12 +6,10 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/23 16:53:13 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/24 15:09:38 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../mlxOS/mlx.h"
-//#include "../libft/libft.h"
 #include "fdf.h"
 
 void	ft_bresenham(float x1, float y1, float x2, float y2, t_data *data)
@@ -71,7 +69,7 @@ void	ft_bresenham(float x1, float y1, float x2, float y2, t_data *data)
 		{
 			printf("Dx < Dy\n%f %f\n", x2, y2);
 			i++;
-			mlx_pixel_put(data->mlx, data->mlx_window, x1, y1, 0x696969);
+			mlx_pixel_put(data->mlx, data->mlx_window, x1, y1, 0x850606);
 			y1 += y_neg;
 			ey -= dx;
 			if (ey < 0)

@@ -46,7 +46,7 @@ SRC = 	ft_atoi.c \
 		ft_nbrlen.c \
 		ft_nbrlen_un.c \
 		ft_putnbr_un.c \
-		get_next_line.c \
+		get_next_line_fdf.c \
 		get_next_line_utils.c \
 		ft_lstnew.c \
 		ft_lstadd_front.c \
