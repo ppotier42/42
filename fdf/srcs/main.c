@@ -6,37 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/23 16:46:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/31 23:19:07 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../mlxOS/mlx.h"
-//#include "../libft/libft.h"
 #include "fdf.h"
-
-void	ft_parseur(char *argv, t_data *data)
-{
-	int		fd;
-	char	*line;
-	int		i;
-
-	data->height = get_height(argv);
-	data->width = get_width(argv);
-	data->value = (int **)malloc(sizeof(int *) * (data->width + 1));
-	i = 0;
-	while (i <= data->width)
-		data->value[i++] = (int *)malloc(sizeof(int) * (data->height + 1));
-	fd = open(argv, O_RDONLY);
-	i = 0;
-	while (get_next_line(fd, &line))
-	{
-		fill_z(data->value[i], line);
-		free(line);
-		i++;
-	}
-	close(fd);
-	data->value[i] = NULL;
-}
 
 int	ft_check_fdf(char *argv)
 {
@@ -54,10 +28,8 @@ int	ft_check_fdf(char *argv)
 		return (1);
 }
 
-int	main(int argc, char **argv)
-{
-	t_data	*data;
-
+int	ft_error(int argc)
+{	
 	if (argc > 2)
 	{
 		errno = 7;
@@ -68,18 +40,32 @@ int	main(int argc, char **argv)
 		errno = 22;
 		perror("Not enough argument\nFormat is ./.fdf maps/42.fdf \n");
 	}
-	else if (ft_check_fdf(argv[1]) == 1)
+	return (argc);
+}
+
+int	main(int argc, char **argv)
+{
+	t_data	data;
+	t_vars	vars;
+	printf("main\n");
+	ft_error(argc);
+	if (ft_check_fdf(argv[1]) == 1)
 	{
-		data = (t_data *)malloc(sizeof(t_data));
-	//todo
-		ft_parseur(argv[1], data);
-		data->mlx = mlx_init();
-		data->mlx_window = mlx_new_window(data->mlx, 1920, 1080, "fdf");
-		data->zoom = 60;
-		ft_draw_line(data);
-		//ft_bresenham(190, 120, 0, 10, data);
-		//mlx_key_hook("ECHAP")
-		mlx_loop(data->mlx);
+		ft_parseur(argv[1], &data);
+		data.shift_x = 1920 / 2;
+		data.shift_y = 1080 / 2;
+		data.angle_x = 45;
+		data.angle_y = 45;
+		data.angle_z = 0;
+		data.zoom = 20;
+		data.lift = 1;
+		vars.mlx = mlx_init();
+		vars.mlx_win = mlx_new_window(vars.mlx, 1920, 1080, "FDF");
+		vars.img = mlx_new_image(vars.mlx, 1920, 1080);
+		vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, \
+										&vars.line_length, &vars.endian);
+		draw(&data, vars);
+		mlx_loop(vars.mlx);
 	}
 	return (0);
 }

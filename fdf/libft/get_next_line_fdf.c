@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_fdf.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 10:44:02 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/20 17:05:14 by ppotier          ###   ########.fr       */
+/*   Created: 2023/01/24 13:42:26 by ppotier           #+#    #+#             */
+/*   Updated: 2023/01/24 13:42:28 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*get_next_line(int fd, char **line)
+char	*get_next_line_fdf(int fd, char **line)
 {
 	char static	*buff;
 

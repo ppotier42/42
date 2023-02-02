@@ -6,15 +6,41 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/23 14:57:23 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/31 17:28:18 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../mlxOS/mlx.h"
-//#include "../libft/libft.h"
 #include "fdf.h"
 
-int	get_height(char *argv)
+static void	fill_z(int *value_z, char *line);
+static int	get_height(char *argv);
+static int	get_width(char *argv);
+
+void	ft_parseur(char *argv, t_data *data)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	data->y = get_height(argv);
+	data->x = get_width(argv);
+	data->value = (int **)malloc(sizeof(int *) * (data->x + 1));
+	i = 0;
+	while (i <= data->x)
+		data->value[i++] = (int *)malloc(sizeof(int) * (data->y + 1));
+	fd = open(argv, O_RDONLY);
+	i = 0;
+	while (get_next_line_fdf(fd, &line))
+	{
+		fill_z(data->value[i], line);
+		free(line);
+		i++;
+	}
+	close(fd);
+	data->value[i] = NULL;
+}
+
+static int	get_height(char *argv)
 {
 	int		fd;
 	char	*line;
@@ -22,10 +48,11 @@ int	get_height(char *argv)
 
 	height = 0;
 	fd = open(argv, O_RDONLY, 0);
-	//checkfd
+	if (!fd)
+		return (0);
 	if (fd == -1)
 		return (0);
-	while (get_next_line(fd, &line))
+	while (get_next_line_fdf(fd, &line))
 	{
 		height++;
 		free(line);
@@ -34,22 +61,23 @@ int	get_height(char *argv)
 	return (height);
 }
 
-int	get_width(char *argv)
+static int	get_width(char *argv)
 {
 	int		fd;
 	char	*line;
 	int		width;
 
 	fd = open(argv, O_RDONLY, 0);
-	//checkfd
-	get_next_line(fd, &line);
+	if (!fd)
+		return (0);
+	get_next_line_fdf(fd, &line);
 	width = ft_count_word(line, ' ');
 	free(line);
 	close(fd);
 	return (width);
 }
 
-void	fill_z(int *value_z, char *line)
+static void	fill_z(int *value_z, char *line)
 {
 	char	**numb;
 	int		i;
