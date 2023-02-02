@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/02 17:03:12 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:23:58 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void	ft_horizon(t_data *data, t_vars *vars)
 	int		x;
 	int		y;
 	t_line	line;
-	(void)vars;
+
 	y = 0;
 	while (y <= data->y - 1)
 	{
@@ -156,6 +156,8 @@ void	ft_horizon(t_data *data, t_vars *vars)
 				printf(" %d ", data->value[y][x]);
 			else
 				printf("%d ", data->value[y][x]);
+			if (x == data->x - 2)
+				printf(" %d ", data->value[y][x + 1]);
 			x++;
 		}
 		printf("\n");
@@ -170,7 +172,7 @@ void	ft_vertical(t_data *data, t_vars *vars)
 	t_line	line;
 
 	x = 0;
-	while (x < data->x - 1)
+	while (x <= data->x - 1)
 	{
 		y = 0;
 		while (y < data->y - 1)
@@ -180,9 +182,7 @@ void	ft_vertical(t_data *data, t_vars *vars)
 			line.x2 = line.x1;
 			line.y2 = line.y1 + 1;
 			ft_zoom_rotate(data, &line.x1, &line.y1, data->value[y][x]);
-			ft_zoom_rotate(data, &line.x2, &line.y2, data->value[y + 1][x]);
-			// printf("%f/%f\n", line.x1, line.y1);
-			// printf("n2 %f/%f\n", line.x2, line.y2);
+			ft_zoom_rotate(data, &line.x2, &line.y2, data->value[y][x + 1]);
 			draw_segment(vars, data, line);
 			y++;
 		}

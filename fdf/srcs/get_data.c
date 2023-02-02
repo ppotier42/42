@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/31 17:28:18 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:24:03 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static void	fill_z(int *value_z, char *line)
 	if (!numb)
 		numb = NULL;
 	i = 0;
-	while (numb[i])
+	while (numb[i] != NULL)
 	{
 		value_z[i] = ft_atoi(numb[i]);
 		i++;
