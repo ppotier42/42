@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/31 23:19:07 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/02 16:54:44 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 	t_vars	vars;
-	printf("main\n");
+
 	ft_error(argc);
 	if (ft_check_fdf(argv[1]) == 1)
 	{
@@ -64,7 +64,9 @@ int	main(int argc, char **argv)
 		vars.img = mlx_new_image(vars.mlx, 1920, 1080);
 		vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, \
 										&vars.line_length, &vars.endian);
-		draw(&data, vars);
+		ft_horizon(&data, &vars);
+		ft_vertical(&data, &vars);
+		mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.img, 0, 0);
 		mlx_loop(vars.mlx);
 	}
 	return (0);
