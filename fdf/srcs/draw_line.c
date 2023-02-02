@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/23 16:53:13 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/30 16:34:20 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,14 @@
 //#include "../libft/libft.h"
 #include "fdf.h"
 
-void	ft_bresenham(float x1, float y1, float x2, float y2, t_data *data)
+void	ft_bresenham(t_map *map, t_data *data)
 {
-	float	ex;
-	float	ey;
-	int		x_neg = 1;
-	int		y_neg = 1;
-	int		dx;
-	int		dy;
-	int		i;
-	int		Dx;
-	int		Dy;
-//zoom
-	x1 *= data->zoom;
-	y1 *= data->zoom;
-/*3D
-	x = (x - y) * cos(0.523599);
-	y = ((-1) * z + (x + y)) * sin(0.523599);
-	x += 200;
-	y += 200;
-	x1 = (x1 - y1) * cos(0.523599);
-	y1 = ((-1) * z1 + (x1 + y1)) * sin(0.523599);
-	x1 += 200;
-	y1 += 200;*/
+	map->x = 0;
+	map->y = 0;
+	map->z=	map->data->value[(int)map->y][(int)map->x];
+	map->x1 = x + 1;
+	map->y1 = y;
+	map->z1 = map->data->value[(int)map->y][(int)map->x];
 	if (x1 > x2)
 		x_neg = -1;
 	if (y1 > y2)
@@ -83,22 +68,33 @@ void	ft_bresenham(float x1, float y1, float x2, float y2, t_data *data)
 	}
 }
 
-
+void	iso_transfert(t_map *map, t_data *data)
+{
+	x = (x - y) * cos(0.523599);
+	y = ((-1) * z + (x + y)) * sin(0.523599);
+	x += 200;
+	y += 200;
+	x1 = (x1 - y1) * cos(0.523599);
+	y1 = ((-1) * z1 + (x1 + y1)) * sin(0.523599);
+	x1 += 200;
+	y1 += 200;
+}
 void	ft_draw_line(t_data *data)
 {
-	int	x;
-	int	y;
+	t_map	*map;
+	int		x;
+	int		y;
 
 	y = 0;
-	while (y < data->height)//hauteur [y][0]
+	while (y < data->height)
 	{
 		x = 0;
-		while (x < data->width)//largeur[y][x]
+		while (x < data->width)
 		{
 			if (x < data->width - 1)
-				ft_bresenham((float)data->height, (float)data->width, x, y, data);
+				ft_iso(map, data);
 			if (y < data->height - 1)
-				ft_bresenham(x, y, (float)data->height, (float)data->width, data);
+				ft_bresenham(map, data);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/23 14:57:16 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/01/30 15:22:41 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,23 @@
 # include <errno.h>
 
 typedef struct s_data {
-	int		width;
-	int		height;
-	int		**value;
-	int		zoom;
-	void	*mlx;
-	void	*mlx_window;
+	int			width;
+	int			height;
+	float		**value;
+	int			zoom;
+	void		*mlx;
+	void		*mlx_window;
 }				t_data;
+
+typedef struct s_map {
+	float	x;
+	float	y;
+	float	x1;
+	float	y1;
+	int		x_neg;
+	int		y_neg;
+	t_data	*data;
+}	t_map;
 
 int		main(int argc, char **argv);
 void	ft_parseur(char *argv, t_data *data);
@@ -36,7 +46,7 @@ int		ft_check_fdf(char *argv);
 int		get_height(char *argv);
 int		get_width(char *argv);
 void	fill_z(int	*value_z, char *line);
-void	ft_bresenham(float x, float y, float x1, float y1, t_data *data);
+void	ft_bresenham(t_map *map, t_data *data);
 void	ft_draw_line(t_data *data);
 
 #endif
