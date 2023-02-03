@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/02 16:54:44 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/03 13:33:20 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,20 @@ int	main(int argc, char **argv)
 	if (ft_check_fdf(argv[1]) == 1)
 	{
 		ft_parseur(argv[1], &data);
-		data.shift_x = 1920 / 2;
-		data.shift_y = 1080 / 2;
+		data.shift_x = 1000 / 2;
+		data.shift_y = 600 / 2;
 		data.angle_x = 45;
 		data.angle_y = 45;
 		data.angle_z = 0;
-		data.zoom = 20;
+		data.zoom = 8;
 		data.lift = 1;
 		vars.mlx = mlx_init();
-		vars.mlx_win = mlx_new_window(vars.mlx, 1920, 1080, "FDF");
-		vars.img = mlx_new_image(vars.mlx, 1920, 1080);
+		vars.mlx_win = mlx_new_window(vars.mlx, 1000, 600, "FDF");
+		vars.img = mlx_new_image(vars.mlx, 1000, 600);
 		vars.addr = mlx_get_data_addr(vars.img, &vars.bpp, \
 										&vars.line_length, &vars.endian);
 		ft_horizon(&data, &vars);
+		printf("%s\n", argv[1]);
 		ft_vertical(&data, &vars);
 		mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.img, 0, 0);
 		mlx_loop(vars.mlx);

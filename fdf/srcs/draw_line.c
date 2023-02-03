@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/02 17:23:58 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/03 13:27:20 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	case_dx_dy(int *step, t_line line, t_vars *vars)
 		inc[1] = -1;
 	while (i <= del[0])
 	{
-		pixel_2img(vars, line.x1, line.y1, 0x00FF0000);
+		pixel_2img(vars, line.x1, line.y1, 0x00FF00);
 		i++;
 		line.x1 += inc[0];
 		step[0] -= d[1];
@@ -75,7 +75,7 @@ void	case_dy_dx(int *step, t_line line, t_vars *vars)
 		inc[1] = -1;
 	while (i <= del[1])
 	{
-		pixel_2img(vars, line.x1, line.y1, 0x00FF0000);
+		pixel_2img(vars, line.x1, line.y1, 0x696969);
 		i++;
 		line.y1 += inc[1];
 		step[1] -= d[0];
@@ -89,9 +89,9 @@ void	case_dy_dx(int *step, t_line line, t_vars *vars)
 
 void	draw_segment(t_vars *vars, t_data *data, t_line line)
 {
-	(void)data;
-	int		step[2];
+	int	step[2];
 
+	(void)data;
 	step[0] = abs((int) line.x2 - (int) line.x1);
 	step[1] = abs((int) line.y2 - (int) line.y1);
 	if (step[0] > step[1])
@@ -100,24 +100,6 @@ void	draw_segment(t_vars *vars, t_data *data, t_line line)
 		case_dy_dx(step, line, vars);
 }
 
-// void	ft_zoom_rotate(t_data *data, double *x, double *y, double z)
-// {
-// 	double	angle;
-
-// 	*x = (*x - data->x / 2) * data->zoom;
-// 	*y = (*y - data->y / 2) * data->zoom;
-// 	angle = data->angle_x * (M_PI / 180.0);
-// 	*y = *y * cos(angle) - z * sin(angle);
-// 	z = *y * sin(angle) + z * cos(angle);
-// 	angle = data->angle_y * (M_PI / 180.0);
-// 	*x = *x * cos(angle) + z * sin(angle);
-// 	angle = data->angle_z * (M_PI / 180.0);
-// 	*x = *x * cos(angle) - *y * sin(angle);
-// 	*y = *x * sin(angle) + *y * cos(angle);
-// 	*x += data->shift_x;
-// 	*y += data->shift_y;
-// }
-
 void	ft_zoom_rotate(t_data *data, double *x, double *y, double z)
 {
 	double	y_transf_iso;
@@ -125,8 +107,8 @@ void	ft_zoom_rotate(t_data *data, double *x, double *y, double z)
 	double	trsx;
 	double	trsy;
 
-	trsx = (1920 / 2) * (1);
-	trsy = (1080 / 2) * (1);
+	trsx = (1000 / 2) * (1);
+	trsy = (600 / 2) * (1);
 	x_transf_iso = (*x - *y) * cos(0.523599);
 	y_transf_iso = ((-1) * z + (*x + *y)) * sin(0.523599);
 	*x = trsx + x_transf_iso * data->zoom;
@@ -182,7 +164,7 @@ void	ft_vertical(t_data *data, t_vars *vars)
 			line.x2 = line.x1;
 			line.y2 = line.y1 + 1;
 			ft_zoom_rotate(data, &line.x1, &line.y1, data->value[y][x]);
-			ft_zoom_rotate(data, &line.x2, &line.y2, data->value[y][x + 1]);
+			ft_zoom_rotate(data, &line.x2, &line.y2, data->value[y + 1][x]);
 			draw_segment(vars, data, line);
 			y++;
 		}
