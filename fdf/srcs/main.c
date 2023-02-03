@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/03 13:33:20 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/03 16:43:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int	main(int argc, char **argv)
 		data.shift_y = 600 / 2;
 		data.angle_x = 45;
 		data.angle_y = 45;
-		data.angle_z = 0;
-		data.zoom = 8;
+		data.angle_z = 1;
+		data.zoom = 20;
 		data.lift = 1;
 		vars.mlx = mlx_init();
 		vars.mlx_win = mlx_new_window(vars.mlx, 1000, 600, "FDF");

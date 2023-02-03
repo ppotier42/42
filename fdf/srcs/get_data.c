@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/03 13:21:59 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/03 16:28:06 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,14 @@ void	ft_parseur(char *argv, t_data *data)
 	data->x = get_width(argv);
 	data->value = (int **)malloc(sizeof(int *) * (data->x + 1));
 	if (!data->value)
-		perror("malloc");
+		perror("malloc1");
 	i = 0;
 	while (i <= data->x)
+	{
 		data->value[i++] = (int *)malloc(sizeof(int) * (data->y + 1));
+		if (!data->value)
+			perror ("malloc2");
+	}
 	fd = open(argv, O_RDONLY);
 	if (!fd)
 		perror ("fd problem");
@@ -38,7 +42,7 @@ void	ft_parseur(char *argv, t_data *data)
 	{
 		data->value[i] = (int *)malloc(sizeof(int) * ((int)data->x + 1));
 		if (!data->value[i])
-			perror ("malloc");
+			perror ("malloc3");
 		fill_z(data->value[i], line);
 		free(line);
 		i++;
@@ -55,9 +59,7 @@ static int	get_height(char *argv)
 
 	height = 0;
 	fd = open(argv, O_RDONLY, 0);
-	if (!fd)
-		return (0);
-	if (fd == -1)
+	if (!fd || fd == -1)
 		return (0);
 	while (get_next_line_fdf(fd, &line))
 	{
@@ -75,7 +77,7 @@ static int	get_width(char *argv)
 	int		width;
 
 	fd = open(argv, O_RDONLY, 0);
-	if (!fd)
+	if (!fd || fd == -1)
 		return (0);
 	get_next_line_fdf(fd, &line);
 	width = ft_count_word(line, ' ');
