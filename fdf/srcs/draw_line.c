@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/08 13:53:39 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/09 14:31:07 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,6 @@ void	pixel_2img(t_vars *vars, int x, int y, int color)
 	dst = vars->addr + (y * vars->line_length + x * (vars->bpp / 8));
 	*(unsigned int *)dst = color;
 	}
-}
-
-void	set_var( int *e, int *del, int *d, int *inc)
-{
-	d[0] = 2 * e[0];
-	d[1] = 2 * e[1];
-	del[0] = e[0];
-	del[1] = e[1];
-	inc[0] = 1;
-	inc[1] = 1;
 }
 
 void	case_dx_dy(int *step, t_line line, t_vars *vars)
@@ -100,21 +90,6 @@ void	draw_segment(t_vars *vars, t_data *data, t_line line)
 		case_dy_dx(step, line, vars);
 }
 
-void	ft_zoom_rotate(t_data *data, double *x, double *y, double z)
-{
-	double	y_transf_iso;
-	double	x_transf_iso;
-	double	trsx;
-	double	trsy;
-
-	trsx = (1000 / 2) * (1);
-	trsy = (600 / 2) * (1);
-	x_transf_iso = (*x - *y) * cos(0.523599);
-	y_transf_iso = ((-1) * z + (*x + *y)) * sin(0.523599);
-	*x = trsx + x_transf_iso * data->zoom;
-	*y = trsy + y_transf_iso * data->zoom;
-}
-
 void	ft_horizon(t_data *data, t_vars *vars)
 {
 	int		x;
@@ -134,15 +109,8 @@ void	ft_horizon(t_data *data, t_vars *vars)
 			ft_zoom_rotate(data, &line.x1, &line.y1, data->value[y][x]);
 			ft_zoom_rotate(data, &line.x2, &line.y2, data->value[y][x + 1]);
 			draw_segment(vars, data, line);
-			if (data->value[y][x] == 0)
-				printf(" %d ", data->value[y][x]);
-			else
-				printf("%d ", data->value[y][x]);
-			if (x == data->x - 2)
-				printf(" %d ", data->value[y][x + 1]);
 			x++;
 		}
-		printf("\n");
 		y++;
 	}
 }

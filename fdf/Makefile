@@ -6,14 +6,15 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/01/23 14:53:05 by ppotier          ###   ########.fr        #
+#    Updated: 2023/02/09 16:12:22 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	srcs/main.c \
 		srcs/get_data.c \
 		srcs/draw_line.c \
-		
+		srcs/transition.c \
+		srcs/key_hook.c \
 
 CC = gcc
 

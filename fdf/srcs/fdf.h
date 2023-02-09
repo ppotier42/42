@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/02 15:48:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/09 16:26:53 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@ void		draw_segment(t_vars *vars, t_data *data, t_line line);
 // void		ft_bresenham(t_data *data, t_vars vars, t_line line);
 // void		ft_zoom_rotate(t_data *data, double *x, double *y, double z);
 // void		my_mlx_pixel_put(t_vars *vars, int x, int y, int color);
+void		set_var( int *e, int *del, int *d, int *inc);
+int			close_win(int keycode, t_vars *vars);
+int			key_hook(int keycode, t_vars *vars);
 
 #endif
