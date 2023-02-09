@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 13:42:26 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/24 13:42:28 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/08 13:48:22 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*get_next_line_fdf(int fd, char **line)
 {
-	char static	*buff;
+	static char	*buff;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

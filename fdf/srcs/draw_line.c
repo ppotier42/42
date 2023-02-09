@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/03 16:38:44 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/08 13:53:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,31 +102,17 @@ void	draw_segment(t_vars *vars, t_data *data, t_line line)
 
 void	ft_zoom_rotate(t_data *data, double *x, double *y, double z)
 {
-	// double	y_transf_iso;
-	// double	x_transf_iso;
-	// double	trsx;
-	// double	trsy;
+	double	y_transf_iso;
+	double	x_transf_iso;
+	double	trsx;
+	double	trsy;
 
-	// trsx = (1000 / 2) * (1);
-	// trsy = (600 / 2) * (1);
-	// x_transf_iso = (*x - *y) * cos(0.523599);
-	// y_transf_iso = ((-1) * z + (*x + *y)) * sin(0.523599);
-	// *x = trsx + x_transf_iso * data->zoom;
-	// *y = trsy + y_transf_iso * data->zoom;
-	
-	double	angle;
-	*x = (*x - data->x / 2) * data->zoom;
-	*y = (*y - data->y / 2) * data->zoom;
-	angle = data->angle_x * (M_PI / 180.0);
-	*y = *y * cos(angle) - z * sin(angle);
-	z = *y * sin(angle) + z * cos(angle);
-	angle = data->angle_y * (M_PI / 180.0);
-	*x = *x * cos(angle) + z * sin(angle);
-	angle = data->angle_z * (M_PI / 180.0);
-	*x = *x * cos(angle) - *y * sin(angle);
-	*y = *x * sin(angle) + *y * cos(angle);
-	*x += data->shift_x;
-	*y += data->shift_y;
+	trsx = (1000 / 2) * (1);
+	trsy = (600 / 2) * (1);
+	x_transf_iso = (*x - *y) * cos(0.523599);
+	y_transf_iso = ((-1) * z + (*x + *y)) * sin(0.523599);
+	*x = trsx + x_transf_iso * data->zoom;
+	*y = trsy + y_transf_iso * data->zoom;
 }
 
 void	ft_horizon(t_data *data, t_vars *vars)
