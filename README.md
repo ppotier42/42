@@ -1,2 +1,1 @@
-# Ca bosse
-QUEL BG
+I've got school
