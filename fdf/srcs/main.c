@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/09 16:27:01 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/10 14:03:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	main(int argc, char **argv)
 		ft_horizon(&data, &vars);
 		ft_vertical(&data, &vars);
 		mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.img, 0, 0);
+		//ft_free(&data);
 		mlx_hook(vars.mlx_win, 17, 0, close_win, &vars);
 		mlx_hook(vars.mlx_win, 2, 0, key_hook, &vars);
 		mlx_loop(vars.mlx);

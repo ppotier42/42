@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/02/09 16:12:22 by ppotier          ###   ########.fr        #
+#    Updated: 2023/02/10 13:58:08 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRC =	srcs/main.c \
 		srcs/draw_line.c \
 		srcs/transition.c \
 		srcs/key_hook.c \
+		srcs/ft_free.c \
 
 CC = gcc
 

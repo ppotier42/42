@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/09 14:24:35 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/10 14:51:22 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,31 +24,30 @@ void	ft_parseur(char *argv, t_data *data)
 
 	data->y = get_height(argv);
 	data->x = get_width(argv);
-	data->value = (int **)malloc(sizeof(int *) * (data->x + 1));
+	printf("%f\n %f\n", data->x, data->y);
+	data->value = (int **)malloc(sizeof(*data->value) * (data->y));
 	if (!data->value)
-		perror("malloc1");
-	i = 0;
-	while (i <= data->x)
+		exit(-1);
+	i = -1;
+	while (++i < data->x)
 	{
-		data->value[i++] = (int *)malloc(sizeof(int) * (data->y + 1));
+		data->value[i] = (int *)malloc(sizeof(int) * (data->x));
 		if (!data->value)
-			perror ("malloc2");
+			exit(-1);
 	}
 	fd = open(argv, O_RDONLY);
 	if (!fd)
 		perror ("fd problem");
-	i = 0;
-	while (get_next_line_fdf(fd, &line))
+	i = -1;
+	while (get_next_line_fdf(fd, &line) && ++i < data->y)
 	{
-		data->value[i] = (int *)malloc(sizeof(int) * ((int)data->x + 1));
-		if (!data->value[i])
-			perror ("malloc3");
+		printf("allo\n");
 		fill_z(data->value[i], line);
 		free(line);
-		i++;
+		printf("aurevoir\n");
 	}
+	free(line);
 	close(fd);
-	data->value[i] = NULL;
 }
 
 static int	get_height(char *argv)
@@ -98,7 +97,10 @@ static void	fill_z(int *value_z, char *line)
 	while (numb[i] != NULL)
 	{
 		value_z[i] = ft_atoi(numb[i]);
+		printf("%d ", value_z[i]);
+		free (numb[i]);
 		i++;
 	}
+	printf("\n");
 	free (numb);
 }
