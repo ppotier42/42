@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/10 14:51:22 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/13 14:40:51 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_parseur(char *argv, t_data *data)
 
 	data->y = get_height(argv);
 	data->x = get_width(argv);
+	//data->value[0] = NULL;
 	printf("%f\n %f\n", data->x, data->y);
 	data->value = (int **)malloc(sizeof(*data->value) * (data->y));
 	if (!data->value)
@@ -78,9 +79,11 @@ static int	get_width(char *argv)
 	fd = open(argv, O_RDONLY, 0);
 	if (!fd || fd == -1)
 		return (0);
-	get_next_line_fdf(fd, &line);
-	width = ft_count_word(line, ' ');
-	free(line);
+	while (get_next_line_fdf(fd, &line))
+	{
+		width = ft_count_word(line, ' ');
+		free(line);
+	}
 	close(fd);
 	return (width);
 }
@@ -94,10 +97,11 @@ static void	fill_z(int *value_z, char *line)
 	if (!numb)
 		numb = NULL;
 	i = 0;
-	while (numb[i] != NULL)
+	while (numb[i + 1] != NULL)
 	{
 		value_z[i] = ft_atoi(numb[i]);
 		printf("%d ", value_z[i]);
+		// printf("%s:", numb[i]);
 		free (numb[i]);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/10 13:57:56 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/13 13:28:26 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_data {
 	float		x;
 	float		y;
 	int			**value;
-	int			zoom;
+	float		zoom;
 	double		angle_x;
 	double		angle_y;
 	double		angle_z;
@@ -43,6 +43,8 @@ typedef struct s_data {
 	int			shift_y;
 	double		lift;
 	int			color;
+	int			size_x;
+	int			size_y;
 }				t_data;
 
 typedef struct s_line {
@@ -61,9 +63,11 @@ void		ft_horizon(t_data *data, t_vars *vars);
 void		ft_zoom_rotate(t_data *data, double *x, double *y, double z);
 void		ft_vertical(t_data *data, t_vars *vars);
 void		draw_segment(t_vars *vars, t_data *data, t_line line);
-void		set_var( int *e, int *del, int *d, int *inc);
+void		set_var(int *e, int *del, int *d, int *inc);
 int			close_win(int keycode, t_vars *vars);
 int			key_hook(int keycode, t_vars *vars);
-void		ft_free(t_data *data);
+void		ft_set_map(t_data *data);
+void		set_window_size(t_data *data);
+float		set_zoom(t_data *data);
 
 #endif
