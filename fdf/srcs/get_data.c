@@ -6,15 +6,15 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/13 14:40:51 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/13 18:49:45 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	fill_z(int *value_z, char *line);
-static int	get_height(char *argv);
-static int	get_width(char *argv);
+void	fill_z(int *value_z, char *line);
+int		get_height(char *argv);
+int		get_width(char *argv);
 
 void	ft_parseur(char *argv, t_data *data)
 {
@@ -24,15 +24,13 @@ void	ft_parseur(char *argv, t_data *data)
 
 	data->y = get_height(argv);
 	data->x = get_width(argv);
-	//data->value[0] = NULL;
-	printf("%f\n %f\n", data->x, data->y);
 	data->value = (int **)malloc(sizeof(*data->value) * (data->y));
 	if (!data->value)
 		exit(-1);
 	i = -1;
 	while (++i < data->x)
 	{
-		data->value[i] = (int *)malloc(sizeof(int) * (data->x));
+		data->value[i] = (int *)malloc(sizeof(*data->value) * (data->x));
 		if (!data->value)
 			exit(-1);
 	}
@@ -42,16 +40,13 @@ void	ft_parseur(char *argv, t_data *data)
 	i = -1;
 	while (get_next_line_fdf(fd, &line) && ++i < data->y)
 	{
-		printf("allo\n");
 		fill_z(data->value[i], line);
 		free(line);
-		printf("aurevoir\n");
 	}
-	free(line);
 	close(fd);
 }
 
-static int	get_height(char *argv)
+int	get_height(char *argv)
 {
 	int		fd;
 	char	*line;
@@ -70,7 +65,7 @@ static int	get_height(char *argv)
 	return (height);
 }
 
-static int	get_width(char *argv)
+int	get_width(char *argv)
 {
 	int		fd;
 	char	*line;
@@ -88,7 +83,7 @@ static int	get_width(char *argv)
 	return (width);
 }
 
-static void	fill_z(int *value_z, char *line)
+void	fill_z(int *value_z, char *line)
 {
 	char	**numb;
 	int		i;
@@ -100,11 +95,8 @@ static void	fill_z(int *value_z, char *line)
 	while (numb[i + 1] != NULL)
 	{
 		value_z[i] = ft_atoi(numb[i]);
-		printf("%d ", value_z[i]);
-		// printf("%s:", numb[i]);
 		free (numb[i]);
 		i++;
 	}
-	printf("\n");
-	free (numb);
+	free (numb[i]);
 }
