@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:21:55 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/13 18:18:02 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/14 18:06:10 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_zoom_rotate(t_data *data, double *x, double *y, double z)
 	double	trsx;
 	double	trsy;
 
-	trsx = (1000 / 2) * (1);
-	trsy = (600 / 2) * (1);
+	trsx = (data->size_x / 2) * (1);
+	trsy = (data->size_y / 2) * (1);
 	x_transf_iso = (*x - *y) * cos(0.523599);
 	y_transf_iso = ((-1) * z + (*x + *y)) * sin(0.523599);
 	*x = trsx + x_transf_iso * data->zoom;

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/13 18:49:45 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/14 18:12:37 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	fill_z(int *value_z, char *line)
 
 	numb = ft_split(line, ' ');
 	if (!numb)
-		numb = NULL;
+		free(numb);
 	i = 0;
 	while (numb[i + 1] != NULL)
 	{
