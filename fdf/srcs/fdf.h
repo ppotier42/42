@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/13 18:18:06 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/02/21 15:19:40 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ int			key_hook(int keycode, t_vars *vars);
 void		ft_set_map(t_data *data);
 void		set_window_size(t_data *data);
 float		set_zoom(t_data *data);
+void		ft_free(t_data *data);
 
 #endif

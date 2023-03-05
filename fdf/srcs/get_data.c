@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/14 18:12:37 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/01 22:36:51 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	ft_parseur(char *argv, t_data *data)
 	i = -1;
 	while (++i < data->x)
 	{
-		data->value[i] = (int *)malloc(sizeof(*data->value) * (data->x));
-		if (!data->value)
+		data->value[i] = (int *)malloc(sizeof(*data->value[i]) * (data->x));
+		if (!data->value[i])
 			exit(-1);
 	}
 	fd = open(argv, O_RDONLY);
@@ -90,13 +90,16 @@ void	fill_z(int *value_z, char *line)
 
 	numb = ft_split(line, ' ');
 	if (!numb)
+	{
 		free(numb);
+		exit(1);
+	}
 	i = 0;
-	while (numb[i + 1] != NULL)
+	while (numb[i] != NULL)
 	{
 		value_z[i] = ft_atoi(numb[i]);
-		free (numb[i]);
+		free(numb[i]);
 		i++;
 	}
-	free (numb[i]);
+	free(numb);
 }
