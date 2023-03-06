@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/21 15:19:40 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:28:03 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_vars {
 }				t_vars;
 
 typedef struct s_data {
-	float		x;
-	float		y;
+	int			width;
+	int			height;
 	int			**value;
 	float		zoom;
 	double		angle_x;

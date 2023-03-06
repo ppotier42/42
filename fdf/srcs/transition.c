@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:21:55 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/14 18:06:10 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/06 12:23:53 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@ void	ft_set_map(t_data *data)
 
 void	set_window_size(t_data *data)
 {
-	if (data->y >= 0 && data->y < 99)
+	if (data->y >= 0 && data->y <= 99)
 		data->size_y = 400;
-	else if (data->y >= 100 && data->y < 500)
+	else if (data->y >= 100 && data->y <= 500)
 		data->size_y = 800;
 	else
 		data->size_y = 1200;
-	if (data->x >= 0 && data->x < 99)
+	if (data->x >= 0 && data->x <= 99)
 		data->size_x = 400;
-	else if (data->x >= 100 && data->x < 500)
+	else if (data->x >= 100 && data->x <= 500)
 		data->size_x = 800;
 	else
 		data->size_x = 1200;
@@ -69,15 +69,15 @@ float	set_zoom(t_data *data)
 	float	zoom1;
 	float	zoom2;
 
-	if (data->x >= 0 && data->x < 99)
+	if (data->x >= 0 && data->x <= 99)
 		zoom1 = 10.0;
-	else if (data->x >= 100 && data->x < 500)
+	else if (data->x >= 100 && data->x <= 500)
 		zoom1 = 5.0;
 	else
 		zoom1 = 1.0;
-	if (data->y >= 0 && data->y < 99)
+	if (data->y >= 0 && data->y <= 99)
 		zoom2 = 10.0;
-	else if (data->y >= 100 && data->y < 500)
+	else if (data->y >= 100 && data->y <= 500)
 		zoom2 = 5.0;
 	else
 		zoom2 = 1.0;

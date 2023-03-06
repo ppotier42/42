@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 10:44:04 by ppotier           #+#    #+#             */
-/*   Updated: 2023/01/12 12:31:13 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/06 15:03:55 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	ft_strchr_gnl(char *buff)
 	return (-1);
 }
 
-char	*ft_strndup(char *buff, size_t end)
+char	*ft_strndup_gnl(char *buff, size_t end)
 {
 	char		*s2;
 	size_t		i;

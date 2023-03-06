@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/01 22:36:51 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/06 16:31:11 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,14 @@ void	ft_parseur(char *argv, t_data *data)
 	char	*line;
 	int		i;
 
-	data->y = get_height(argv);
-	data->x = get_width(argv);
-	data->value = (int **)malloc(sizeof(*data->value) * (data->y));
+	get_map_height_width(fd, &data);
+	data->value = (int **)malloc(sizeof(*data->value) * (data->height));
 	if (!data->value)
 		exit(-1);
 	i = -1;
-	while (++i < data->x)
+	while (++i < data->width)
 	{
-		data->value[i] = (int *)malloc(sizeof(*data->value[i]) * (data->x));
+		data->value[i] = (int *)malloc(sizeof(*data->value[i]) * (data->width));
 		if (!data->value[i])
 			exit(-1);
 	}
@@ -38,49 +37,33 @@ void	ft_parseur(char *argv, t_data *data)
 	if (!fd)
 		perror ("fd problem");
 	i = -1;
-	while (get_next_line_fdf(fd, &line) && ++i < data->y)
+	while (get_next_line(fd) && ++i < data->height)
 	{
 		fill_z(data->value[i], line);
-		free(line);
 	}
 	close(fd);
 }
 
-int	get_height(char *argv)
+void	get_map_height_width(int fd, t_data *data)
 {
-	int		fd;
 	char	*line;
-	int		height;
 
-	height = 0;
-	fd = open(argv, O_RDONLY, 0);
-	if (!fd || fd == -1)
-		return (0);
-	while (get_next_line_fdf(fd, &line))
+	line = get_next_line(fd);
+	data->height = 0;
+	data->width = ft_count_word(line, ' ');
+	if (data->width == 0)
 	{
-		height++;
 		free(line);
+		close(fd);
 	}
-	close(fd);
-	return (height);
-}
-
-int	get_width(char *argv)
-{
-	int		fd;
-	char	*line;
-	int		width;
-
-	fd = open(argv, O_RDONLY, 0);
-	if (!fd || fd == -1)
-		return (0);
-	while (get_next_line_fdf(fd, &line))
+	while (line && ft_count_word(line, ' ') <= data->width)
 	{
-		width = ft_count_word(line, ' ');
 		free(line);
+		line = get_next_line(fd);
+		data->height++;
 	}
-	close(fd);
-	return (width);
+	if (line && ft_count_word(line, ' ') >= data->width)
+		free (line);
 }
 
 void	fill_z(int *value_z, char *line)
