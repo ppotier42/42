@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/09 14:40:04 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/09 16:19:33 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	get_map_height_width(int fd, t_data *data);
 void	ft_parseur(char *argv, t_data *data)
 {
 	int		fd;
-	// char	*line;
-	// int		i;
 
 	fd = open(argv, O_RDONLY, 0);
 	get_map_height_width(fd, data);
@@ -40,6 +38,7 @@ void	get_map_height_width(int fd, t_data *data)
 	{
 		free(line);
 		close(fd);
+		exit(1);
 	}
 	while (line && ft_count_word(line, ' ') <= data->width)
 	{
@@ -60,7 +59,7 @@ void	fill_z(t_data *data, int fd)
 
 	data->value = (int **)malloc(sizeof(*data->value) * (data->height));
 	if (!data->value)
-		exit(-1);
+		exit(1);
 	i = -1;
 	while (++i < data->width)
 	{
@@ -87,9 +86,10 @@ void	fill_z(t_data *data, int fd)
 		{
 			data->value[i][y] = ft_atoi(numb[y]);
 			y++;
+			free(numb[y]);
 		}
-		free(numb);
 		free(line);
+		free(numb);
 		line = get_next_line(fd);
 	}
 }

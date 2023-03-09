@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/09 14:38:31 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/09 16:03:03 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,32 @@ int	ft_error(int argc)
 	}
 	return (argc);
 }
-
+void printf_asc(t_data *data)
+{
+	for (int i = 0; i < data->height; i++)
+	{
+		for (int y = 0; y < data->width; y++ ){
+			if (data->value[i][y] < 0)
+				printf("%d", data->value[i][y]);
+			else
+			printf(" %d", data->value[i][y]);
+		}
+		printf("\n");
+	}
+}
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	t_vars	vars;
+	//t_vars	vars;
+	
 	ft_error(argc);
 	if (ft_check_fdf(argv[1]) == 1)
 	{
 		ft_parseur(argv[1], &data);
-		// printf("%d\n", data.width);
-		// printf("%d\n", data.height);
-		set_window_size(&data);
-		ft_set_map(&data);
-		img_and_window(&data, &vars);
+		printf_asc(&data);
+		//set_window_size(&data);
+		//ft_set_map(&data);
+		//img_and_window(&data, &vars);
 	}
 	return (0);
 }

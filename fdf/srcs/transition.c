@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 15:21:55 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/09 11:11:45 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/09 15:55:45 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@ void	ft_set_map(t_data *data)
 
 void	set_window_size(t_data *data)
 {
-	if (data->height >= 0 && data->height <= 99)
+	if (data->height > 0 && data->height < 99)
 		data->size_y = 400;
-	else if (data->height >= 100 && data->height <= 500)
+	else if (data->height > 100 && data->height < 500)
 		data->size_y = 800;
 	else
 		data->size_y = 1200;
-	if (data->width >= 0 && data->width <= 99)
+	if (data->width > 0 && data->width < 99)
 		data->size_x = 400;
-	else if (data->width >= 100 && data->width <= 500)
+	else if (data->width > 100 && data->width < 500)
 		data->size_x = 800;
 	else
 		data->size_x = 1200;

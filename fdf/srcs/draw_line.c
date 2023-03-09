@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/09 11:11:11 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/09 15:56:51 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 void	pixel_2img(t_vars *vars, int x, int y, int color)
 {
 	char	*dst;
+	// t_data	data;
 
-	if ((x > 0 && x <= 1000) && (y > 0 && y <= 600))
+	if ((x > 0 && x < 1000) && (y > 0 && y < 800))
 	{
 	dst = vars->addr + (y * vars->line_length + x * (vars->bpp / 8));
 	*(unsigned int *)dst = color;
