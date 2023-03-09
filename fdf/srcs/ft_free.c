@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:55:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/10 14:02:47 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/09 11:12:25 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_free(t_data *data)
 {
-	int	y;
+	int	i;
 
-	y = 0;
-	while (y < data->y)
+	i = 0;
+	while (i < data->height)
 	{
-		free (data->value[y]);
-		y++;
+		free (data->value[i]);
+		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 23:17:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/06 12:26:30 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/09 11:11:11 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ void	ft_horizon(t_data *data, t_vars *vars)
 	t_line	line;
 
 	y = 0;
-	while (y <= data->y - 1)
+	while (y <= data->height - 1)
 	{
 		x = 0;
-		while (x < data->x - 1)
+		while (x < data->width - 1)
 		{
 			line.x1 = x;
 			line.y1 = y;
@@ -122,10 +122,10 @@ void	ft_vertical(t_data *data, t_vars *vars)
 	t_line	line;
 
 	x = 0;
-	while (x <= data->x - 1)
+	while (x <= data->width - 1)
 	{
 		y = 0;
-		while (y < data->y - 1)
+		while (y < data->height - 1)
 		{
 			line.x1 = x;
 			line.y1 = y;

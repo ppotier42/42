@@ -6,41 +6,26 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/06 16:31:11 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/09 14:40:04 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	fill_z(int *value_z, char *line);
-int		get_height(char *argv);
-int		get_width(char *argv);
+void	fill_z(t_data *data, int fd);
+void	get_map_height_width(int fd, t_data *data);
 
 void	ft_parseur(char *argv, t_data *data)
 {
 	int		fd;
-	char	*line;
-	int		i;
+	// char	*line;
+	// int		i;
 
-	get_map_height_width(fd, &data);
-	data->value = (int **)malloc(sizeof(*data->value) * (data->height));
-	if (!data->value)
-		exit(-1);
-	i = -1;
-	while (++i < data->width)
-	{
-		data->value[i] = (int *)malloc(sizeof(*data->value[i]) * (data->width));
-		if (!data->value[i])
-			exit(-1);
-	}
-	fd = open(argv, O_RDONLY);
-	if (!fd)
-		perror ("fd problem");
-	i = -1;
-	while (get_next_line(fd) && ++i < data->height)
-	{
-		fill_z(data->value[i], line);
-	}
+	fd = open(argv, O_RDONLY, 0);
+	get_map_height_width(fd, data);
+	close(fd);
+	fd = open(argv, O_RDONLY, 0);
+	fill_z(data, fd);
 	close(fd);
 }
 
@@ -63,26 +48,48 @@ void	get_map_height_width(int fd, t_data *data)
 		data->height++;
 	}
 	if (line && ft_count_word(line, ' ') >= data->width)
-		free (line);
+		exit (1);
 }
 
-void	fill_z(int *value_z, char *line)
+void	fill_z(t_data *data, int fd)
 {
 	char	**numb;
+	char	*line;
 	int		i;
+	int		y;
 
-	numb = ft_split(line, ' ');
-	if (!numb)
+	data->value = (int **)malloc(sizeof(*data->value) * (data->height));
+	if (!data->value)
+		exit(-1);
+	i = -1;
+	while (++i < data->width)
 	{
-		free(numb);
+		data->value[i] = (int *)malloc(sizeof(*data->value[i]) * (data->width));
+		if (!data->value[i])
+			exit(1);
+	}
+	line = get_next_line(fd);
+	if (!line)
+	{
 		exit(1);
 	}
-	i = 0;
-	while (numb[i] != NULL)
+	i = -1;
+	while (line && ++i < data->height)
 	{
-		value_z[i] = ft_atoi(numb[i]);
-		free(numb[i]);
-		i++;
+		numb = ft_split(line, ' ');
+		if (!numb)
+		{
+			free(numb);
+			exit (1);
+		}
+		y = 0;
+		while (y < data->width)
+		{
+			data->value[i][y] = ft_atoi(numb[y]);
+			y++;
+		}
+		free(numb);
+		free(line);
+		line = get_next_line(fd);
 	}
-	free(numb);
 }
