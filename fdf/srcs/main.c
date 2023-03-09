@@ -6,12 +6,12 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/02/14 18:05:34 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/08 16:01:30 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
+void	img_and_window()
 int	ft_check_fdf(char *argv)
 {
 	int	i;
