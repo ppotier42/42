@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/09 16:03:03 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/10 11:10:09 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@ void	img_and_window(t_data *data, t_vars *vars)
 	vars->img = mlx_new_image(vars->mlx, data->size_x, data->size_y);
 	vars->addr = mlx_get_data_addr(vars->img, &vars->bpp, \
 										&vars->line_length, &vars->endian);
-	ft_horizon(data, vars);
-	ft_vertical(data, vars);
-	mlx_put_image_to_window(vars->mlx, vars->mlx_win, vars->img, 0, 0);
-	mlx_hook(vars->mlx_win, 17, 0, close_win, vars);
-	mlx_hook(vars->mlx_win, 2, 0, key_hook, vars);
-	mlx_loop(vars->mlx);
 }
 
 int	ft_check_fdf(char *argv)
@@ -71,19 +65,26 @@ void printf_asc(t_data *data)
 		printf("\n");
 	}
 }
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	//t_vars	vars;
-	
+	t_vars	vars;
+
 	ft_error(argc);
 	if (ft_check_fdf(argv[1]) == 1)
 	{
 		ft_parseur(argv[1], &data);
-		printf_asc(&data);
-		//set_window_size(&data);
-		//ft_set_map(&data);
-		//img_and_window(&data, &vars);
+		//printf_asc(&data);
+		set_window_size(&data);
+		ft_set_map(&data);
+		img_and_window(&data, &vars);
+		ft_horizon(&data, &vars);
+		ft_vertical(&data, &vars);
+		mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.img, 0, 0);
+		mlx_hook(vars.mlx_win, 17, 0, close_win, &vars);
+		mlx_hook(vars.mlx_win, 2, 0, key_hook, &vars);
+		mlx_loop(vars.mlx);
 	}
 	return (0);
 }

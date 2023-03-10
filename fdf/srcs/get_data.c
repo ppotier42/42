@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/09 16:19:33 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/10 11:00:03 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	get_map_height_width(int fd, t_data *data)
 		close(fd);
 		exit(1);
 	}
-	while (line && ft_count_word(line, ' ') <= data->width)
+	while (line && (ft_count_word(line, ' ') <= data->width))
 	{
 		free(line);
 		line = get_next_line(fd);
