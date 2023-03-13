@@ -6,11 +6,22 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:28:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/10 11:10:09 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/13 13:24:09 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	pixel_2img(t_vars *vars, int x, int y, int color)
+{
+	char	*dst;
+
+	if ((x > 0 && x < 1920) && (y > 0 && y < 1080))
+	{
+		dst = vars->addr + (y * vars->line_length + x * (vars->bpp / 8));
+		*(unsigned int *)dst = color;
+	}
+}
 
 void	img_and_window(t_data *data, t_vars *vars)
 {
@@ -52,19 +63,6 @@ int	ft_error(int argc)
 	}
 	return (argc);
 }
-void printf_asc(t_data *data)
-{
-	for (int i = 0; i < data->height; i++)
-	{
-		for (int y = 0; y < data->width; y++ ){
-			if (data->value[i][y] < 0)
-				printf("%d", data->value[i][y]);
-			else
-			printf(" %d", data->value[i][y]);
-		}
-		printf("\n");
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -75,8 +73,8 @@ int	main(int argc, char **argv)
 	if (ft_check_fdf(argv[1]) == 1)
 	{
 		ft_parseur(argv[1], &data);
-		//printf_asc(&data);
-		set_window_size(&data);
+		data.size_x = 1920;
+		data.size_y = 1080;
 		ft_set_map(&data);
 		img_and_window(&data, &vars);
 		ft_horizon(&data, &vars);

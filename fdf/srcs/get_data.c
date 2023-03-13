@@ -6,14 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/10 11:00:03 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/13 13:44:43 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	fill_z(t_data *data, int fd);
-void	get_map_height_width(int fd, t_data *data);
 
 void	ft_parseur(char *argv, t_data *data)
 {
@@ -57,39 +54,40 @@ void	fill_z(t_data *data, int fd)
 	int		i;
 	int		y;
 
-	data->value = (int **)malloc(sizeof(*data->value) * (data->height));
-	if (!data->value)
-		exit(1);
-	i = -1;
-	while (++i < data->width)
-	{
-		data->value[i] = (int *)malloc(sizeof(*data->value[i]) * (data->width));
-		if (!data->value[i])
-			exit(1);
-	}
+	ft_init_data(data);
 	line = get_next_line(fd);
 	if (!line)
-	{
 		exit(1);
-	}
 	i = -1;
 	while (line && ++i < data->height)
 	{
 		numb = ft_split(line, ' ');
 		if (!numb)
-		{
-			free(numb);
 			exit (1);
-		}
-		y = 0;
-		while (y < data->width)
+		y = -1;
+		while (++y < data->width)
 		{
 			data->value[i][y] = ft_atoi(numb[y]);
-			y++;
 			free(numb[y]);
 		}
 		free(line);
 		free(numb);
 		line = get_next_line(fd);
+	}
+}
+
+void	ft_init_data(t_data *data)
+{
+	int	i;
+
+	data->value = (int **)malloc(sizeof(*data->value) * (data->height));
+	if (!data->value)
+		exit(1);
+	i = -1;
+	while (++i < data->height)
+	{
+		data->value[i] = (int *)malloc(sizeof(*data->value[i]) * (data->width));
+		if (!data->value[i])
+			exit(1);
 	}
 }

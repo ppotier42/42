@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 14:16:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/10 11:06:13 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/13 13:58:38 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,8 @@ typedef struct s_data {
 	int			height;
 	int			**value;
 	float		zoom;
-	double		angle_x;
-	double		angle_y;
-	double		angle_z;
 	int			shift_x;
 	int			shift_y;
-	double		lift;
 	int			color;
 	int			size_x;
 	int			size_y;
@@ -67,8 +63,11 @@ void		set_var(int *e, int *del, int *d, int *inc);
 int			close_win(int keycode, t_vars *vars);
 int			key_hook(int keycode, t_vars *vars);
 void		ft_set_map(t_data *data);
-void		set_window_size(t_data *data);
+void		pixel_2img(t_vars *vars, int x, int y, int color);
 float		set_zoom(t_data *data);
 void		ft_free(t_data *data);
+void		fill_z(t_data *data, int fd);
+void		get_map_height_width(int fd, t_data *data);
+void		ft_init_data(t_data *data);
 
 #endif
