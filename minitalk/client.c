@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:09:12 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/10 13:12:08 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/13 14:52:26 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	main(int ac, char **av)
 		ft_printf("usage : ./client <PID> message");
 	else
 		sent();
-	
+	return (0);
 }
