@@ -1,5 +1,2 @@
-*.o
 ./server
 ./client
-*.a
-*.gch

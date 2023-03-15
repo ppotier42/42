@@ -6,36 +6,40 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:44:31 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/14 15:35:17 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/15 15:22:01 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <unistd.h>
+#include <stdio.h>
 
 void	ft_putnbr(int n);
+void	ft_putchar(char c);
+
 
 void	rec(int n, int pid)
 {
 	int				shift;
-	static int		i;
+	static int			i;
 	static char		c;
-	int				clientpid;
+	static pid_t	g_clientpid;
 
-	clientpid = -1;
+	g_clientpid = -1;
 	i = 7;
-	if (i == -1 || pid != clientpid)
+	if (i == -1 || pid != g_clientpid)
 	{
 		i = 7;
 		c = 0;
-		clientpid = pid;
+	g_clientpid = pid;
 	}
 	shift = 1 << (i);
 	if (n != 0)
 		c = (c | shift);
+	// printf("%c\n", c);
 	i--;
 	if (i == -1)
-		write(1, &c, 1);
+		ft_putchar(c);
 }
 
 void	server(void)

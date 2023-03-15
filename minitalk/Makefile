@@ -12,8 +12,8 @@ $(SERVER) : server.c
 
 clean :
 		rm -rf $(CLIENT) $(SERVER)
-fclean:
-		rm -rf $(CLIENT) $(SERVER)
+
+fclean:	clean
 
 re: fclean all
 

@@ -6,12 +6,13 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:09:12 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/14 15:32:42 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/15 14:04:08 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
+#include <stdio.h>
 
 void	ft_putstr(char *s);
 int		ft_atoi_mini(char *str, int *res);
