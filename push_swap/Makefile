@@ -6,11 +6,12 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/03/16 14:38:12 by ppotier          ###   ########.fr        #
+#    Updated: 2023/03/17 14:00:13 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	srcs/main.c \
+		srcs/error.c \
 
 CC = gcc
 
@@ -44,7 +45,7 @@ ${NAME}:	${LIBFT}	${OBJ}
 			${CC}	${OBJ}	$(LIBS) -o ${NAME}
 
 clean:	
-		$(RM) $(OBJ)
+		$(RM) $(OBJ) $(NAME)
 
 fclean:	clean
 		make fclean -C ./libft
