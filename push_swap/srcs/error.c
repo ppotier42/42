@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/17 14:11:51 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/17 15:14:27 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,5 @@ void	ft_check_error(int ac, char **argv)
 		i++;
 	}
 	if (ac == 2)
-		free (args);
+		ft_free(args);
 }

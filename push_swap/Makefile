@@ -6,12 +6,13 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/03/17 14:00:13 by ppotier          ###   ########.fr        #
+#    Updated: 2023/03/17 15:12:48 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	srcs/main.c \
 		srcs/error.c \
+		srcs/utils.c \
 
 CC = gcc
 
