@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/17 15:14:27 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/20 12:27:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_msg_error(char *str)
 {
-	ft_putendl_fd(str, 1);
+	ft_putendl_fd(str, 2);
 	exit(0);
 }
 
@@ -65,10 +65,10 @@ void	ft_check_error(int ac, char **argv)
 		tmp = ft_atoi(args[i]);
 		if (!ft_isnum(args[i]))
 			ft_msg_error("Error");
-		if (ft_check_double(tmp, args, i))
+		if (!ft_check_double(tmp, args, i))
 			ft_msg_error("Error");
 		if (tmp < INT32_MIN || tmp > INT32_MAX)
-			ft_printf("Error\n");
+			ft_msg_error("Error");
 		i++;
 	}
 	if (ac == 2)

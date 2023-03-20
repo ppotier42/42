@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/13 13:44:43 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/20 15:47:35 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	fill_z(t_data *data, int fd)
 		line = get_next_line(fd);
 	}
 }
+
 
 void	ft_init_data(t_data *data)
 {
