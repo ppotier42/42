@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:39:27 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/13 13:28:44 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/20 15:58:33 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,4 @@ int	key_hook(int keycode, t_vars *vars)
 		close_win(keycode, vars);
 	return (0);
 }
+
