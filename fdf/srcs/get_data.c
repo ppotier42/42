@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:53:43 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/20 15:47:35 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/24 15:18:16 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@ void	ft_parseur(char *argv, t_data *data)
 	int		fd;
 
 	fd = open(argv, O_RDONLY, 0);
+	if (fd < 0)
+	{
+		ft_printf("Map doesn't exit\n");
+		exit (1);
+	}
 	get_map_height_width(fd, data);
 	close(fd);
 	fd = open(argv, O_RDONLY, 0);
+	if (fd < 0)
+		exit (1);
 	fill_z(data, fd);
 	close(fd);
 }

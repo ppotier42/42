@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 13:44:31 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/15 15:22:01 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/24 12:06:04 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,21 @@ void	ft_putchar(char c);
 
 void	rec(int n, int pid)
 {
-	int				shift;
-	static int			i;
+	static int		i;
 	static char		c;
 	static pid_t	g_clientpid;
 
-	g_clientpid = -1;
+	g_clientpid = pid;
+	printf("%d\n", pid);
 	i = 7;
-	if (i == -1 || pid != g_clientpid)
+	if (i == -1)
 	{
 		i = 7;
 		c = 0;
-	g_clientpid = pid;
 	}
-	shift = 1 << (i);
+	c = 1 << c;
 	if (n != 0)
-		c = (c | shift);
+		c = (c | 0x0);
 	// printf("%c\n", c);
 	i--;
 	if (i == -1)

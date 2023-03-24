@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:09:12 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/15 14:04:08 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/24 12:03:16 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,17 @@ void	ft_putchar(char c);
 void	send_char(int pid, char c)
 {
 	int	i;
-	int	shift;
 
-	i = 7;
-	while (i >= 0)
+	i = 0;
+	while (i < 8)
 	{
-		shift = 1 << (i);
-		if (c & shift)
+		c = 1 >> c;
+		if (c & 0x0)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
 		usleep(500);
-		i--;
+		i++;
 	}
 }
 
