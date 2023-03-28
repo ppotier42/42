@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/24 15:21:57 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/28 15:24:47 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,17 @@ void	ft_push_swap(int ac, char **av)
 	while (args[i])
 	{
 		data.value[i] = ft_atoi(args[i]);
-		printf("%d ", data.value[i]);
+		// printf("%d ", data.value[i]);
 		i++;
 	}
-	if (i <= 5)
-		ft_quick_sort(data.value[i]);
+	i -= 1;
+	if (i <= 6)
+		ft_quick_sort(&data, i);
 	else
-		ft_radix(data.value[i]);		
+	{
+		// ft_radix(&data);
+		printf("radix\n");
+	}
 }
 
 int	main(int ac, char **av)

@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 13:55:38 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/20 15:44:17 by ppotier          ###   ########.fr       */
+/*   Created: 2023/03/28 13:05:58 by ppotier           #+#    #+#             */
+/*   Updated: 2023/03/28 15:21:22 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "push_swap.h"
 
-void	ft_free(t_data *data)
+void	ft_quick_sort(t_data *data, unsigned int size)
 {
-	int	i;
+	unsigned int	i;
+	int				swap;
 
 	i = 0;
-	while (i < data->height)
+	swap = 0;
+	while (i < (size - 1))
 	{
-		free (data->value[i]);
-		i++;
+		if (data->value[i] > data->value[i + 1])
+		{
+			swap = data->value[i];
+			ft_printf("pb\n");
+			data->value[i] = data->value[i + 1];
+			ft_printf("ra\n");
+			data->value[i + 1] = swap;
+			ft_printf("pa\n");
+			i = 0;
+		}
+		else
+			i++;
+		// printf("%d\n", data->value[i]);
 	}
 }
