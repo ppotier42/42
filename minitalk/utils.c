@@ -6,12 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:54:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/14 15:03:58 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/30 13:06:21 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
+#include "minitalk.h"
 
 void	ft_putchar(char c)
 {
@@ -53,24 +52,29 @@ void	ft_putnbr(int n)
 	}
 }
 
-int	ft_atoi_mini(char *str, int *res)
+int	ft_atoi_mini(char *str)
 {
-	int	i;
+	int					i;
+	int					sign;
+	unsigned long int	result;
 
 	i = 0;
-	while (str[i])
+	sign = 1;
+	result = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
 	{
-		if (str[i] < '0' || str[i] > '9')
-			return (0);
+		sign = -1;
 		i++;
 	}
-	*res = 0;
-	i = 0;
+	else if (str[i] == '+')
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		*res *= 10;
-		*res += str[i] - '0';
+		result *= 10;
+		result += str[i] - '0';
 		i++;
 	}
-	return (1);
+	return (result * sign);
 }
