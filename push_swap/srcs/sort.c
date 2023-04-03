@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:05:58 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/28 15:21:22 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/03 13:11:59 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,18 @@ void	ft_quick_sort(t_data *data, unsigned int size)
 		if (data->value[i] > data->value[i + 1])
 		{
 			swap = data->value[i];
-			ft_printf("pb\n");
 			data->value[i] = data->value[i + 1];
-			ft_printf("ra\n");
+			// ft_printf("ra\n");
 			data->value[i + 1] = swap;
-			ft_printf("pa\n");
+			printf("%d\n", data->value[i]);
+			// ft_printf("pa\n");
 			i = 0;
 		}
 		else
+		{
+			printf("%d\n", data->value[i]);
 			i++;
-		// printf("%d\n", data->value[i]);
+		}
 	}
+	printf("%d\n", data->value[i]);
 }

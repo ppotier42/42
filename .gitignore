@@ -15,3 +15,5 @@ a.out
 .DS_Store
 GNL/get_next_line.c
 fdf/.vscode/tasks.json
+minitalk/client
+minitalk/server

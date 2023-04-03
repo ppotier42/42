@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:09:12 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/30 22:14:24 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/03 11:54:28 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_send(int pid, char c)
 			kill(pid, SIGUSR1);
 		else
 			kill(pid, SIGUSR2);
-		usleep(1000);
+		usleep(200);
 		bit++;
 	}
 }
@@ -42,9 +42,12 @@ int	main(int ac, char **av)
 			ft_send(pid, av[2][i]);
 			i++;
 		}
+		ft_send(pid, '\n');
 	}
 	else
+	{
 		ft_putstr("Error\n");
-	ft_send(pid, '\n');
+		return (1);
+	}
 	return (0);
 }

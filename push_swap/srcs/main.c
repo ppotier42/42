@@ -6,11 +6,12 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/28 15:24:47 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/03 12:53:48 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	ft_push_swap(int ac, char **av)
 {
@@ -43,7 +44,6 @@ void	ft_push_swap(int ac, char **av)
 	while (args[i])
 	{
 		data.value[i] = ft_atoi(args[i]);
-		// printf("%d ", data.value[i]);
 		i++;
 	}
 	i -= 1;
@@ -52,7 +52,7 @@ void	ft_push_swap(int ac, char **av)
 	else
 	{
 		// ft_radix(&data);
-		printf("radix\n");
+		ft_printf("alo");
 	}
 }
 
@@ -61,7 +61,6 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	ft_check_error(ac, av);
-	// printf("allo");
 	ft_push_swap(ac, av);
 	return (0);
 }
