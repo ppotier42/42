@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/03 12:42:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:19:20 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,18 @@ void	ft_check_error(int ac, char **argv)
 	}
 	if (ac == 2)
 		ft_free(args);
+}
+
+int	ft_is_sorted(int *a)
+{
+	int	i;
+
+	i = 0;
+	while (a[i])
+	{
+		if (a[i] > a[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
 }

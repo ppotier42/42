@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:15:21 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/28 14:12:19 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:14:45 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 
 typedef struct s_data
 {
-	int	*value;
+	int	*a;
+	int	*b;
 
 }	t_data;
 
@@ -33,5 +34,6 @@ void	ft_msg_error(char *str);
 void	ft_free(char **str);
 void	ft_push_swap(int ac, char **av);
 void	ft_quick_sort(t_data *data, unsigned int i);
+int		ft_is_sorted(int *a);
 
 #endif

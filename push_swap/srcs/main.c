@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/03 12:53:48 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/06 14:13:34 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@ void	ft_push_swap(int ac, char **av)
 			return ;
 		while (args[j])
 			j++;
-		data.value = (int *)malloc(sizeof(int) * j);
-		if (!data.value)
+		data.a = (int *)malloc(sizeof(int) * j);
+		if (!data.a)
 			return ;
 	}
 	else
 	{
 		i = 1;
 		args = av;
-		data.value = (int *)malloc(sizeof(int) * ac - 1);
-		if (!data.value)
+		data.a = (int *)malloc(sizeof(int) * ac - 1);
+		if (!data.a)
 			return ;
 	}
 	while (args[i])
 	{
-		data.value[i] = ft_atoi(args[i]);
+		data.a[i] = ft_atoi(args[i]);
 		i++;
 	}
 	i -= 1;
