@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_is_sign.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 16:31:11 by ppotier          ###   ########.fr       */
+/*   Created: 2023/04/07 16:36:35 by ppotier           #+#    #+#             */
+/*   Updated: 2023/04/07 16:46:34 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_stack **stack)
+int	ft_is_sign(char c)
 {
-	t_stack	*tmp;
-
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-	*stack = NULL;
-}
-
-void	ft_error(t_stack **a, t_stack **b)
-{
-	if (a == NULL || *a != NULL)
-		free_stack(a);
-	if (b == NULL || *b != NULL)
-		free_stack(b);
-	write(2, "Error\n", 6);
-	exit (1);
+	return (c == '+' || c == '-');
 }

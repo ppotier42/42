@@ -76,6 +76,8 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int			ft_is_sign(char c);
+
 // ft_printf
 int			ft_printf(const char *input, ...);
 size_t		ft_putnbr_num(va_list ap);
@@ -93,27 +95,15 @@ int			ft_nbrlen(int n);
 int			ft_nbrlen_un(unsigned int n);
 void		ft_putnbr_un(unsigned int n, int fd);
 // GNL
-// char		*get_next_line(int fd);
-// void		*ft_calloc_gnl(size_t count, size_t size);
-// size_t		ft_strlen_gnl(char *s);
-// char		*ft_strjoin_gnl(char *s1, char *s2);
-// char		*ft_get_clean(char *buff);
-// char		*ft_get_line(char *buff);
-// int			ft_strchr_gnl(char *buff);
-// char		*ft_strndup_gnl(char *buff, size_t end);
-// char		*ft_gnl_read(int fd, char *result);
-// char		*ft_get_clean(char *buff);
-// char		*ft_gnl_free(char *buff);
 int			ft_count_word(char *s, char c);
-char	*get_next_line(int fd);
-char	*update_buff(int fd, char *rest);
-char	*update_nextl(char *buff);
-char	*get_res_line(char *buff);
-char	*get_transf(char *s1, char *rest);
-char	*get_join(char *s1, char *s2);
-char	*get_ndup(char *s, size_t n);
-int		get_next_c(char *s, char c);
-int		get_len(char *s);
-// void	*ft_calloc(size_t nmemb, size_t size);
+char		*get_next_line(int fd);
+char		*update_buff(int fd, char *rest);
+char		*update_nextl(char *buff);
+char		*get_res_line(char *buff);
+char		*get_transf(char *s1, char *rest);
+char		*get_join(char *s1, char *s2);
+char		*get_ndup(char *s, size_t n);
+int			get_next_c(char *s, char c);
+int			get_len(char *s);
 
 #endif

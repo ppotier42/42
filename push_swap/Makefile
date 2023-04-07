@@ -6,15 +6,23 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/03/28 13:13:21 by ppotier          ###   ########.fr        #
+#    Updated: 2023/04/07 16:45:05 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	srcs/main.c \
+SRC =	srcs/cost.c \
 		srcs/error.c \
+		srcs/main.c \
+		srcs/move.c \
+		srcs/quick_sort.c \
+		srcs/rev_rotate.c \
+		srcs/rotate.c \
+		srcs/sort.c	\
+		srcs/swap.c \
 		srcs/utils.c \
-		srcs/sort.c \
-
+		srcs/push.c \
+		srcs/ft_check_input.c \
+		
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror

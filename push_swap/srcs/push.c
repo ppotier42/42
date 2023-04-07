@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 16:31:11 by ppotier          ###   ########.fr       */
+/*   Created: 2023/04/07 16:12:25 by ppotier           #+#    #+#             */
+/*   Updated: 2023/04/07 16:17:00 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack **stack)
+/* push:
+*	Pushes the top element of src stack to the top of dest stack.
+*/
+void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*tmp;
 
-	if (!stack || !(*stack))
+	if (*src == NULL)
 		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-	*stack = NULL;
+	tmp = (*src)->next;
+	(*src)->next = *dest;
+	*dest = *src;
+	*src = tmp;
 }
 
-void	ft_error(t_stack **a, t_stack **b)
+void	do_pa(t_stack **a, t_stack **b)
 {
-	if (a == NULL || *a != NULL)
-		free_stack(a);
-	if (b == NULL || *b != NULL)
-		free_stack(b);
-	write(2, "Error\n", 6);
-	exit (1);
+	push(b, a);
+	ft_printf("pa\n");
+}
+
+void	do_pb(t_stack **a, t_stack **b)
+{
+	push(a, b);
+	ft_printf("pb\n");
 }

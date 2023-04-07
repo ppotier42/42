@@ -34,6 +34,8 @@ int	main(int ac, char **av)
 	int	i;
 
 	i = 0;
+	if (ac == 1)
+		return (1);
 	pid = ft_atoi_mini(av[1]);
 	if (ac == 3)
 	{

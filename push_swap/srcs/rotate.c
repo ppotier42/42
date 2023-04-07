@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 16:31:11 by ppotier          ###   ########.fr       */
+/*   Created: 2023/04/06 16:13:53 by ppotier           #+#    #+#             */
+/*   Updated: 2023/04/07 14:10:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack **stack)
+void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
+	t_stack	*bottom;
 
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-	*stack = NULL;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	bottom = get_stack_bottom(*stack);
+	tmp->next = NULL;
+	bottom->next = tmp;
 }
 
-void	ft_error(t_stack **a, t_stack **b)
+void	do_ra(t_stack **a)
 {
-	if (a == NULL || *a != NULL)
-		free_stack(a);
-	if (b == NULL || *b != NULL)
-		free_stack(b);
-	write(2, "Error\n", 6);
-	exit (1);
+	rotate(a);
+	ft_printf("ra\n");
+}
+
+void	do_rb(t_stack **b)
+{
+	rotate(b);
+	ft_printf("rb\n");
+}
+
+void	do_rr(t_stack **a, t_stack **b)
+{
+	rotate(a);
+	rotate(b);
+	ft_printf("rrr\n");
 }

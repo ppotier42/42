@@ -6,61 +6,73 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/06 14:13:34 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/07 17:08:33 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	ft_push_swap(int ac, char **av)
+t_stack	*fill_value(int ac, char **av)
 {
-	t_data	data;
-	char	**args;
+	t_stack	*a;
+	int		nb;
 	int		i;
-	int		j;
 
-	i = 0;
-	j = 0;
-	if (ac == 2)
+	i = 1;
+	nb = 0;
+	a = NULL;
+	while (i < ac)
 	{
-		args = ft_split(av[1], ' ');
-		if (!args)
-			return ;
-		while (args[j])
-			j++;
-		data.a = (int *)malloc(sizeof(int) * j);
-		if (!data.a)
-			return ;
-	}
-	else
-	{
-		i = 1;
-		args = av;
-		data.a = (int *)malloc(sizeof(int) * ac - 1);
-		if (!data.a)
-			return ;
-	}
-	while (args[i])
-	{
-		data.a[i] = ft_atoi(args[i]);
+		nb = ft_atoi(av[i]);
+		if (nb > INT_MAX || nb < INT_MIN)
+			ft_error(&a, NULL);
+		if (i == 1)
+			a = ft_stack_new(nb);
+		else
+			stack_add(&a, ft_stack_new(nb));
 		i++;
 	}
-	i -= 1;
-	if (i <= 6)
-		ft_quick_sort(&data, i);
-	else
+	return (a);
+}
+
+int	ft_is_sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
 	{
-		// ft_radix(&data);
-		ft_printf("alo");
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
 	}
+	return (1);
+}
+
+void	push_swap(t_stack **a, t_stack **b, int size)
+{
+	(void)b;
+	if (size == 2 && !ft_is_sorted(*a))
+		do_sa(a);
+	else if (size == 3)
+		quick_sort(a);
+	else if (size > 3 && !ft_is_sorted(*a))
+		sort(a, b);
 }
 
 int	main(int ac, char **av)
 {
-	if (ac == 1)
+	t_stack	*a;
+	t_stack	*b;
+	int		stack_size;
+
+	if (ac < 2)
 		return (0);
-	ft_check_error(ac, av);
-	ft_push_swap(ac, av);
+	if (!ft_check_input(av))
+		ft_error(NULL, NULL);
+	b = NULL;
+	a = fill_value(ac, av);
+	stack_size = get_stack_size(a);
+	give_index(a, stack_size + 1);
+	push_swap(&a, &b, stack_size);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

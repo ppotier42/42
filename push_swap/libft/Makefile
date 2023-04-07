@@ -7,6 +7,7 @@ OBJ = $(SRC:.c=.o)
 NAME = libft.a
 
 SRC = 	ft_atoi.c \
+		ft_is_sign.c \
 		ft_bzero.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
