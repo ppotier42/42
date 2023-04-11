@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:14:57 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 16:19:07 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/11 10:51:22 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	remain_three(t_stack **a, t_stack **b)
 		do_pb(a, b);
 		pushed++;
 	}
-	
 }
 
 /* get_position:

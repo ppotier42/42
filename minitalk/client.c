@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 13:09:12 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/04 12:42:04 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/11 11:56:06 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int	main(int ac, char **av)
 
 	i = 0;
 	if (ac == 1)
-		return (1);
+		ft_putstr_error("Usage : ./client PID Message\n");
+	if (ac == 2)
+		ft_putstr_error("Error, not enough arguments\n");
 	pid = ft_atoi_mini(av[1]);
 	if (ac == 3)
 	{
@@ -47,9 +49,6 @@ int	main(int ac, char **av)
 		ft_send(pid, '\n');
 	}
 	else
-	{
-		ft_putstr("Error\n");
-		return (1);
-	}
+		ft_putstr_error("Error\n");
 	return (0);
 }

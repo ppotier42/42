@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:15:21 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 17:07:37 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/11 13:34:30 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
+# include <stddef.h>
 
 typedef struct s_stack
 {
@@ -39,7 +40,7 @@ int		ft_is_sorted(t_stack *a);
 int		args_is_digit(char *str);
 int		check_doubles(char **av);
 int		args_is_zero(char *str);
-int		ft_check_input(char **av);
+int		ft_check_input(int ac, char **av);
 int		nb_cmp(const char *s1, const char *s2);
 // utils.c
 void	give_index(t_stack *a, int size);

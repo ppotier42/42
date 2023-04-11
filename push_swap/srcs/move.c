@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 15:06:13 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 17:04:46 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/11 10:50:35 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	}
 }
 
-static void	do_rotate_a(t_stack **a, int *cost_a)
+void	do_rotate_a(t_stack **a, int *cost_a)
 {
 	while (*cost_a)
 	{

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:54:22 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/03 11:54:41 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/11 11:55:25 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,19 @@ void	ft_putstr(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
+}
+
+int	ft_putstr_error(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(2, &s[i], 1);
+		i++;
+	}
+	return (1);
 }
 
 void	ft_putnbr(int n)

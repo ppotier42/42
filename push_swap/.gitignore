@@ -3,3 +3,4 @@ libft/*.o
 libft/libft.h.gch
 libft/*.a
 push_swap
+push_swap_tester/*
