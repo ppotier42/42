@@ -17,3 +17,4 @@ GNL/get_next_line.c
 fdf/.vscode/tasks.json
 minitalk/client
 minitalk/server
+push_swap/push_swap_tester
