@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/12 16:04:54 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/12 16:20:09 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ t_stack	*fill_value(int ac, char **av)
 	if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else
-	{
 		args = ++av;
-	}
 	while (*args)
 	{
 		nb = ft_atoi(*args);
@@ -39,6 +37,7 @@ t_stack	*fill_value(int ac, char **av)
 			stack_add(&a, ft_stack_new(nb));
 		args++;
 	}
+	free(args);
 	return (a);
 }
 
