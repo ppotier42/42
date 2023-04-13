@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 16:30:40 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/11 13:33:56 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/13 13:32:58 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ int	ft_check_input(int ac, char **av)
 
 	nb_zeros = 0;
 	if (ac == 2)
-	{
 		args = ft_split(av[1], ' ');
-	}
 	else
 		args = av;
+	if (!args)
+		return (0);
 	i = 1;
 	while (args[i])
 	{

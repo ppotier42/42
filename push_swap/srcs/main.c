@@ -6,38 +6,46 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/12 16:20:09 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/13 15:09:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_check_av(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+		i++;
+	if (i == 2)
+		exit (1);
+}
+
 t_stack	*fill_value(int ac, char **av)
 {
 	t_stack	*a;
 	int		nb;
-	int		i;
 	char	**args;
 
-	i = 0;
 	nb = 0;
 	a = NULL;
 	if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else
 		args = ++av;
+	if (!args)
+		return (NULL);
 	while (*args)
 	{
 		nb = ft_atoi(*args);
 		if (nb > INT_MAX || nb < INT_MIN)
 			ft_error(&a, NULL);
-		if (i == 1)
-			a = ft_stack_new(nb);
-		else
-			stack_add(&a, ft_stack_new(nb));
+		stack_add(&a, ft_stack_new(nb));
 		args++;
 	}
-	free(args);
+	free(*args);
 	return (a);
 }
 
@@ -70,7 +78,8 @@ int	main(int ac, char **av)
 	int		stack_size;
 
 	if (ac < 2)
-		return (0);
+		return (1);
+	ft_check_av(av);
 	if (!ft_check_input(ac, av))
 		ft_error(NULL, NULL);
 	b = NULL;

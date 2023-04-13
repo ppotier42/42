@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:11:19 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/06 16:29:13 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/13 11:40:43 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ t_stack	*ft_stack_new(int value)
 	new->next = NULL;
 	return (new);
 }
+
 /* add:
 *	ajoute les éléments en bas de la stack.
 */
-
 void	stack_add(t_stack **stack, t_stack *new)
 {
 	t_stack	*bottom;

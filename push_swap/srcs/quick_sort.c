@@ -6,12 +6,11 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:03:59 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 16:06:44 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/13 13:17:06 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	find_high_index(t_stack *stack)
 {
