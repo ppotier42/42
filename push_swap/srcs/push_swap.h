@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:15:21 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/20 16:38:00 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/20 23:32:54 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_stack	*ft_stack_new(int value);
 t_stack	*get_stack_bottom(t_stack *stack);
 // error.c
 int		ft_check_int(char *strnum);
+void	ft_free(char **str);
 void	free_stack(t_stack **stack);
 void	ft_error(t_stack **a, t_stack **b);
 // swap.c

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/20 17:23:42 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/20 23:50:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ t_stack	*fill_value(int ac, char **av)
 		if (!*args)
 			return (NULL);
 		if (!ft_check_av(args))
-			free(args);
+		{
+			ft_free(args);
+			return (NULL);
+		}
 	}
 	else
 		args = ++av;
@@ -51,9 +54,7 @@ t_stack	*fill_value(int ac, char **av)
 		stack_add(&a, ft_stack_new(nb));
 		args++;
 	}
-	for (int i = 1; args[i] != NULL; i++)
-		free(args[i]);
-	free(args);
+	// ft_free(args);
 	return (a);
 }
 

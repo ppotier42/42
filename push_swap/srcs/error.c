@@ -6,11 +6,26 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/20 16:47:20 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/20 23:53:15 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
 
 int	ft_check_int(char *strnum)
 {
