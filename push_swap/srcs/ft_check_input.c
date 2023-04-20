@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 16:30:40 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/13 13:32:58 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/20 17:16:46 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,23 +92,32 @@ int	ft_check_input(int ac, char **av)
 	char	**args;
 
 	nb_zeros = 0;
+	i = 0;
 	if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else
+	{
 		args = av;
+		i = 1;
+	}
 	if (!args)
 		return (0);
-	i = 1;
 	while (args[i])
 	{
+		if(!ft_check_int(args[i]))
+			return (0);
 		if (!args_is_digit(args[i]))
 			return (0);
 		nb_zeros += args_is_zero(args[i]);
 		i++;
 	}
+	// free (args);
 	if (nb_zeros > 1)
 		return (0);
 	if (check_doubles(args))
 		return (0);
+	for (int i = 0; args[i] != NULL; i++)
+		free(args[i]);
+	free (args);
 	return (1);
 }

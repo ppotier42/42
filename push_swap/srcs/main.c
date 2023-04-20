@@ -6,21 +6,25 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/13 15:09:42 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/20 17:23:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_check_av(char **av)
+int	ft_check_av(char **av)
 {
 	int	i;
 
 	i = 0;
 	while (av[i])
 		i++;
-	if (i == 2)
+	if (i == 1)
+	{
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
+	}
+	return (i);
 }
 
 t_stack	*fill_value(int ac, char **av)
@@ -32,20 +36,24 @@ t_stack	*fill_value(int ac, char **av)
 	nb = 0;
 	a = NULL;
 	if (ac == 2)
+	{
 		args = ft_split(av[1], ' ');
+		if (!*args)
+			return (NULL);
+		if (!ft_check_av(args))
+			free(args);
+	}
 	else
 		args = ++av;
-	if (!args)
-		return (NULL);
 	while (*args)
 	{
 		nb = ft_atoi(*args);
-		if (nb > INT_MAX || nb < INT_MIN)
-			ft_error(&a, NULL);
 		stack_add(&a, ft_stack_new(nb));
 		args++;
 	}
-	free(*args);
+	for (int i = 1; args[i] != NULL; i++)
+		free(args[i]);
+	free(args);
 	return (a);
 }
 
@@ -79,7 +87,6 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (1);
-	ft_check_av(av);
 	if (!ft_check_input(ac, av))
 		ft_error(NULL, NULL);
 	b = NULL;

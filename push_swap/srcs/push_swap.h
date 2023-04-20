@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:15:21 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/11 13:34:30 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/20 16:38:00 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		main(int ac, char **av);
 t_stack	*fill_value(int ac, char **av);
 void	push_swap(t_stack **a, t_stack **b, int size);
 int		ft_is_sorted(t_stack *a);
+int		ft_check_av(char **av);
 // ft_check_intput.c
 int		args_is_digit(char *str);
 int		check_doubles(char **av);
@@ -49,6 +50,7 @@ void	stack_add(t_stack **stack, t_stack *new);
 t_stack	*ft_stack_new(int value);
 t_stack	*get_stack_bottom(t_stack *stack);
 // error.c
+int		ft_check_int(char *strnum);
 void	free_stack(t_stack **stack);
 void	ft_error(t_stack **a, t_stack **b);
 // swap.c

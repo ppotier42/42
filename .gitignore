@@ -1,16 +1,11 @@
 libft/*
 ft_printf/*
-so_long/*.o*
-so_long/mlxOS/*.o
-so_long/mlxOS/*.a
-so_long/libft/*.o
-so_long/libft/*.a
-so_long/so_long
+fdf/*
 GNL/*.*
-
+minitalk/*
 *.pdf
 .vscode/settings.json
-a.out
+*/a.out
 42.code-workspace
 .DS_Store
 GNL/get_next_line.c
@@ -18,3 +13,4 @@ fdf/.vscode/tasks.json
 minitalk/client
 minitalk/server
 push_swap/push_swap_tester
+
