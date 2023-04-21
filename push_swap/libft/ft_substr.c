@@ -36,3 +36,29 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (sub);
 }
+// rewrite the ft_substr above
+
+// char	*ft_substr(char const *s, unsigned int start, size_t len)
+// {
+// 	size_t	i;
+// 	size_t	j;
+// 	char	*sub;
+
+// 	i = 0;
+// 	j = 0;
+// 	if (s == NULL)
+// 		return (NULL);
+// 	sub = ft_calloc(sizeof(*sub), len + 1);
+// 	if (!sub)
+// 		return (NULL);
+// 	while (s[j] != '\0' && i < len)
+// 	{
+// 		if (j >= start)
+// 		{
+// 			sub[i] = s[j];
+// 			i++;
+// 		}
+// 		j++;
+// 	}
+// 	return (sub);
+// }

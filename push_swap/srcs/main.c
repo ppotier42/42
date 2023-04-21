@@ -6,24 +6,22 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/21 14:50:20 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/21 16:36:32 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_av(char **av)
+int	ft_check_av(char **args)
 {
 	int	i;
 
 	i = 0;
-	while (av[i])
+	while (args[i])
 		i++;
 	if (i == 1)
 	{
 		ft_putstr_fd("Error\n", 2);
-		// ft_free(av);
-		// return (0);
 		exit (1);
 	}
 	return (1);
@@ -34,26 +32,33 @@ t_stack	*fill_value(int ac, char **av)
 	t_stack	*a;
 	int		nb;
 	char	**args;
+	char	**tmp;
 
 	nb = 0;
-	a = NULL;
+	// a = NULL;
 	if (ac == 2)
 	{
 		args = ft_split(av[1], ' ');
-		if (!*args)
+		if (!args)
 			return (NULL);
 	}
 	else
 		args = ++av;
-	if (!ft_check_av(args))
+	tmp = args;
+	if (!ft_check_av(args)) // check if there is at least one argument
+	{
+		ft_free(args);
 		return (NULL);
+	}
 	while (*args)
 	{
 		nb = ft_atoi(*args);
 		stack_add(&a, ft_stack_new(nb));
 		args++;
 	}
-	// ft_free(args);
+	args = tmp;
+	if (ac == 2)
+		ft_free(args);
 	return (a);
 }
 
@@ -85,11 +90,13 @@ int	main(int ac, char **av)
 	t_stack	*b;
 	int		stack_size;
 
-	if (ac < 2)
+	if (ac < 2 || av[1][0] == '\0')
 		return (1);
 	if (!ft_check_input(ac, av))
+	{
 		ft_putstr_fd("Error\n", 2);
-	// ft_error(NULL, NULL);
+		exit (1);
+	}
 	b = NULL;
 	a = fill_value(ac, av);
 	stack_size = get_stack_size(a);
