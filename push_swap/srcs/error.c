@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/20 23:53:15 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/21 14:51:48 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_free(char **str)
 	i = 0;
 	if (!str)
 		return ;
-	while (str[i])
+	while (str[i] != NULL)
 	{
 		free(str[i]);
 		i++;

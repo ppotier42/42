@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 16:30:40 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/21 00:03:15 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/21 14:50:46 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,35 +87,30 @@ int	args_is_zero(char *str)
 
 int	ft_check_input(int ac, char **av)
 {
-	int		i;
 	int		nb_zeros;
 	char	**args;
 
 	nb_zeros = 0;
-	i = 0;
 	if (ac == 2)
+	{
 		args = ft_split(av[1], ' ');
-	else
-	{
-		args = av;
-		i = 1;
-	}
-	if (!args)
-		return (0);
-	while (args[++i])
-	{
-		if (!ft_check_int(args[i]) || (!args_is_digit(args[i])))
-		{
-			ft_free(args);
+		if (!*args)
 			return (0);
-		}
-		nb_zeros += args_is_zero(args[i]);
 	}
-	if (nb_zeros > 1 || check_doubles(args))
-	{
-		ft_free(args);
+	else
+		args = ++av;
+	if (check_doubles(args))
 		return (0);
+	while (*args)
+	{
+		if (!ft_check_int(*args) || (!args_is_digit(*args)))
+			return (0);
+		nb_zeros += args_is_zero(*args);
+		args++;
 	}
-	ft_free(args);
+	if (nb_zeros > 1)
+		return (0);
+	if (ac == 2)
+		ft_free(args);
 	return (1);
 }

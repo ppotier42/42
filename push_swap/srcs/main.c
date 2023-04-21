@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/20 23:50:42 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/21 14:50:20 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int	ft_check_av(char **av)
 	if (i == 1)
 	{
 		ft_putstr_fd("Error\n", 2);
+		// ft_free(av);
+		// return (0);
 		exit (1);
 	}
-	return (i);
+	return (1);
 }
 
 t_stack	*fill_value(int ac, char **av)
@@ -40,14 +42,11 @@ t_stack	*fill_value(int ac, char **av)
 		args = ft_split(av[1], ' ');
 		if (!*args)
 			return (NULL);
-		if (!ft_check_av(args))
-		{
-			ft_free(args);
-			return (NULL);
-		}
 	}
 	else
 		args = ++av;
+	if (!ft_check_av(args))
+		return (NULL);
 	while (*args)
 	{
 		nb = ft_atoi(*args);
@@ -89,7 +88,8 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	if (!ft_check_input(ac, av))
-		ft_error(NULL, NULL);
+		ft_putstr_fd("Error\n", 2);
+	// ft_error(NULL, NULL);
 	b = NULL;
 	a = fill_value(ac, av);
 	stack_size = get_stack_size(a);
