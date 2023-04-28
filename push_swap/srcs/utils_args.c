@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_sep.c                                    :+:      :+:    :+:   */
+/*   utils_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 11:22:04 by ppotier           #+#    #+#             */
-/*   Updated: 2023/03/09 14:06:12 by ppotier          ###   ########.fr       */
+/*   Created: 2023/04/28 17:47:56 by ppotier           #+#    #+#             */
+/*   Updated: 2023/04/28 18:04:02 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_count_word(char *s, char c)
+char	**ft_split_args(char *str)
 {
-	int	i;
-	int	word;
+	char	**args;
 
-	i = 0;
-	word = 0;
-	while (s[i] == c && s[i])
-		i++;
-	if (!s[i])
-		return (word);
-	while (s[i])
-	{
-		if (s[i] == c)
-		{
-			word++;
-			while (s[i] && s[i] == c)
-				i++;
-		}
-		else
-			i++;
-	}
-	return (word + 1);
+	args = ft_split(str, ' ');
+	if (!args)
+		return (0);
+	return (args);
 }

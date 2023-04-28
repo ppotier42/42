@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/04/21 14:46:25 by ppotier          ###   ########.fr        #
+#    Updated: 2023/04/28 17:50:54 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC =	srcs/cost.c \
 		srcs/utils.c \
 		srcs/push.c \
 		srcs/ft_check_input.c \
+		srcs/utils_args.c \
 		
 CC = gcc
 

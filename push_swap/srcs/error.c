@@ -6,11 +6,12 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 13:42:23 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/27 16:36:50 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 17:45:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 void	ft_free(char **str)
 {
 	int	i;
@@ -29,11 +30,10 @@ void	ft_free(char **str)
 int	ft_check_int(char *num)
 {
 	int	res;
+	int	len;
 
-	int len = ft_strlen(num);
-	if (len > 11)
-		return (0);
-	else if (len > 10 && num[0] != '-')
+	len = ft_strlen(num);
+	if (len > 11 || (len > 10 && num[0] != '-'))
 		return (0);
 	else if (num[0] == '-' && len == 11)
 	{
@@ -54,7 +54,6 @@ int	ft_check_int(char *num)
 	else
 		return (1);
 }
-
 
 void	free_stack(t_stack **stack)
 {
