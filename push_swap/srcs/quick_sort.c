@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 16:03:59 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/13 13:17:06 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 15:02:36 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,18 @@ void	quick_sort(t_stack **stack)
 		return ;
 	highest = find_high_index(*stack);
 	if ((*stack)->index == highest)
+	{	
+		// printf("index : %d\n", highest);
 		do_ra(stack);
+	}
 	if ((*stack)->next->index == highest)
+	{
+		// printf("index : %d\n", highest);
 		do_rra(stack);
+	}
 	if ((*stack)->index > (*stack)->next->index)
+	{
+		// printf("index : %d\n", highest);
 		do_sa(stack);
+	}
 }

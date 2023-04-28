@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:11:19 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/13 11:40:43 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 16:48:32 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	get_stack_size(t_stack *stack)
 
 	size = 0;
 	if (!stack)
-		return (size);
+		return (0);
 	while (stack)
 	{
 		stack = stack->next;
@@ -86,6 +86,7 @@ void	give_index(t_stack *a, int size)
 		{
 			if (ptr->value == INT_MIN && ptr->index == 0)
 				ptr->index = 1;
+			// printf("avlue : %d\n", ptr->index);
 			if (ptr->value > value && ptr->index == 0)
 			{
 				value = ptr->value;

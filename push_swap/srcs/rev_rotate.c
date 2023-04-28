@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:56:46 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 14:09:30 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 17:15:39 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	rev_rotate(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*bottom;
-	t_stack	*be_bottom;
+	t_stack	*before_bottom;
 
 	bottom = get_stack_bottom(*stack);
-	be_bottom = get_stack_be_bottom(*stack);
+	before_bottom = get_stack_be_bottom(*stack);
 	tmp = *stack;
 	*stack = bottom;
 	(*stack)->next = tmp;
-	be_bottom->next = NULL;
+	before_bottom->next = NULL;
 }
 
 void	do_rra(t_stack **a)

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/21 16:36:32 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 16:43:49 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	ft_check_av(char **args)
 		i++;
 	if (i == 1)
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		return (0);
 	}
 	return (1);
 }
@@ -35,7 +34,7 @@ t_stack	*fill_value(int ac, char **av)
 	char	**tmp;
 
 	nb = 0;
-	// a = NULL;
+	a = NULL;
 	if (ac == 2)
 	{
 		args = ft_split(av[1], ' ');
@@ -45,11 +44,6 @@ t_stack	*fill_value(int ac, char **av)
 	else
 		args = ++av;
 	tmp = args;
-	if (!ft_check_av(args)) // check if there is at least one argument
-	{
-		ft_free(args);
-		return (NULL);
-	}
 	while (*args)
 	{
 		nb = ft_atoi(*args);
@@ -78,9 +72,9 @@ void	push_swap(t_stack **a, t_stack **b, int size)
 	(void)b;
 	if (size == 2 && !ft_is_sorted(*a))
 		do_sa(a);
-	else if (size == 3)
+	if (size == 3)
 		quick_sort(a);
-	else if (size > 3 && !ft_is_sorted(*a))
+	if (size > 3 && !ft_is_sorted(*a))
 		sort(a, b);
 }
 
@@ -90,13 +84,10 @@ int	main(int ac, char **av)
 	t_stack	*b;
 	int		stack_size;
 
-	if (ac < 2 || av[1][0] == '\0')
-		return (1);
-	if (!ft_check_input(ac, av))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit (1);
-	}
+	if (ac < 2 || !ft_check_av(av))
+		return (0);
+	if (!av[1][0] || !ft_check_input(ac, av))
+		return (0);
 	b = NULL;
 	a = fill_value(ac, av);
 	stack_size = get_stack_size(a);

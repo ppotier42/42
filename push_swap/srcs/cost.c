@@ -6,21 +6,21 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:51:37 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/07 17:07:54 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 16:13:09 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_lowest_index(t_stack **a)
+int	get_lowest_index(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		lowest_index;
 	int		lowest_pos;
 
-	tmp = *a;
+	tmp = *stack;
 	lowest_index = INT_MAX;
-	get_position(a);
+	get_position(stack);
 	lowest_pos = tmp->pos;
 	while (tmp)
 	{
@@ -104,7 +104,7 @@ void	get_cost(t_stack **a, t_stack **b)
 	}
 }
 
-/* do_cheapest_move:
+/* get_cheap_move:
 *	Finds the element in stack B with the cheapest cost to move to stack A
 *	and moves it to the correct position in stack A.
 */
