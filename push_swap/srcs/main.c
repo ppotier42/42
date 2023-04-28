@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:18:08 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/28 17:50:31 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 18:30:15 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	ft_check_av(char **args)
 	while (args[i])
 		i++;
 	if (i == 1)
-	{
 		return (0);
-	}
 	return (1);
 }
 

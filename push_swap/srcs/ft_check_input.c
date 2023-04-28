@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 16:30:40 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/28 18:06:51 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/28 18:30:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,7 @@ int	ft_check_input(int ac, char **av)
 	{
 		if (ac == 2)
 			ft_free(args);
-		ft_putendl_fd("Error", 2);
-		return (0);
+		return (ft_putendl_fd("Error", 2), 0);
 	}
 	while (*args)
 	{
@@ -112,18 +111,14 @@ int	ft_check_input(int ac, char **av)
 			args = tmp;
 			if (ac == 2)
 				ft_free(args);
-			ft_putendl_fd("Error", 2);
-			return (0);
+			return (ft_putendl_fd("Error", 2), 0);
 		}
 		nb_zeros += args_is_zero(*args);
 		args++;
 	}
 	args = tmp;
 	if (nb_zeros > 1)
-	{
-		ft_putendl_fd("Error", 2);
-		return (0);
-	}
+		return (ft_putendl_fd("Error", 2), 0);
 	if (ac == 2)
 		ft_free(args);
 	return (1);
