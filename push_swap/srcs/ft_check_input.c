@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 16:30:40 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/28 18:30:24 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/30 12:55:46 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,50 @@ int	args_is_zero(char *str)
 	return (1);
 }
 
+// int	ft_check_input(int ac, char **av)
+// {
+// 	int		nb_zeros;
+// 	char	**args;
+// 	char	**tmp;
+
+// 	nb_zeros = 0;
+// 	args = NULL;
+// 	if (ac == 2)
+// 		args = ft_split_args(av[1]);
+// 	else
+// 		args = ++av;
+// 	tmp = args;
+// 	if (!check_doubles(args))
+// 	{
+// 		if (ac == 2)
+// 			ft_free(args);
+// 		return (ft_putendl_fd("Error", 2), 0);
+// 	}
+// 	while (*args)
+// 	{
+// 		if (!ft_check_int(*args) || (!args_is_digit(*args)))
+// 		{
+// 			args = tmp;
+// 			if (ac == 2)
+// 				ft_free(args);
+// 			return (ft_putendl_fd("Error", 2), 0);
+// 		}
+// 		nb_zeros += args_is_zero(*args);
+// 		args++;
+// 	}
+// 	args = tmp;
+// 	if (nb_zeros > 1)
+// 		return (ft_putendl_fd("Error", 2), 0);
+// 	if (ac == 2)
+// 		ft_free(args);
+// 	return (1);
+// }
+
 int	ft_check_input(int ac, char **av)
 {
-	int		nb_zeros;
 	char	**args;
 	char	**tmp;
+	int		nb_zeros;
 
 	nb_zeros = 0;
 	args = NULL;
@@ -98,21 +137,10 @@ int	ft_check_input(int ac, char **av)
 	else
 		args = ++av;
 	tmp = args;
-	if (!check_doubles(args))
-	{
-		if (ac == 2)
-			ft_free(args);
-		return (ft_putendl_fd("Error", 2), 0);
-	}
+	if (!is_valid_args(args, ac))
+		return (0);
 	while (*args)
 	{
-		if (!ft_check_int(*args) || (!args_is_digit(*args)))
-		{
-			args = tmp;
-			if (ac == 2)
-				ft_free(args);
-			return (ft_putendl_fd("Error", 2), 0);
-		}
 		nb_zeros += args_is_zero(*args);
 		args++;
 	}

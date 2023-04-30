@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 13:15:21 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/28 17:58:30 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/30 12:54:16 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ void	do_pa(t_stack **a, t_stack **b);
 void	do_pb(t_stack **a, t_stack **b);
 // utils_args.c
 char	**ft_split_args(char *str);
-int		ft_check_all(char *args);
+int		is_valid_args(char **args, int ac);
+
 #endif
