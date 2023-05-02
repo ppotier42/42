@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 16:13:53 by ppotier           #+#    #+#             */
-/*   Updated: 2023/05/02 11:41:05 by ppotier          ###   ########.fr       */
+/*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
+/*   Updated: 2023/05/02 13:21:59 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "philo.h"
 
-void	rotate(t_stack **stack)
+void	ft_init_philo(int ac, char **av)
 {
-	t_stack	*tmp;
-	t_stack	*bottom;
+	int	nb_philo;
+	int	time_to_die;
 
-	tmp = *stack;
-	*stack = (*stack)->next;
-	bottom = get_stack_bottom(*stack);
-	tmp->next = NULL;
-	bottom->next = tmp;
+	nb_philo = ft_atoi(av[1]);
+	
 }
 
-void	do_ra(t_stack **a)
+int	main(int ac, char **av)
 {
-	rotate(a);
-	ft_printf("ra\n");
-}
-
-void	do_rb(t_stack **b)
-{
-	rotate(b);
-	ft_printf("rb\n");
-}
-
-void	do_rr(t_stack **a, t_stack **b)
-{
-	rotate(a);
-	rotate(b);
-	ft_printf("rr\n");
+	if (ac == 5)
+		ft_init_philo(ac, av);
+	else if (ac == 6)
+		ft_init_philo(ac, av);
+	return (0);
 }

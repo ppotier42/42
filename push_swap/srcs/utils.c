@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:11:19 by ppotier           #+#    #+#             */
-/*   Updated: 2023/04/28 17:38:26 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/05/02 12:53:14 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,9 @@ int	get_stack_size(t_stack *stack)
 	return (size);
 }
 
-/*Donne un index a chaque valeur de la stack a*/
+/*Donne un index a chaque valeur de la stack a
+*		value:		 3	 0	 9	 1 *
+*		index:		[3]	[1]	[4]	[2]*/
 void	give_index(t_stack *a, int size)
 {
 	t_stack	*ptr;
