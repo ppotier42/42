@@ -5,12 +5,7 @@ GNL/*
 minitalk/*
 push_swap/*
 *.pdf
-.vscode/settings.json
-*/a.out
 42.code-workspace
 .DS_Store
-GNL/get_next_line.c
-fdf/.vscode/tasks.json
-minitalk/client
-minitalk/server
+*.json
 push_swap/push_swap_tester
