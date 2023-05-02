@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/05/02 13:11:29 by ppotier          ###   ########.fr        #
+#    Updated: 2023/05/02 15:55:42 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = philo
 
-OBJ = $(SRC:.c=.o)
+CREATE_DIR_O = @mkdir -p objs
+
+DIR_OBJS = objs/
+
+OBJ = $(SRC:.c=${DIR_OBJS}.o)
 
 all: $(NAME)
 
