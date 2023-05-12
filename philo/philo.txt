@@ -1,0 +1,36 @@
+nb de philo = 1 a n
+si nb philo == 1 die after timetodie;
+Le philosophe numéro 1 est assis à côté du philosophe numéro number_of_philosophers.
+Les autres suivent cette logique : philosophe numéro N est assis entre philosophe
+numéro N - 1 et philosophe numéro N + 1;
+number_of_philosophers : Le nombre de philosophes, mais aussi le nombre
+de fourchettes;
+time_to_die (en millisecondes) : Si un philosophe n’a pas commencé à manger
+time_to_die millisecondes après le DEBUT de son précédent repas ou depuis le
+début de la simulation, il meurt; DONC, si il mange en 1st, le time commence au moment ou il mange;
+time_to_eat (en millisecondes) : Le temps qu’un philosophe prend à manger.
+Pendant ce temps, un philosophe doit garder ses deux fourchettes;
+time_to_sleep (en millisecondes) : Le temps qu’un philosophe passe à dormir;
+
+Tout changement d’état d’un philosophe doit être formatté comme suit :
+◦ timestamp_in_ms X has taken a fork
+◦ timestamp_in_ms X is eating
+◦ timestamp_in_ms X is sleeping
+◦ timestamp_in_ms X is thinking
+◦ timestamp_in_ms X died
+	printf("%d %d", time, nb_philo, ...);
+Il ne doit pas y avoir plus de 10 ms entre la mort d’un philosophe et l’affichage du
+message annonçant sa mort.
+
+args = number_of_philosophers time_to_die time_to_eat
+time_to_sleep
+[number_of_times_each_philosopher_must_eat];
+
+fontion autorisée:
+memset, printf, malloc, free, write,
+usleep, gettimeofday, pthread_create,
+pthread_detach, pthread_join, pthread_mutex_init,
+pthread_mutex_destroy, pthread_mutex_lock,
+pthread_mutex_unlock;
+
+A RENDRE DANS UN DOSSIER philo/;

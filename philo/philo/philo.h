@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:54 by ppotier           #+#    #+#             */
-/*   Updated: 2023/05/02 14:06:19 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/05/12 13:47:55 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ typedef struct s_table
 	t_data	*data;
 }	t_table;
 
-
 // main.c
 int		main(int ac, char **av);
+// utilis.c
+void	ft_putstr_error(char *s, int fd);
 
 #endif
