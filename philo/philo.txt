@@ -33,4 +33,31 @@ pthread_detach, pthread_join, pthread_mutex_init,
 pthread_mutex_destroy, pthread_mutex_lock,
 pthread_mutex_unlock;
 
+pour chaque fourchette : un mutex;
+
 A RENDRE DANS UN DOSSIER philo/;
+
+https://github.com/TommyJD93/Philosophers#Guide
+https://github.com/iciamyplant/Philosophers
+
+https://www.youtube.com/watch?v=o_GbRujGCnM&t=377s
+(attention, utilisation de fonction interdite);
+
+{
+	pthread_t t1;
+	pthread_create(&t1, NULL, funct, "(NULL)");
+	pthread_join(t1, NULL);
+}
+
+pthread_join(t1, NULL);
+La fonction pthread_join() suspend l'exécution du thread appelant jusqu'à ce que le thread cible
+se termine à moins que le thread cible ne soit déjà terminé.
+
+pthread_mutex_lock(&mutex) // permet de lock le mutex, et travailler dessus sans que d'autre soit dessus;
+a mettre avant boucle while etc;
+
+pthread_mutex_unlock(&mutex) // permet d'unlock le mutex, et permet aux autres de travailler dessus.
+a mettre avant la valeur de retour; 
+
+pthread_mutex_destroy(mutex);
+a mettre avant le pthread_join;

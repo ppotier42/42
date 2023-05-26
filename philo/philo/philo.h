@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:54 by ppotier           #+#    #+#             */
-/*   Updated: 2023/05/12 13:47:55 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/05/26 18:18:40 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,32 @@
 
 typedef struct s_data
 {
-	int	nb_philo;
-	int	timetodie;
-	int	timetoeat;
-	int	timetosleep;	
+	int			nb_philo;
+	long int	timetodie;
+	long int	timetoeat;
+	long int	timetosleep;
+	int			philo_eat;
+	// mutex; 2? imprime et manger
 }	t_data;
 
 typedef struct s_philo
 {
 	int				philo;
 	//mutex;
-	t_data			data;
+	t_data			*data;
 	struct s_philo	**next;
 }	t_philo;
 
-typedef struct s_table
-{
-	int		philo_eat;
-	// mutex; 2? imprime et manger
-	t_data	*data;
-}	t_table;
-
 // main.c
-int		main(int ac, char **av);
+int			main(int ac, char **av);
 // utilis.c
-void	ft_putstr_error(char *s, int fd);
+void		ft_putstr_error(char *s, int fd);
+long int	get_time(void);
+int			ft_strlen(char *s);
+int			ft_usleep(useconds_t time);
+// check_args.c
+int			ft_check_args(int ac, char **av, t_data *data);
+// one_philo.c
+int			one_philo(int timetodie);
 
 #endif
