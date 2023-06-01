@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:58:56 by ppotier           #+#    #+#             */
-/*   Updated: 2023/05/26 18:14:03 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/01 13:08:20 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	ft_check_args(int ac, char **av, t_data *data)
 		data->timetodie = ft_atoi(av[2]);
 		data->timetoeat = ft_atoi(av[3]);
 		data->timetosleep = ft_atoi(av[4]);
-		data->philo_eat = -1;
+		data->nb_meal = -1;
 		if (ac == 6)
-			data->philo_eat = ft_atoi(av[5]);
+			data->nb_meal = ft_atoi(av[5]);
 		if (data->nb_philo <= 0 || data->timetodie <= 0 || data->timetoeat <= 0
 			|| data->timetosleep <= 0)
 			return (0);

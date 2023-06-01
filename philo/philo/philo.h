@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:54 by ppotier           #+#    #+#             */
-/*   Updated: 2023/05/26 18:18:40 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/01 15:46:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,20 @@ typedef struct s_data
 	long int	timetodie;
 	long int	timetoeat;
 	long int	timetosleep;
-	int			philo_eat;
-	// mutex; 2? imprime et manger
+	int			nb_meal;
 }	t_data;
 
 typedef struct s_philo
 {
-	int				philo;
+	int				id_philo;
 	//mutex;
-	t_data			*data;
-	struct s_philo	**next;
+	long int		time_eat;
+	unsigned int	nb_p_eat;
+	int				finish;
+	t_data			data;
+	pthread_mutex_t	l_f;
+	pthread_mutex_t	r_f;
+	struct s_philo	*next;
 }	t_philo;
 
 // main.c
