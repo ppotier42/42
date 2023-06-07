@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:58:56 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/01 13:08:20 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/07 14:28:46 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,11 @@ static int	all_numb(char **av)
 }
 
 // check args, bien des nums etc... return (1) en reussite; 
-int	ft_check_args(int ac, char **av, t_data *data)
+t_data	*ft_check_args(int ac, char **av)
 {
+	t_data	*data;
+
+	data = malloc(sizeof(t_data));
 	if ((ac == 5 || ac == 6) && all_numb(av))
 	{
 		data->nb_philo = ft_atoi(av[1]);
@@ -59,8 +62,8 @@ int	ft_check_args(int ac, char **av, t_data *data)
 			data->nb_meal = ft_atoi(av[5]);
 		if (data->nb_philo <= 0 || data->timetodie <= 0 || data->timetoeat <= 0
 			|| data->timetosleep <= 0)
-			return (0);
-		return (1);
+			return (NULL);
+		return (data);
 	}
-	return (0);
+	return (NULL);
 }

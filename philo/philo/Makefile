@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/05/26 18:09:38 by ppotier          ###   ########.fr        #
+#    Updated: 2023/06/05 14:02:40 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,6 @@ fclean:	clean
 		$(RM) $(NAME)
 
 t:	${NAME}
-		${CC} ${SECCFLAGS} ${OBJS} -g -fsanitize=thread -o ${NAME}
+		${CC} ${SECCFLAGS} ${OBJ} -o ${NAME}
 
 re:		fclean all

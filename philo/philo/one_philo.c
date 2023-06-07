@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 17:54:44 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/01 15:00:32 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/05 16:42:04 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,8 @@
 
 int	one_philo(int timetodie)
 {
-	long int	start;
-	long int	status;
-	long int	end;
-
-	start = get_time();
-	status = 0;
-	if (start == -1)
-		return (-1);
-	end = start + timetodie;
 	printf("0: Philo 1 is thinking\n");
-	while (1 && status != -1)
-	{
-		status = get_time();
-		if (status != -1 && status >= end)
-			break ;
-		ft_usleep(timetodie);
-	}
-	if (status == -1)
-		return (-1);
-	printf("%ld: Philo 1 has died\n", status - start);
+	ft_usleep(timetodie);
+	printf("%d: Philo 1 died\n", timetodie);
 	return (0);
 }
