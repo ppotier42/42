@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/12 16:54:46 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/12 17:45:02 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	write_status(char *s, t_philo *philo, t_data *data)
 
 void	ft_eat_sleep_think(t_data *data, t_philo *philo)
 {
-	if (philo->l_f->flag_fork == 0 && philo->r_f->flag_fork == 0)
+	if (philo->l_f->flag_fork == 0 && philo->r_f->flag_fork == 0
+		&& data->is_dead == 0)
 	{
 		pthread_mutex_lock(&philo->l_f->mutex);
 		write_status("has taken a fork", philo, data);
@@ -36,15 +37,16 @@ void	ft_eat_sleep_think(t_data *data, t_philo *philo)
 		pthread_mutex_lock(&philo->r_f->mutex);
 		write_status("has taken a fork", philo, data);
 		philo->r_f->flag_fork = 1;
+		philo->last_meal = get_time();
 		write_status("is eating", philo, data);
 		philo->eat_count++;
-		ft_usleep(data->timetoeat);
+		ft_usleep(data->timetoeat, data, philo);
 		pthread_mutex_unlock(&philo->l_f->mutex);
 		philo->l_f->flag_fork = 0;
 		pthread_mutex_unlock(&philo->r_f->mutex);
 		philo->r_f->flag_fork = 0;
 		write_status("is sleeping", philo, data);
-		ft_usleep(data->timetosleep);
+		ft_usleep(data->timetosleep, data, philo);
 		write_status("is thinking", philo, data);
 	}
 }
@@ -57,14 +59,20 @@ void	*routine(void *arg)
 	philo = (t_philo *)arg;
 	data = philo->data;
 	if (philo->id_philo % 2 == 0)
-		ft_usleep(data->timetoeat / 10);
-	while (data->nb_meal == -1)
+		usleep(data->timetoeat / 10);
+	while (data->nb_meal == -1 && data->is_dead == 0)
 	{
-		ft_eat_sleep_think(data, philo);
+		if (data->is_dead == 0)
+			ft_eat_sleep_think(data, philo);
+		else
+			break ;
 	}
-	while (philo->eat_count < data->nb_meal)
+	while (philo->eat_count < data->nb_meal && data->is_dead == 0)
 	{
-		ft_eat_sleep_think(data, philo);
+		if (data->is_dead == 0)
+			ft_eat_sleep_think(data, philo);
+		else
+			break ;
 	}
 	return (NULL);
 }

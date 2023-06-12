@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:58:56 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/12 15:32:51 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/12 17:18:13 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_data	*ft_init_args(int ac, char **av)
 		data->timetoeat = ft_atoi(av[3]);
 		data->timetosleep = ft_atoi(av[4]);
 		data->start_time = get_time();
+		data->is_dead = 0;
 		if (ac == 6)
 			data->nb_meal = ft_atoi(av[5]);
 		else
@@ -67,7 +68,8 @@ t_data	*ft_init_args(int ac, char **av)
 		if (data->nb_philo <= 0 || data->timetodie <= 0 || data->timetoeat <= 0
 			|| data->timetosleep <= 0)
 			return (NULL);
-		if (pthread_mutex_init(&data->write, NULL) != 0)
+		if (pthread_mutex_init(&data->write, NULL)
+			&& pthread_mutex_init(&data->dead, NULL) != 0)
 			return (NULL);
 		return (data);
 	}
