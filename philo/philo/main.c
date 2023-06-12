@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/12 16:11:49 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:54:46 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	*routine(void *arg)
 		ft_usleep(data->timetoeat / 10);
 	while (data->nb_meal == -1)
 	{
-		is_dead_habibi(data, philo);
 		ft_eat_sleep_think(data, philo);
 	}
 	while (philo->eat_count < data->nb_meal)
@@ -87,7 +86,6 @@ t_philo	*ft_init_philo(t_data *data)
 		philo[i].data = data;
 		philo[i].last_meal = start;
 		philo[i].eat_count = 0;
-		philo[i].is_dead = 0;
 		philo[i].l_f = &data->forks[i];
 		philo[i].r_f = &data->forks[(i + 1) % data->nb_philo];
 		if (pthread_create(&philo[i].thread, NULL, &routine, &philo[i]) != 0)
