@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:54 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/08 14:53:51 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:11:35 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,28 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <pthread.h>
+# include <limits.h>
 
 typedef struct s_data	t_data;
+
+typedef struct s_fork
+{
+	pthread_mutex_t	mutex;
+	int				flag_fork;
+}	t_fork;
 
 typedef struct s_philo
 {
 	int				id_philo;
-	long int		time_eat;
-	unsigned int	nb_p_eat;
+	int				eat_count;
 	int				finish;
+	int				is_dead;
+	long int		last_meal;
 
-	pthread_mutex_t	*l_f;
-	pthread_mutex_t	*r_f;
-	pthread_mutex_t	*philo_finish;
+	pthread_t		thread;
 
+	t_fork			*l_f;
+	t_fork			*r_f;
 	t_data			*data;
 }	t_philo;
 
@@ -42,12 +50,11 @@ typedef struct s_data
 	long int		timetodie;
 	long int		timetoeat;
 	long int		timetosleep;
+	long int		start_time;
 	int				nb_meal;
-	
-	pthread_mutex_t	*write;
-	pthread_t		*thread;
-	pthread_mutex_t	*fork;
-	
+
+	pthread_mutex_t	write;
+	t_fork			*forks;
 	t_philo			*p;
 }	t_data;
 
@@ -59,7 +66,7 @@ long int	get_time(void);
 int			ft_strlen(char *s);
 int			ft_usleep(useconds_t time);
 // check_args.c
-int			ft_check_args(t_data *data, int ac, char **av);
+t_data		*ft_init_args(int ac, char **av);
 // one_philo.c
 int			one_philo(int timetodie);
 

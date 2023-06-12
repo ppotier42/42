@@ -6,107 +6,131 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/08 15:45:28 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:11:49 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_eat_sleep(t_philo *philo)
+void	write_status(char *s, t_philo *philo, t_data *data)
 {
-	pthread_mutex_lock(philo->l_f);
-	printf("fourhcette gauche\n");
-	pthread_mutex_lock(philo->r_f);
-	printf("fourhcettedroite\n");
-	pthread_mutex_lock(philo->data->write);
-	printf("%d, mange\n", philo->id_philo);
-	// ft_usleep(philo->data->timetoeat + 1);
-	pthread_mutex_unlock(philo->l_f);
-	pthread_mutex_unlock(philo->r_f);
-	pthread_mutex_unlock(philo->data->write);
-	printf("fini\n");
+	long int	time;
+
+	time = get_time() - data->start_time;
+	if (time >= 0 && time < INT_MAX)
+	{
+		pthread_mutex_lock(&data->write);
+		printf("%ld : ", time);
+		printf("Philo %d %s\n", philo->id_philo, s);
+		pthread_mutex_unlock(&data->write);
+	}
+}
+
+void	ft_eat_sleep_think(t_data *data, t_philo *philo)
+{
+	if (philo->l_f->flag_fork == 0 && philo->r_f->flag_fork == 0)
+	{
+		pthread_mutex_lock(&philo->l_f->mutex);
+		write_status("has taken a fork", philo, data);
+		philo->l_f->flag_fork = 1;
+		pthread_mutex_lock(&philo->r_f->mutex);
+		write_status("has taken a fork", philo, data);
+		philo->r_f->flag_fork = 1;
+		write_status("is eating", philo, data);
+		philo->eat_count++;
+		ft_usleep(data->timetoeat);
+		pthread_mutex_unlock(&philo->l_f->mutex);
+		philo->l_f->flag_fork = 0;
+		pthread_mutex_unlock(&philo->r_f->mutex);
+		philo->r_f->flag_fork = 0;
+		write_status("is sleeping", philo, data);
+		ft_usleep(data->timetosleep);
+		write_status("is thinking", philo, data);
+	}
 }
 
 void	*routine(void *arg)
 {
 	t_philo	*philo;
-	int		id;
+	t_data	*data;
 
 	philo = (t_philo *)arg;
-	id = philo->id_philo;
-	if (id % 2 == 0)
-		ft_usleep(philo->data->timetoeat);
-	while (philo->data->nb_meal == -1)
+	data = philo->data;
+	if (philo->id_philo % 2 == 0)
+		ft_usleep(data->timetoeat / 10);
+	while (data->nb_meal == -1)
 	{
-		printf("id : %d\n", id);
-		ft_eat_sleep(philo);
+		is_dead_habibi(data, philo);
+		ft_eat_sleep_think(data, philo);
 	}
-	ft_eat_sleep(philo);
+	while (philo->eat_count < data->nb_meal)
+	{
+		ft_eat_sleep_think(data, philo);
+	}
 	return (NULL);
 }
 
-int	ft_create_philo(t_data *data)
-{
-	int		i;
-	void	*philo;
-
-	i = 0;
-	philo = NULL;
-	while (i < data->nb_philo)
-	{
-		philo = (void *)&data->p[i];
-		// printf("id : %d\n", )
-		printf("boucle\n");
-		pthread_create(&data->thread[i], NULL, &routine, philo);
-		i++;
-	}
-	i = 0;
-	while (i < data->nb_philo)
-	{
-		pthread_join(data->thread[i], NULL);
-		i++;
-	}
-	return (0);
-}
-
-int ft_init_philo(t_data *data)
+t_philo	*ft_init_philo(t_data *data)
 {
 	int			i;
 	int			start;
+	t_philo		*philo;
 
 	i = 0;
 	start = get_time();
-	data->p = malloc(sizeof(t_philo) * data->nb_philo);
-	if (!data->p)
-		return (1);
+	philo = malloc(sizeof(t_philo) * data->nb_philo);
+	if (!philo)
+		return (NULL);
 	while (i < data->nb_philo)
 	{
-		data->p[i].id_philo = i + 1;
-		data->p[i].data = data;
-		data->p[i].time_eat = start;
-		data->p[i].nb_p_eat = 0;
-		data->p[i].finish = 0;
-		data->p[i].l_f = &data->fork[i];
-		data->p[i].r_f = &data->fork[(i + 1) % data->nb_philo];
-		if (pthread_mutex_init(&data->fork[i], NULL) != 0)
-			return (1);
+		philo[i].id_philo = i + 1;
+		philo[i].data = data;
+		philo[i].last_meal = start;
+		philo[i].eat_count = 0;
+		philo[i].is_dead = 0;
+		philo[i].l_f = &data->forks[i];
+		philo[i].r_f = &data->forks[(i + 1) % data->nb_philo];
+		if (pthread_create(&philo[i].thread, NULL, &routine, &philo[i]) != 0)
+			return (NULL);
 		i++;
 	}
-	return (0);
+	i = 0;
+	while (i < data->nb_philo)
+	{
+		if (pthread_join(philo[i].thread, NULL) != 0)
+			return (NULL);
+		i++;
+	}
+	return (philo);
+}
+
+t_fork	*ft_init_fork(t_data *data)
+{
+	t_fork	*fork;
+	int		i;
+
+	i = 0;
+	fork = malloc(sizeof(t_fork) * data->nb_philo);
+	if (!fork)
+		return (NULL);
+	while (i < data->nb_philo)
+	{
+		fork[i].flag_fork = 0;
+		i++;
+		if (pthread_mutex_init(&fork[i].mutex, NULL) != 0)
+			return (NULL);
+	}
+	return (fork);
 }
 
 int	main(int ac, char **av)
 {
-	t_data	data;
+	t_data	*data;
 
-	if (ft_check_args(&data, ac, av) == 1)
-		return (1);
-	if (data.nb_philo == 1)
-		return (one_philo(data.timetodie));
-	if (ft_init_philo(&data) == 1)
-		return (0);
-	int i = ft_create_philo(&data);
-		printf("fin : %d\n", i);
-	// printf("fin main\n");
+	data = ft_init_args(ac, av);
+	if (data->nb_philo == 1)
+		return (one_philo(data->timetodie));
+	data->forks = ft_init_fork(data);
+	data->p = ft_init_philo(data);
 	return (0);
 }
