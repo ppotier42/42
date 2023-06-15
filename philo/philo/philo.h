@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:54 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/12 17:19:55 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/15 14:47:10 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,22 @@ typedef struct s_data
 
 // main.c
 int			main(int ac, char **av);
+void		ft_stop(t_data *data, t_philo *philo);
 // utilis.c
 void		ft_putstr_error(char *s, int fd);
 long int	get_time(void);
 int			ft_strlen(char *s);
 int			ft_usleep(useconds_t time, t_data *data, t_philo *philo);
+int			is_dead(t_data *data, t_philo *philo);
 // check_args.c
 t_data		*ft_init_args(int ac, char **av);
 // one_philo.c
 int			one_philo(int timetodie);
-void	write_status(char *s, t_philo *philo, t_data *data);
+void		write_status(char *s, t_philo *philo, t_data *data);
+//	routine.c
+void		write_status(char *s, t_philo *philo, t_data *data);
+void		ft_eat_sleep_think(t_data *data, t_philo *philo);
+void		*routine(void *arg);
+
 
 #endif

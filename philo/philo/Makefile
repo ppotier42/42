@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/06/05 14:02:40 by ppotier          ###   ########.fr        #
+#    Updated: 2023/06/15 15:01:04 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ SRC = 	main.c \
 		utilis.c \
 		check_args.c \
 		one_philo.c \
+		routine.c \
 
 CC = gcc
 
@@ -44,6 +45,6 @@ fclean:	clean
 		$(RM) $(NAME)
 
 t:	${NAME}
-		${CC} ${SECCFLAGS} ${OBJ} -o ${NAME}
+		${CC} ${SECCFLAGS} ${OBJ} -g -fsanitize=thread -o ${NAME}
 
 re:		fclean all
