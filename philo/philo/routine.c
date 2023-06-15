@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:44:48 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/15 15:05:08 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/15 15:12:42 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	*routine(void *arg)
 	pthread_mutex_lock(&data->dead);
 	while (is_dead(data, philo) == 0)
 	{
+		pthread_mutex_unlock(&data->dead);
 		if (data->nb_meal == -1)
 		{
 			pthread_mutex_lock(&data->dead);
@@ -71,8 +72,9 @@ void	*routine(void *arg)
 				pthread_mutex_unlock(&data->dead);
 				ft_eat_sleep_think(data, philo);
 			}
+			return (NULL);
 		}
-		while (philo->eat_count < data->nb_meal)
+		else if (philo->eat_count < data->nb_meal)
 		{
 			pthread_mutex_lock(&data->dead);
 			while (is_dead(data, philo) == 0)
@@ -80,6 +82,7 @@ void	*routine(void *arg)
 				pthread_mutex_unlock(&data->dead);
 				ft_eat_sleep_think(data, philo);
 			}
+			return (NULL);
 		}
 	}
 	return (NULL);
