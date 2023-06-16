@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:44:48 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/15 15:12:42 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/16 12:44:31 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	write_status(char *s, t_philo *philo, t_data *data)
 
 void	ft_eat_sleep_think(t_data *data, t_philo *philo)
 {
-	if (philo->l_f->flag_fork == 0 && philo->r_f->flag_fork == 0
+	while (philo->l_f->flag_fork == 0 && philo->r_f->flag_fork == 0
 		&& data->is_dead == 0)
 	{
 		pthread_mutex_lock(&philo->l_f->mutex);

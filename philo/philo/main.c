@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/15 15:17:03 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/16 12:53:45 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	ft_stop(t_data *data, t_philo *philo)
 {
-	// int i;
+	int i;
 
-	// i = 0;
-	(void)data;
-	(void)philo;
-	printf("ici\n");
-	// pthread_mutex_destroy(&data->write);
-	// pthread_mutex_destroy(&data->dead);
-	// while (i != data->nb_philo)
-	// {
-	// 	pthread_mutex_destroy(&data->forks[i].mutex);
-	// 	i++;
-	// }
-	// i = 0;
-	// while (i < data->nb_philo)
-	// {
-	// 	pthread_join(philo[i].thread, NULL);
-	// 	i++;
-	// }
+	i = 0;
+	// (void)data;
+	// (void)philo;
+	// printf("ici\n");
+	pthread_mutex_destroy(&data->write);
+	pthread_mutex_destroy(&data->dead);
+	while (i < data->nb_philo)
+	{
+		pthread_mutex_destroy(&data->forks[i].mutex);
+		i++;
+	}
+	i = 0;
+	while (i < data->nb_philo)
+	{
+		pthread_join(philo[i].thread, NULL);
+		i++;
+	}
 }
 
 t_philo	*ft_init_philo(t_data *data)
@@ -56,13 +56,13 @@ t_philo	*ft_init_philo(t_data *data)
 			return (NULL);
 		i++;
 	}
-	i = 0;
-	while (i < data->nb_philo)
-	{
-		if (pthread_join(philo[i].thread, NULL) != 0)
-			return (NULL);
-		i++;
-	}
+	// i = 0;
+	// while (i < data->nb_philo)
+	// {
+	// 	if (pthread_join(philo[i].thread, NULL) != 0)
+	// 		return (NULL);
+	// 	i++;
+	// }
 	return (philo);
 }
 
@@ -95,6 +95,6 @@ int	main(int ac, char **av)
 	data->forks = ft_init_fork(data);
 	data->p = ft_init_philo(data);
 	// ft_stop(data, data->p);
-	printf("fin main\n");
+	// printf("fin main\n");
 	return (0);
 }
