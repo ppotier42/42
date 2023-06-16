@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/16 12:53:45 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/16 13:35:41 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_stop(t_data *data, t_philo *philo)
 		i++;
 	}
 	i = 0;
-	while (i < data->nb_philo)
+	while (i <= data->nb_philo)
 	{
 		pthread_join(philo[i].thread, NULL);
 		i++;
@@ -56,13 +56,13 @@ t_philo	*ft_init_philo(t_data *data)
 			return (NULL);
 		i++;
 	}
-	// i = 0;
-	// while (i < data->nb_philo)
-	// {
-	// 	if (pthread_join(philo[i].thread, NULL) != 0)
-	// 		return (NULL);
-	// 	i++;
-	// }
+	i = 0;
+	while (i < data->nb_philo)
+	{
+		if (pthread_join(philo[i].thread, NULL) != 0)
+			return (NULL);
+		i++;
+	}
 	return (philo);
 }
 
