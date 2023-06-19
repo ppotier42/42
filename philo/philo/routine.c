@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:44:48 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 15:48:40 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 19:18:14 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ void	*routine(void *arg)
 	{
 		while (philo->eat_count < data->nb_meal
 			&& is_dead(data, philo) == 0)
+		{
 			ft_eat_sleep_think(data, philo);
+			if (data->is_dead == 1)
+				return (NULL);
+		}
 		return (NULL);
 	}
 	return (NULL);
