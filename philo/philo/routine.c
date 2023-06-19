@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:44:48 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 14:49:42 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 14:52:28 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	write_status(char *s, t_philo *philo, t_data *data)
 void	ft_eat_sleep_think(t_data *data, t_philo *philo)
 {
 	if (philo->l_f->flag_fork == 0 && philo->r_f->flag_fork == 0
-		&& is_dead(data, philo) == 0 && data)
+		&& is_dead(data, philo) == 0)
 	{
 		pthread_mutex_lock(&philo->l_f->mutex);
 		write_status("has taken a fork", philo, data);

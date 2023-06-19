@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 14:45:21 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 14:55:15 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,11 @@ int	main(int ac, char **av)
 		return (one_philo(data->timetodie));
 	data->forks = ft_init_fork(data);
 	data->p = ft_init_philo(data);
+	if (data->nb_meal == data->p->eat_count)
+		printf("Philosophers ate %d times\n", data->p->eat_count);
 	ft_stop(data, data->p);
+	free(data->forks);
+	free(data);
+	free(data->p);
 	return (0);
 }
