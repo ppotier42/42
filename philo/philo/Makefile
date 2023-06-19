@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/06/15 15:01:04 by ppotier          ###   ########.fr        #
+#    Updated: 2023/06/19 15:50:52 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,6 @@ SRC = 	main.c \
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -pthread
-
-SECCFLAGS=	 -Wall -Werror -Wextra -pthread -g -fsanitize=thread
 
 NAME = philo
 
@@ -41,10 +39,6 @@ clean:
 		$(RM) $(OBJ) $(NAME)
 
 fclean:	clean
-
 		$(RM) $(NAME)
-
-t:	${NAME}
-		${CC} ${SECCFLAGS} ${OBJ} -g -fsanitize=thread -o ${NAME}
 
 re:		fclean all
