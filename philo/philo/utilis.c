@@ -6,11 +6,12 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:46:29 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/16 14:35:09 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/16 15:09:54 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
 
 int	is_dead(t_data *data, t_philo *philo)
 {
