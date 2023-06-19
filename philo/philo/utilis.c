@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:46:29 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 15:25:32 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 15:45:05 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_dead(t_data *data, t_philo *philo)
 
 	time = get_time();
 	pthread_mutex_lock(&data->dead);
-	if (time - philo->last_meal >= data->timetodie && data->is_dead == 0)
+	if (time - philo->last_meal > data->timetodie && data->is_dead == 0)
 	{
 		data->is_dead = 1;
 		pthread_mutex_lock(&data->write);
