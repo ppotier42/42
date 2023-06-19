@@ -6,20 +6,17 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 14:55:15 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 15:29:08 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_stop(t_data *data, t_philo *philo)
+void	ft_stop(t_data *data)
 {
 	int	i;
 
 	i = 0;
-	// (void)data;
-	(void)philo;
-	// usleep(500);
 	while (i < data->nb_philo)
 	{
 		pthread_mutex_destroy(&data->forks[i].mutex);
@@ -28,15 +25,6 @@ void	ft_stop(t_data *data, t_philo *philo)
 	pthread_mutex_destroy(&data->dead);
 	pthread_mutex_destroy(&data->write);
 	return ;
-	// free(data);
-	// free(philo);
-	// exit (1);
-	// i = 0;
-	// while (i <= data->nb_philo)
-	// {
-	// 	pthread_join(philo[i].thread, NULL);
-	// 	i++;
-	// }
 }
 
 t_philo	*ft_init_philo(t_data *data)
@@ -44,11 +32,11 @@ t_philo	*ft_init_philo(t_data *data)
 	int			i;
 	t_philo		*philo;
 
-	i = 0;
+	i = -1;
 	philo = malloc(sizeof(t_philo) * data->nb_philo);
 	if (!philo)
 		return (NULL);
-	while (i < data->nb_philo)
+	while (++i < data->nb_philo)
 	{
 		philo[i].id_philo = i + 1;
 		philo[i].data = data;
@@ -58,14 +46,12 @@ t_philo	*ft_init_philo(t_data *data)
 		philo[i].r_f = &data->forks[(i + 1) % data->nb_philo];
 		if (pthread_create(&philo[i].thread, NULL, &routine, &philo[i]) != 0)
 			return (NULL);
-		i++;
 	}
-	i = 0;
-	while (i < data->nb_philo)
+	i = -1;
+	while (++i < data->nb_philo)
 	{
 		if (pthread_join(philo[i].thread, NULL) != 0)
 			return (NULL);
-		i++;
 	}
 	return (philo);
 }
@@ -100,7 +86,7 @@ int	main(int ac, char **av)
 	data->p = ft_init_philo(data);
 	if (data->nb_meal == data->p->eat_count)
 		printf("Philosophers ate %d times\n", data->p->eat_count);
-	ft_stop(data, data->p);
+	ft_stop(data);
 	free(data->forks);
 	free(data);
 	free(data->p);

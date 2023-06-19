@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:46:29 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 13:51:15 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 15:25:32 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ int	is_dead(t_data *data, t_philo *philo)
 		pthread_mutex_lock(&data->write);
 		printf("%ld : ", time - philo->last_meal);
 		printf("Philo %d died\n", philo->id_philo);
-		// usleep(5500);
-		// printf("tamere\n");
 		pthread_mutex_unlock(&data->write);
-		// pthread_mutex_destroy(&data->write);`
-		// ft_stop(data, philo);
 		return (1);
 	}
 	pthread_mutex_unlock(&data->dead);
@@ -76,8 +72,6 @@ int	ft_usleep(useconds_t time, t_data *data, t_philo *philo)
 	pthread_mutex_lock(&data->dead);
 	is_dead(data, philo);
 	pthread_mutex_unlock(&data->dead);
-	// if (data->is_dead == 1)
-	// 	ft_stop(data, philo);
 	start = get_time();
 	while ((get_time() - start) < time)
 		usleep(time / 10);

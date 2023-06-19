@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:54 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/15 14:47:10 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 15:29:08 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_philo
 	int				id_philo;
 	int				eat_count;
 	int				finish;
-	// int				is_dead;
 	long int		last_meal;
 
 	pthread_t		thread;
@@ -62,7 +61,7 @@ typedef struct s_data
 
 // main.c
 int			main(int ac, char **av);
-void		ft_stop(t_data *data, t_philo *philo);
+void		ft_stop(t_data *data);
 // utilis.c
 void		ft_putstr_error(char *s, int fd);
 long int	get_time(void);
@@ -78,6 +77,5 @@ void		write_status(char *s, t_philo *philo, t_data *data);
 void		write_status(char *s, t_philo *philo, t_data *data);
 void		ft_eat_sleep_think(t_data *data, t_philo *philo);
 void		*routine(void *arg);
-
 
 #endif
