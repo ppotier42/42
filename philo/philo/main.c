@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/16 13:35:41 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/19 14:45:21 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 
 void	ft_stop(t_data *data, t_philo *philo)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	// (void)data;
-	// (void)philo;
-	// printf("ici\n");
-	pthread_mutex_destroy(&data->write);
-	pthread_mutex_destroy(&data->dead);
+	(void)philo;
+	// usleep(500);
 	while (i < data->nb_philo)
 	{
 		pthread_mutex_destroy(&data->forks[i].mutex);
 		i++;
 	}
-	i = 0;
-	while (i <= data->nb_philo)
-	{
-		pthread_join(philo[i].thread, NULL);
-		i++;
-	}
+	pthread_mutex_destroy(&data->dead);
+	pthread_mutex_destroy(&data->write);
+	return ;
+	// free(data);
+	// free(philo);
+	// exit (1);
+	// i = 0;
+	// while (i <= data->nb_philo)
+	// {
+	// 	pthread_join(philo[i].thread, NULL);
+	// 	i++;
+	// }
 }
 
 t_philo	*ft_init_philo(t_data *data)
@@ -94,7 +98,6 @@ int	main(int ac, char **av)
 		return (one_philo(data->timetodie));
 	data->forks = ft_init_fork(data);
 	data->p = ft_init_philo(data);
-	// ft_stop(data, data->p);
-	// printf("fin main\n");
+	ft_stop(data, data->p);
 	return (0);
 }
