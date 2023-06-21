@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/06/19 15:50:52 by ppotier          ###   ########.fr        #
+#    Updated: 2023/06/21 13:43:44 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ RM = rm -f
 
 # Compile tout, sous le nom philo
 ${NAME}:	${OBJ}
-			${CC}	${OBJ} -o ${NAME}
+			${CC} ${CFLAGS} ${OBJ} -o ${NAME}
 
 clean:	
 		$(RM) $(OBJ) $(NAME)

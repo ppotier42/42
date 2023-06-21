@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:44:48 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 19:18:14 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/21 13:42:34 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,33 +53,29 @@ void	ft_eat_sleep_think(t_data *data, t_philo *philo)
 
 void	*routine(void *arg)
 {
-	t_philo	*philo;
-	t_data	*data;
+	t_philo	*p;
 
-	philo = (t_philo *)arg;
-	data = philo->data;
-	if (philo->id_philo % 2 == 0)
-		ft_usleep(data->timetoeat / 10, data, philo);
-	if (data->nb_meal == -1)
+	p = (t_philo *)arg;
+	if (p->id_philo % 2 == 0)
+		ft_usleep(p->data->timetoeat / 10, p->data, p);
+	if (p->data->nb_meal == -1)
 	{
-		while (is_dead(data, philo) == 0)
+		while (is_dead(p->data, p) == 0)
 		{
-			ft_eat_sleep_think(data, philo);
-			if (data->is_dead == 1)
+			ft_eat_sleep_think(p->data, p);
+			if (p->data->is_dead == 1)
 				return (NULL);
 		}
 		return (NULL);
 	}
 	else
 	{
-		while (philo->eat_count < data->nb_meal
-			&& is_dead(data, philo) == 0)
+		while (p->eat_count < p->data->nb_meal && is_dead(p->data, p) == 0)
 		{
-			ft_eat_sleep_think(data, philo);
-			if (data->is_dead == 1)
+			ft_eat_sleep_think(p->data, p);
+			if (p->data->is_dead == 1)
 				return (NULL);
 		}
 		return (NULL);
 	}
-	return (NULL);
 }
