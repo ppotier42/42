@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:46:29 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 15:45:05 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/21 15:14:09 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,7 @@ int	ft_usleep(useconds_t time, t_data *data, t_philo *philo)
 {
 	long int	start;
 
-	pthread_mutex_lock(&data->dead);
 	is_dead(data, philo);
-	pthread_mutex_unlock(&data->dead);
 	start = get_time();
 	while ((get_time() - start) < time)
 		usleep(time / 10);
