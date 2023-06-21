@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:58:56 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 15:27:15 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/21 14:33:13 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,33 @@ static int	ft_atoi(const char *str)
 }
 
 // check si all args sont numeric et < a int_max
-static int	all_numb(char **av)
+int	all_numb(char **av)
 {
 	int	i;
 	int	j;
 
 	i = 1;
+	j = 0;
 	while (av[i])
 	{
-		j = 0;
 		while (av[i][j])
 		{
 			if (av[i][j] < '0' || av[i][j] > '9' || ft_strlen(av[i]) > 10)
-				return (0);
+				return (1);
 			j++;
 		}
+		j = 0;
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
-// check args, bien des nums etc... return (1) en reussite; 
+// check args, bien des nums etc... return (data) en reussite; 
 t_data	*ft_init_args(int ac, char **av)
 {
 	t_data	*data;
 
-	if ((ac == 5 || ac == 6) && all_numb(av))
+	if (ac == 5 || ac == 6)
 	{
 		data = malloc(sizeof(t_data));
 		if (!data)

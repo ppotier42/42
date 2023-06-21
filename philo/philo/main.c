@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:35 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 15:40:59 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/21 14:32:55 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_stop(t_data *data)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (i < data->nb_philo)
@@ -79,6 +79,8 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
+	if (all_numb(av))
+		return ((printf("False arguements\n")), 0);
 	data = ft_init_args(ac, av);
 	if (data->nb_philo == 1)
 		return (one_philo(data->timetodie));

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 13:07:54 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/19 15:29:08 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/21 14:31:27 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int			ft_usleep(useconds_t time, t_data *data, t_philo *philo);
 int			is_dead(t_data *data, t_philo *philo);
 // check_args.c
 t_data		*ft_init_args(int ac, char **av);
+int			all_numb(char **av);
 // one_philo.c
 int			one_philo(int timetodie);
 void		write_status(char *s, t_philo *philo, t_data *data);
