@@ -9,3 +9,4 @@ push_swap/*
 .DS_Store
 *.json
 push_swap/push_swap_tester
+philo/*
