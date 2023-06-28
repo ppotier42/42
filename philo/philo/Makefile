@@ -6,7 +6,7 @@
 #    By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 14:50:47 by ppotier           #+#    #+#              #
-#    Updated: 2023/06/21 13:43:44 by ppotier          ###   ########.fr        #
+#    Updated: 2023/06/28 15:30:11 by ppotier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = 	main.c \
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pthread
+CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=thread -g3
 
 NAME = philo
 

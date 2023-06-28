@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:46:29 by ppotier           #+#    #+#             */
-/*   Updated: 2023/06/21 15:14:09 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/06/28 15:39:28 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_dead(t_data *data, t_philo *philo)
 
 	time = get_time();
 	pthread_mutex_lock(&data->dead);
-	if (time - philo->last_meal > data->timetodie && data->is_dead == 0)
+	if (time - philo->last_meal > data->timetodie)
 	{
 		data->is_dead = 1;
 		pthread_mutex_lock(&data->write);
@@ -69,9 +69,8 @@ int	ft_usleep(useconds_t time, t_data *data, t_philo *philo)
 {
 	long int	start;
 
-	is_dead(data, philo);
 	start = get_time();
-	while ((get_time() - start) < time)
+	while ((get_time() - start) < time && is_dead(data, philo) == 0)
 		usleep(time / 10);
 	return (0);
 }
