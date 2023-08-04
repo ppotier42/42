@@ -12,7 +12,7 @@ time_to_eat (en millisecondes) : Le temps qu’un philosophe prend à manger.
 Pendant ce temps, un philosophe doit garder ses deux fourchettes;
 time_to_sleep (en millisecondes) : Le temps qu’un philosophe passe à dormir;
 
-Tout changement d’état d’un philosophe doit être formatté comme suit :
+Tout changement d’état d’un philoselkfmophe doit être formatté comme suit :
 ◦ timestamp_in_ms X has taken a fork
 ◦ timestamp_in_ms X is eating
 ◦ timestamp_in_ms X is sleeping
