@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 09:05:53 by ppotier           #+#    #+#             */
-/*   Updated: 2022/11/01 22:50:00 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/04/21 15:10:05 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,9 @@ char	**ft_split(char const *s, char c)
 		size = ft_size(s, c, i);
 		str[j] = ft_substr(s, i, size);
 		if (!str[j])
-			free(str);
+			free(str[j]);
 		i = i + size;
 	}
 	str[j] = 0;
 	return (str);
 }
-
-/*
-int main()
-{
-	printf("result : %s", *ft_split("je comprends rien du tout", 'q'));
-	printf("\n");
-	printf("result : %s", *ft_split("je comprends rien du tout", 'j'));
-	printf("\n");
-	printf("result : %s", *ft_split("je comprends rien du tout", 'u'));
-	printf("\n");
-	printf("result : %s", *ft_split("je comprends rien du tout", 'i'));
-	printf("\n");
-}*/

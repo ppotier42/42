@@ -4,21 +4,10 @@ CFLAGS = -Wall -Werror -Wextra
 
 OBJ = $(SRC:.c=.o)
 
-BONUS_OBJ = $(BONUS:.c=.o)
-
-BONUS = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c 
-
 NAME = libft.a
 
 SRC = 	ft_atoi.c \
+		ft_is_sign.c \
 		ft_bzero.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
@@ -33,6 +22,8 @@ SRC = 	ft_atoi.c \
 		ft_strjoin.c \
 		ft_strlcat.c \
 		ft_strlen.c \
+		ft_strlen_until.c \
+		ft_strcmp.c \
 		ft_strncmp.c \
 		ft_strrchr.c \
 		ft_tolower.c \
@@ -50,16 +41,33 @@ SRC = 	ft_atoi.c \
 		ft_itoa.c \
 		ft_striteri.c \
 		ft_strmapi.c \
+		ft_max.c \
 		ft_strtrim.c \
-		ft_split.c
+		ft_split.c \
+		ft_add.c \
+		ft_hex.c \
+		ft_printf.c \
+		ft_nbrlen.c \
+		ft_nbrlen_un.c \
+		ft_putnbr_un.c \
+		get_next_line.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_strlen_until.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
+		ft_count_word.c \
+		get_next_line_utils.c \
 
 all: $(NAME)
 
 $(NAME):	$(OBJ)
 			ar -rcs $(NAME) $(OBJ)
-
-bonus:			$(OBJ) $(BONUS_OBJ)
-			ar -rcs $(NAME) $(OBJ) $(BONUS_OBJ)
 
 .c .o:
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)

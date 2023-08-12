@@ -28,11 +28,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*int main()
-{
-	char s[] = "comment ca marchez";
-	int c = 'n';
-	printf("%s", ft_memchr(s, c, 6));
-	return (0);
-}*/

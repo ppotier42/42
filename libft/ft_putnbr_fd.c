@@ -34,8 +34,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(nb % 10 + 48, fd);
 	}
 }
-/*
-int main()
-{
-	ft_putnbr_fd(INT_MIN, 1);
-}*/

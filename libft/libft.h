@@ -13,12 +13,18 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <stdio.h>
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
 # include <ctype.h>
 # include <limits.h>
+# include <stdarg.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
@@ -34,10 +40,12 @@ int			ft_isascii(int c);
 int			ft_isdigit(int c);
 int			ft_isprint(int c);
 void		*ft_memset(void *b, int c, size_t len);
-char		*ft_strchr(const char *s, int c);
+char		*ft_strchr(char *str, int c);
 size_t		ft_strlen(const char *s);
-int			ft_strncmp(char *s1, char *s2, unsigned int n);
-char		*ft_strrchr(const char *s, int c);
+int			strlen_until(const char *string, const char *charset);
+int			ft_strcmp(const char *s1, const char *s2);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+char		*ft_strrchr(char *str, int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
 void		*ft_memcpy(void *dst, const void *src, size_t n);
@@ -70,5 +78,35 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int			strlen_until(const char *string, const char *charset);
+int			max(int a, int b);
+// ft_printf
+int			ft_printf(const char *input, ...);
+size_t		ft_putnbr_num(va_list ap);
+size_t		ft_add_str(va_list ap);
+size_t		ft_add_char(va_list ap);
+size_t		ft_putchar_l(char str);
+size_t		ft_format(const char *str, size_t start, va_list ap);
+size_t		ft_base_num(va_list ap);
+size_t		ft_print_hex(size_t nbr, char *base);
+size_t		ft_hex(va_list ap, char c);
+void		ft_put_base(size_t nbr, char *base);
+size_t		ft_base_len(size_t nbr, char *base);
+size_t		ft_printp(va_list ap);
+int			ft_nbrlen(int n);
+int			ft_nbrlen_un(unsigned int n);
+void		ft_putnbr_un(unsigned int n, int fd);
+// GNL
+int			ft_count_word(char *s, char c);
+char		*get_next_line(int fd);
+char		*update_buff(int fd, char *rest);
+char		*update_nextl(char *buff);
+char		*get_res_line(char *buff);
+char		*get_transf(char *s1, char *rest);
+char		*get_join(char *s1, char *s2);
+char		*get_ndup(char *s, size_t n);
+int			get_next_c(char *s, char c);
+int			get_len(char *s);
+int			ft_is_sign(char c);
 
 #endif

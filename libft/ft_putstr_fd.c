@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:35:12 by ppotier           #+#    #+#             */
-/*   Updated: 2022/10/10 16:47:49 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/03/15 11:28:03 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-/*
-int main()
-{
-	char s[] = "wsh";
-	ft_putstr_fd(s, 3);
-}*/

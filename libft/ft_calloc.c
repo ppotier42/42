@@ -22,9 +22,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(str, (size * count));
 	return (str);
 }
-/*
-int main()
-{
-	printf("result : %p\n", ft_calloc(4, 5));
-	printf("expected : %p\n", calloc(4, 5));
-}*/

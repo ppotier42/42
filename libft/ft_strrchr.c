@@ -12,25 +12,18 @@
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(char *str, int c)
 {
 	int	i;
+	int	len;
 
+	len = ft_strlen(str);
 	i = 0;
-	while (s[i] != '\0')
-		i++;
-	while (i >= 0)
+	while (i <= len)
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i--;
+		if (str[len - i] == (unsigned char)c)
+			return (&str[len - i]);
+		i++;
 	}
 	return (NULL);
 }
-/*
-int	main()
-{
-	printf ("expected : %s\n", strrchr("123456789", 'a'));
-	printf("result   : %s\n", ft_strrchr("123456789", 'a'));
-	return(0);
-}*/

@@ -14,20 +14,9 @@
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if (c >= 'a' && c <= 'z')
 		return (1);
-	else
-		return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
 }
-
-/*#include <stdio.h>
-#include <ctype.h>
-
-int main()
-{
-    int c = 'S';
-    printf("result : %d", ft_isalpha(c));
-	printf("\nexpected result : %d", isalpha(c));
-
-    return(0);
-}*/
