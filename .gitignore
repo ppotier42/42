@@ -7,6 +7,5 @@ push_swap/*
 *.pdf
 42.code-workspace
 .DS_Store
-*.json
 push_swap/push_swap_tester
 philo/*
