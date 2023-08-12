@@ -1,0 +1,6 @@
+internet defini la plage internet max;
+ici -> 147.92.20.0/26;
+l'interface r12 a un ip defini, donc la route max et celle ci;
+ensuite les ip doivent etre synchro avec celle du fournisseur, internet;
+du minima -> .1 au maxima -> (en /28) .239
+routes -> all default;

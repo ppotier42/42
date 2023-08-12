@@ -1,0 +1,14 @@
+ok dinguerie.
+
+d1 doit match le mask /18;
+petite ip, attention au adresse privé !;
+
+c1 ne doit pas etre sur la meme plage ip que d1 -> erreur faite -> 42.x.x.x. et d1 42..x.x.x -> meme ip donc non;
+
+commencer par co A et B -> plus simple -> into internet ! attention aux ip;
+
+192.168.0.0 – 192.168.255.255 (65,536 adresses IP différentes)
+172.16.0.0 – 172.31.255.255   (1,048,576 adresses IP différentes)
+10.0.0.0 – 10.255.255.255     (16,777,216 adresses IP différentes) -> ip PRIVEES;
+
+puis petite ip partout en matchant bien les mask;

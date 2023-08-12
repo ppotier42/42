@@ -1,0 +1,4 @@
+mask de reseau, le switch ne change rien. il fait parti du
+reseau et ne change pas les ip ni les mask;
+donc meme mask de sous reseau;
+et adresse ip dans la plage du A;

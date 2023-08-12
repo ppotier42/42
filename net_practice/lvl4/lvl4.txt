@@ -1,0 +1,3 @@
+mask non defini, donc mask defini par nous "/24";
+ls plage est la suivante : 
+76.236.111.1 -> 76.236.111.254 ; le 0 etant pour le reseau; et .255 pour l'adresse de diffusion;

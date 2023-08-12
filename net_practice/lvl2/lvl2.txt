@@ -1,0 +1,2 @@
+reseau privé donc meme masque de sous reseau;
+attention aux adresses ip;
