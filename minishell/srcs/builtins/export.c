@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 16:04:04 by robin             #+#    #+#             */
-/*   Updated: 2023/09/26 14:33:26 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/09/28 11:53:10 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,12 @@
 
 static int	check_var_name(char *var)
 {
-	int	len;
-
-	len = ft_strlen(var);
-	if (len == 1)
+	if (var[0] == '_' || var[1] == '=')
+		return (3);
+	if (!ft_isalpha(var[0]))
 	{
-		if (ft_isalpha(var[0]))
-			return (3);
-		ft_putendl_fd("minishell: export: not a valid identifier3", 2);
+		ft_putendl_fd("minishell: export: not a valid identifier", 2);
 		return (ERROR);
-	}
-	else
-	{
-		if (var[0] == '_' && var[1] == '=')
-			return (3);
 	}
 	return (SUCCESS);
 }
