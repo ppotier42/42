@@ -1,6 +1,0 @@
-client a et b meme reseau -> adresse IP need to match;
-pareil pour c et d;
-
-ne peuvent pas etre xx.x..xx.x.0 -> 0 représante le reseau;
-ne peuvent pas etre xx.x..xx.x.255 -> c'est le 
-dernier chiffre de la plage possible;

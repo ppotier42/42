@@ -1,7 +1,0 @@
-client a -> default (une seule route)	+ IP max du routeur;
-			mask a definir correctement;
-adresse ip R1 correct;
-router R: put default;
-
-routes internet -> mask not ok, a matcher avec r2 -> "/20"
-

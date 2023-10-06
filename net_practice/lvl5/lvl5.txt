@@ -1,3 +1,0 @@
-client a -> default + plage adresse ip max; enverra les paquets a la seule route possible;
-match de mask obligatoire -> meme reseau, mais pas la meme routes (tu coco);
-adresse ip a checker;
