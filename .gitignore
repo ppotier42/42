@@ -1,13 +1,14 @@
 libft/*
 ft_printf/*
+cub3d/*
 fdf/*
 GNL/*
 minitalk/*
+minishell/*
 push_swap/*
+philo/*
 *.pdf
 *.json
 42.code-workspace
 .DS_Store
 push_swap/push_swap_tester
-philo/*
-minishell/*
