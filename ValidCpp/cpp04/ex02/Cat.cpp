@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:51:26 by ppotier           #+#    #+#             */
-/*   Updated: 2023/11/21 12:45:34 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:13:29 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Cat::~Cat()
 	return ;
 }
 
-Cat::Cat(void) : AAnimal("Cat")
+Cat::Cat(void) : Animal("Cat")
 {
 	std::cout << "Constructor called for " << this->type << std::endl;
 	type = "cat";
@@ -27,7 +27,7 @@ Cat::Cat(void) : AAnimal("Cat")
 	return ;
 }
 
-Cat::Cat(Cat const & src) : AAnimal(src)
+Cat::Cat(Cat const & src) : Animal(src)
 {
 	std::cout << "Copy Cat constructor called" << std::endl;
 	this->_brain = new Brain(*src._brain);

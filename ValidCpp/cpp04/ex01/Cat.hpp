@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:49:29 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 16:05:55 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:56:54 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat : public Animal
 {
 	private:
 		Brain* _brain;
-public:
+	public:
 	Cat(void);
 	~Cat();
 	

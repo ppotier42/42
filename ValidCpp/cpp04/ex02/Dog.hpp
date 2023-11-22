@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 16:20:58 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/14 14:26:19 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:13:06 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #define DOG_HPP
 
 #include <iostream>
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public AAnimal
+class Dog : public Animal
 {	
 	private: 
 		Brain* _brain;

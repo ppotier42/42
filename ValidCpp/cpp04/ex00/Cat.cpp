@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:51:26 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 15:40:17 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:26:06 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cat::~Cat()
 
 Cat::Cat(void) : Animal("Cat")
 {
-	std::cout << "Constructor called for " << this->type << std::endl;
+	std::cout << "Constructor called for " << this->_type << std::endl;
 	return ;
 }
 
@@ -34,17 +34,17 @@ Cat & Cat::operator=(Cat const & rhs)
 {
 	std::cout << "Cat assignement operator called" << std::endl;
 	if(this != &rhs)
-		this->type = rhs.type;
+		this->_type = rhs._type;
 	return (*this);
 }
 
 void Cat::makeSound(void) const
 {
-	std::cout << this->type << " Meow" << std::endl;
+	std::cout << this->_type << " Meow" << std::endl;
 	return ;
 }
 
 std::string Cat::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }

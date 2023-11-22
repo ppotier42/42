@@ -6,13 +6,13 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:43:14 by ppotier           #+#    #+#             */
-/*   Updated: 2023/11/21 12:45:56 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:13:31 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : AAnimal("Dog")
+Dog::Dog(void) : Animal("Dog")
 {
 	std::cout << "Constructor called for Dog" << std::endl;
 	type = "dog";
@@ -27,7 +27,7 @@ Dog::~Dog()
 	return ;
 }
 
-Dog::Dog(Dog const & src) : AAnimal(src)
+Dog::Dog(Dog const & src) : Animal(src)
 {
 	std::cout << "Copy Dog constructor called" << std::endl;
 	this->_brain = new Brain(*src._brain);

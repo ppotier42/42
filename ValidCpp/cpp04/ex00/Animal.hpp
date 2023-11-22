@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:43:44 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 15:10:44 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:24:25 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal
 {
 	protected:
-		std::string type;
+		std::string _type;
 	public :
 		Animal();
 		Animal(std::string type);

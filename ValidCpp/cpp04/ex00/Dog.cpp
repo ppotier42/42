@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:43:14 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 15:40:01 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:26:20 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ Dog & Dog::operator=(Dog const & rhs)
 {
 	std::cout << "Dog assignement operator called" << std::endl;
 	if(this != &rhs)
-		this->type = rhs.type;
+		this->_type = rhs._type;
 	return (*this);
 }
 
 void	Dog::makeSound(void) const
 {
-	std::cout << this->type << " Woaf" << std::endl;
+	std::cout << this->_type << " Woaf" << std::endl;
 	return ;
 }
 
 std::string Dog::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }

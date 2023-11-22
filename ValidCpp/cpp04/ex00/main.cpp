@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:29:52 by ppotier           #+#    #+#             */
-/*   Updated: 2023/11/21 12:39:18 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:28:24 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	main(void)
 	const WrongAnimal* x = new WrongCat();
 	const WrongAnimal* wrongmeta = new WrongAnimal();
 	std::cout << x->getType() << " " << std::endl;
-	std::cout << meta->getType() << " " << std::endl;
 	x->makeSound();
+	std::cout << meta->getType() << " " << std::endl;
 	wrongmeta->makeSound();
 
 	delete(i);

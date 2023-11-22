@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 17:25:17 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 16:08:05 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:52:08 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Brain::Brain()
 
 Brain::~Brain()
 {
-	std::cout << "Desctrutor called for Brain" << std::endl;
+	std::cout << "Destructor called for Brain" << std::endl;
 	return ;
 }
 
@@ -34,16 +34,16 @@ Brain & Brain::operator=(Brain const & rhs)
 	if (this != &rhs)
 	{
 		for (int i = 0; i < 100; i++)
-			this->ideas[i] = rhs.getIdeas(i);
+			this->ideas[i] = rhs.ideas[i];
 	}
 	return (*this);
 }
 
-Brain::Brain(Brain const & src)
+Brain::Brain(const Brain& src)
 {
 	std::cout << "Copy Brain constructor called" << std::endl;
 	for (int i = 0; i < 100; i++)
-		this->ideas[i].append(src.getIdeas(i));
+		ideas[i] = src.ideas[i];
 	return ;
 }
 

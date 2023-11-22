@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:51:26 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/14 12:34:53 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:03:46 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 Cat::~Cat()
 {
-	std::cout << "Destructor called for Cat" << std::endl;
+	std::cout << "Destructor called for Cat " << std::endl;
 	delete this->_brain;
 	return ;
 }
 
 Cat::Cat(void) : Animal("Cat")
 {
-	std::cout << "Constructor called for " << this->type << std::endl;
+	std::cout << "Constructor called for " << this->_type << std::endl;
+	_brain = new Brain();
 	return ;
 }
 
@@ -37,7 +38,7 @@ Cat & Cat::operator=(Cat const & rhs)
 	std::cout << "Cat assignement operator called" << std::endl;
 	if(this != &rhs)
 	{
-		this->type = rhs.type;
+		this->_type = rhs._type;
 		this->_brain = new Brain(*rhs._brain);
 	}
 	return (*this);
@@ -45,11 +46,11 @@ Cat & Cat::operator=(Cat const & rhs)
 
 void Cat::makeSound(void) const
 {
-	std::cout << this->type << " Meow" << std::endl;
+	std::cout << this->_type << " Meow" << std::endl;
 	return ;
 }
 
 std::string Cat::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 16:38:47 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 15:19:31 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:24:56 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class WrongAnimal
 {
 	protected : 
-	std::string type;
+	std::string _type;
 	public :
 	WrongAnimal();
 	~WrongAnimal();

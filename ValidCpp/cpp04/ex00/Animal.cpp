@@ -6,19 +6,19 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:47:16 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 15:22:56 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:24:43 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(void) : type("Animal") 
+Animal::Animal(void) : _type("Animal") 
 {
 	std::cout << "Basic Animal constructor called" << std::endl;
 	return ;
 }
 
-Animal::Animal(std::string type) : type(type) 
+Animal::Animal(std::string type) : _type(type) 
 {
 	std::cout << "Animal constructor called" << std::endl;
 	return ;
@@ -41,17 +41,17 @@ Animal & Animal::operator=(Animal const & rhs)
 {
 	std::cout << "Animal assignation operator called" << std::endl;
 	if (this != &rhs)
-		this->type = rhs.type;
+		this->_type = rhs._type;
 	return (*this);
 }
 
 void	Animal::makeSound(void) const
 {
-	std::cout << this->type << " Doesn't make sound" << std::endl;
+	std::cout << this->_type << " Doesn't make sound" << std::endl;
 	return ;
 }
 
 std::string Animal::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }

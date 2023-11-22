@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:49:29 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/14 14:26:16 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 11:13:02 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #define CAT_HPP
 
 #include <iostream>
-#include "AAnimal.hpp"
+#include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public AAnimal
+class Cat : public Animal
 {
 	private:
 		Brain* _brain;

@@ -6,7 +6,7 @@
 /*   By: ppotier <ppotier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 16:37:40 by ppotier           #+#    #+#             */
-/*   Updated: 2023/09/11 15:42:10 by ppotier          ###   ########.fr       */
+/*   Updated: 2023/11/22 10:30:06 by ppotier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ WrongCat::WrongCat(WrongCat const &src): WrongAnimal(src)
 WrongCat &WrongCat::operator=(WrongCat const &rhs)
 {
 	if (this != &rhs)
-		this->type = rhs.type;
+		this->_type = rhs._type;
 	return (*this);
 }
 
@@ -46,5 +46,5 @@ void WrongCat::makeSound(void) const
 
 std::string WrongCat::getType(void) const
 {
-	return (this->type);
+	return (this->_type);
 }
