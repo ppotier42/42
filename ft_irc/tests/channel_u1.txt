@@ -1,0 +1,13 @@
+PASS test_pass
+NICK u1
+USER u1_user 0 * :u1 Name
+JOIN #channel
+PING 1
+PING 3
+PING 3
+MODE #channel +o u2
+MODE #channel -o u2
+PING 3
+PING 3
+PING 3
+QUIT :Exiting u1
