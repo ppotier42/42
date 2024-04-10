@@ -4,19 +4,18 @@ Cet espace de travail contient plusieurs projets que j'ai réalisés dans le cad
 
 ## Projets
 
-- [cub3d](cub3d/): Un projet de rendu graphique 3D.
-- [fdf](fdf/): Un projet de visualisation de terrain en 3D.
-- [ft_irc](ft_irc/): Un projet de création d'un serveur IRC.
-- [ft_printf](ft_printf/): Une réécriture de la fonction printf de la bibliothèque standard C.
-- [GNL](GNL/): Un projet pour créer une fonction qui lit une ligne depuis un descripteur de fichier.
-- [holy_graph](holy_graph/): Un projet de visualisation de données.
-- [Inception](Inception/): Un projet de containerisation avec Docker.
 - [libft](libft/): Ma bibliothèque de fonctions C personnelles.
-- [minishell](minishell/): Un projet de création d'un shell Unix simplifié.
-- [minitalk](minitalk/): Un projet de communication inter-processus.
-- [philo](philo/): Un projet de simulation de philosophes mangeant à une table.
+- [GNL](GNL/): Un projet pour créer une fonction qui lit une ligne depuis un descripteur de fichier.
+- [ft_printf](ft_printf/): Une réécriture de la fonction printf de la bibliothèque standard C.
 - [push_swap](push_swap/): Un projet d'algorithmie pour trier une pile de nombres.
-- [ValidCpp](ValidCpp/): Un ensemble de projets pour apprendre le C++.
+- [fdf](fdf/): Un projet de visualisation de terrain en 3D.
+- [philo](philo/): Un projet de simulation de philosophes mangeant à une table.
+- [minitalk](minitalk/): Un projet de communication inter-processus.
+- [minishell](minishell/): Un projet de création d'un shell Unix simplifié.
+- [cub3d](cub3d/): Un projet de rendu graphique 3D.
+- [Inception](Inception/): Un projet de containerisation avec Docker.
+- [ft_irc](ft_irc/): Un projet de création d'un serveur IRC.
+- [Cpp](Cpp/): Un ensemble de projets pour apprendre le C++.
 
 ## Comment utiliser cet espace de travail
 
